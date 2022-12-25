@@ -1,0 +1,64 @@
+﻿@model SMIS.Models.VerifyCodeViewModel
+@{
+    ViewBag.Title = "Verify"; 
+    Layout = "~/Views/Shared/_Emptybg.cshtml";
+}
+<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+    <div class="login-brand">
+        <div class="card card-primary">
+            <div class="row m-0">
+                <div class="col-12 col-md-12 col-lg-5 p-0">
+                    <div class="card-header text-center">
+                        <h4>Enter OTP to verify </h4>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("VerifyCode", "Account", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("provider", @Model.Provider)
+                            @Html.Hidden("rememberMe", @Model.RememberMe)
+                        <div class="form-group floating-addon">
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                Enter code
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Code, new { @class = "form-control w-100" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 ">
+                                    <div class="checkbox">
+                                        @Html.CheckBoxFor(m => m.RememberBrowser)
+                                        @Html.LabelFor(m => m.RememberBrowser)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-primary" value="Submit" />
+                                </div>
+                            </div>
+                        </div>
+
+                        }
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-7 p-2">
+
+                    <div class=" author-box">
+                        <div class="card-body">
+                            <div class="author-box-center">
+                                <img alt="image" src="~/Content/assets/img/sec.jpg" class="img-fluid w-50">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

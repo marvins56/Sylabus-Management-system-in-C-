@@ -1,0 +1,59 @@
+﻿@model SMIS.Models.topicstat
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>topicstat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weekid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weekid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Topic_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topic_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,76 @@
+﻿@using SMIS.Models.ViewModel
+@model Progress_dash
+@{
+    ViewBag.Title = "Progress_dash";
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
+}
+<div class="row">
+    <div class="col-12 ">
+        <div class="activities">
+            <div class="activity">
+
+                <div class="activity-icon bg-success text-white">
+                    <i class="fas fa-arrows-alt"></i>
+                </div>
+
+                <div class="activity-detail">
+                    @foreach (var item in Model.subtopics)
+                    {
+                        <div class="mb-2">
+                            <span class="text-job"> @item.SubTopic;</span>
+                            <span class="bullet"></span>
+
+                            <div class="float-left dropdown">
+                                <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-h mr-3"></i></a>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-title">Options</div>
+                                    <a href="@Url.Action("Details", "topicstats", new { id = item.SubTopics_id})" class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="@Url.Action("Delete", "topicstats", new { id = item.SubTopics_id})" class="dropdown-item has-icon text-danger"
+                                       data-confirm="Wait, wait, wait...|This action can't be undone. Want to take risks?"
+                                       data-confirm-text-yes="Yes, IDC"><i class="fas fa-trash-alt"></i> Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            @item.Overview
+                        </p>
+                        <hr class="mb-4 mt-2 w-50 center-block" />
+                    }
+
+                </div>
+            </div>
+
+            <div class="activity">
+
+                <div class="activity-icon bg-primary text-white">
+                    <i class="fas fa-arrows-alt"></i>
+                </div>
+
+                <div class="activity-detail">
+                    @foreach (var week in Model.Weeks)
+                    {
+                        int weekids = Convert.ToInt32(Session["weekid"]);
+                        if (weekids != 0)
+                        {
+
+                            if (weekids.Equals(week.Week_id))
+                            {
+                                    { Html.RenderAction("progressbar", "topicstats", new { weekid = week.Week_id }); }
+                            }
+                        }
+                        else {
+                            TempData["info"] = "fetching data please wait...";
+                        }
+
+                    }
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,217 @@
+﻿@using SMIS.Models.ViewModel
+@model Detail_Dashboard
+@{
+    ViewBag.Title = "Detail_Dashboard";
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
+    var count = 1;
+}
+
+<div class="alert alert-light alert-dismissible show fade alert-has-icon">
+    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+
+    <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        <ul>
+            <li>
+                <i class="fas fa-book-open fa-3x"></i> Subject:
+                @if (TempData["subject"] != null)
+                {
+
+                    <button type="button" class="btn btn-outline-dark mb-2 ml-2">@TempData["subject"]</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-outline-dark mb-2 ml-2 ">PENDING</button>
+                }
+            </li>
+            <li>
+                <i class="fas fa-user-circle fa-3x"></i> Teacher:
+                @if (TempData["subject"] != null)
+                {
+
+                    <button type="button" class="btn btn-outline-dark mb-2 ml-2">@TempData["subject"]</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-outline-dark  mb-2 ml-2">PENDING</button>
+                }
+            </li>
+            <li>
+                <i class="fas fa-book-reader fa-3x"></i> Overview:
+
+                @if (TempData["subject"] != null)
+                {
+
+                    <button type="button" class="btn btn-outline-dark mb-2 ml-2">@TempData["subject"]</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-outline-dark mb-2 ml-2 ">PENDING</button>
+                }
+
+            </li>
+            
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-md-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>SYLLABUS MANAGER</h4>
+            </div>
+            <div class="card-body">
+                <div id="accordion">
+                    @foreach (var item in Model.Weeks)
+                    {
+
+                        <div class="accordion">
+                            <div class="accordion-header" @*role="button"*@ data-toggle="collapse" data-target="#panel-body-@count">
+                                <h4> <i data-feather="command"></i> @item.Week_Name
+                                <span>
+    <a href="@Url.Action("Progress_dash", "topicstats", new {weeksid = item.Week_id})" class="btn btn-outline-primary ">VIEW PROGRESS</a>
+</span></h4>                       
+
+                            </div>
+                            <div class="accordion-body collapse" id="panel-body-@count" data-parent="#accordion">
+
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-lg-12">
+                                        <div class="card">
+
+                                            <div class="card-body">
+                                                <ul class="nav nav-pills" id="myTab3" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" id="home-tab3_@count" data-toggle="tab" href="#home3_@count" role="tab"
+                                                           aria-controls="home" aria-selected="true">Learning Outcomes</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="profile-tab3_@count" data-toggle="tab" href="#profile3_@count" role="tab"
+                                                           aria-controls="profile" aria-selected="false">Teaching and Learning Materials</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="contact-tab3_@count" data-toggle="tab" href="#contact3_@count" role="tab"
+                                                           aria-controls="contact" aria-selected="false">Activity/Activities</a>
+                                                    </li>
+                                                </ul>
+                                                <div class="tab-content" id="myTabContent2">
+                                                    <div class="tab-pane fade show active" id="home3_@count" role="tabpanel" aria-labelledby="home-tab3_@count">
+                                                        <div class="alert alert-light alert-dismissible show fade alert-has-icon">
+                                                            <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+
+                                                            <div class="alert-body">
+                                                                <button class="close" data-dismiss="alert">
+                                                                    <span>&times;</span>
+                                                                </button>
+
+                                                                In this tab Topics for the related week will show up here.
+
+                                                                also Managing topics for that week is done here
+                                                                <div>
+                                                                    <a href="@Url.Action("Create", "Topics")" class="btn btn-icon btn-primary"><i class="fas fa-plus"></i> <span>Add Topic</span></a>
+                                                                    <a href="@Url.Action("Create", "SubTopics")" class="btn btn-icon btn-primary"><i class="fas fa-plus"></i> <span>Add SubTopic</span></a>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        
+                                                        @{Html.RenderAction("subjecttopics", "Topics", new { weekid = item.Week_id });}
+
+
+
+                                                    </div>
+                                                    <div class="tab-pane fade" id="profile3_@count" role="tabpanel" aria-labelledby="profile-tab3_@count">
+                                                        <div class="alert alert-light alert-dismissible show fade alert-has-icon">
+                                                            <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+
+                                                            <div class="alert-body">
+                                                                <button class="close" data-dismiss="alert">
+                                                                    <span>&times;</span>
+                                                                </button>
+                                                                This is a light alert.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="contact3_@count" role="tabpanel" aria-labelledby="contact-tab3_@count">
+                                                        <div class="alert alert-light alert-dismissible show fade alert-has-icon">
+                                                            <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+
+                                                            <div class="alert-body">
+                                                                <button class="close" data-dismiss="alert">
+                                                                    <span>&times;</span>
+                                                                </button>
+                                                                To assign coursework this week, click the Add an activity or resource link for add the relevant activity, such as an assignment, a quiz, or other activity. Otherwise, please delete.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        count++;
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-sm-12 col-lg-12">
+        <div class="card gradient-bottom">
+            <div class="card-header">
+                <h4>Weekly coverage</h4>
+
+            </div>
+            <div class="card-body" id="top-5-scroll">
+                <ul class="list-unstyled list-unstyled-border">
+                    @foreach (var item in Model.Weeks)
+                    {
+                        <li class="media">
+                            <img class="mr-3 rounded" width="55" src="~/Content/assets/img/products/product-4.png" alt="product">
+                            <div class="media-body">
+                                <div class="float-right">
+                                    <div class="font-weight-600 text-muted text-small">112 Sales</div>
+                                </div>
+                                <div class="media-title">@item.Week_Name</div>
+                                <div class="mt-1">
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-primary" data-width="61%"></div>
+                                        <div class="budget-price-label">$24,897</div>
+                                    </div>
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-danger" data-width="38%"></div>
+                                        <div class="budget-price-label">$18,865</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="card-footer pt-3 d-flex justify-content-center">
+                <div class="budget-price justify-content-center">
+                    <div class="budget-price-square bg-primary" data-width="20"></div>
+                    <div class="budget-price-label">Selling Price</div>
+                </div>
+                <div class="budget-price justify-content-center">
+                    <div class="budget-price-square bg-danger" data-width="20"></div>
+                    <div class="budget-price-label">Product Cost</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+ 
+    

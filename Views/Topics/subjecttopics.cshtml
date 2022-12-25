@@ -1,0 +1,90 @@
+﻿@model IEnumerable<SMIS.Models.TopicsTable>
+
+<div class="row ">
+        @foreach (var topic in Model)
+        {
+            <div class="col-xl-3 col-lg-6">
+
+                <div class="card l-bg-cyan">
+
+                    <div class="card-header-action">
+                        <div class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="btn btn-light   dropdown-toggle">
+                                <i class="fas fa-cog"></i>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <a href="@Url.Action("Details", "Topics", new { id = topic.Topic_id })" class="dropdown-item has-icon"><i class="fas fa-eye"></i>View </a>
+                                <a href="@Url.Action("Edit", "Topics", new { id = topic.Topic_id })" class="dropdown-item has-icon"><i class="far fa-edit"></i>Edit</a>
+                                <div class="dropdown-divider"></div>
+                                @*<a href="@Url.Action("Delete", "Topics", new { id = topic.Topic_id})" class="dropdown-item has-icon text-danger">
+                             <i class="far fa-trash-alt"></i>delete
+                             </a>*@  
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-statistic-3">
+                        <div class="card-icon card-icon-large"><i class="fa fa-award"></i></div>
+                        <div class="card-content">
+                            <h4 class="card-title">@topic.Topic_Name</h4>
+                            <span>
+                                @*@if (topic.IsComplete == true)
+            {
+                <button type="button" class="btn btn-success">Complete</button>
+            }
+            else
+            {
+                <button type="button" class="btn btn-outline-warning">In Progress</button>
+            }*@
+                                <a class="btn btn-outline-primary text-white " data-toggle="collapse" href="#collapseExample_@topic.Topic_id" role="button"
+                                   aria-expanded="false" aria-controls="collapseExample">
+                                    Mark as-
+                                </a>
+                                <div class="collapse" id="collapseExample_@topic.Topic_id">
+
+                                    @using (Html.BeginForm("add", "topicstats", FormMethod.Post))
+                                    {
+                                        <div class="form-group mt-2">
+                                            <div class="input-group">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" type="submit">update</button>
+                                                </div>
+                                                <select name="value" class="custom-select" id="inputGroupSelect04">
+                                                    <option selected value="0">0% Complete</option>
+                                                    <option value="25">25% Complete</option>
+                                                    <option value="50">50% Complete</option>
+                                                    <option value="75">75% Complete</option>
+                                                    <option value="100">100% Complete</option>
+                                                </select>
+                                            </div>
+                                            <input type="number" value="@topic.Week_id" name="weekid" hidden />
+                                            <input type="number" value="@topic.Subject_id" name="Subject_id" hidden />
+                                            <input type="number" value="@topic.Topic_id" name="Topic_id" hidden />
+                                            <input type="number" value="@topic.Class_id" name="Class_id" hidden />
+
+                                        </div>
+
+                                    }
+                                </div>
+                            </span>
+                            @*@{Html.RenderAction("progressbar", "topicstats", new { weekid = topic.Week_id });}*@
+                            @*<p class="mb-0 text-sm">
+            <span class="mr-2">
+                <ul>
+                    @foreach (var subtopic in Model.subtopics)
+                    {
+                        <li>
+                            @subtopic.SubTopic
+                        </li>
+                    }
+                    </ul>
+            </span>
+
+        </p>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>

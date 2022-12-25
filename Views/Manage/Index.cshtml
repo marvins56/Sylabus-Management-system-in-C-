@@ -1,0 +1,95 @@
+﻿@model SMIS.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
+}
+
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+
+<div class="card">
+    <div class="card-header">
+        <h4 >Change Account Settings</h4>
+    </div>
+    <div class="card-body">
+        <div class="py-4">
+            <p class="clearfix">
+                <span class="float-left bold">
+                    Password:
+                </span>
+                <span class="float-right text-muted">
+                    [
+                    @if (Model.HasPassword)
+                    {
+                        @Html.ActionLink("Change your password", "ChangePassword" , new { @class="btn btn-default"})
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Create", "SetPassword")
+                    }
+                    ]
+                </span>
+            </p>
+            <p class="clearfix">
+                <span class="float-left bold">
+                    External Logins:
+                </span>
+                <span class="float-right text-muted">
+                    @Model.Logins.Count [
+                    @Html.ActionLink("Manage", "ManageLogins") ]
+                </span>
+            </p>
+            <p class="clearfix">
+                <span class="float-left bold">
+                    Phone Number:
+                </span>
+                <span class="float-right text-muted">
+                    @(Model.PhoneNumber ?? "None")
+                    @if (Model.PhoneNumber != null)
+                    {
+                        
+                        <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
+                        using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <text><input type="submit" value="Remove number"  class="btn btn-danger"/></text>
+                        }
+                    }
+                    else
+                    {
+                        <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber") </text>
+                    }
+                </span>
+            </p>
+            <p class="clearfix">
+                <span class="float-left bold">
+                    Two-Factor Authentication:
+                </span>
+                <span class="float-right text-muted">
+                    
+                    @if (Model.TwoFactor)
+                    {
+                        using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <text>Enabled
+                                <input type="submit" value="Disable" class="btn btn-danger" />
+                            </text>
+                        }
+                    }
+                    else
+                    {
+                        using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <text>Disabled
+                                <input type="submit" value="Enable" class="btn btn-outline-success" />
+                            </text>
+                        }
+                    }
+                </span>
+            </p>
+         
+        </div>
+    </div>
+</div>

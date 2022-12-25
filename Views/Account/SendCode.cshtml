@@ -1,0 +1,57 @@
+﻿@model SMIS.Models.SendCodeViewModel
+@{
+    ViewBag.Title = "Send";
+    Layout = "~/Views/Shared/_Emptybg.cshtml";
+}
+
+
+<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+    <div class="login-brand">
+        <div class="card card-primary">
+            <div class="row m-0">
+                <div class="col-12 col-md-12 col-lg-5 p-0">
+                    <div class="card-header text-center">
+                        <h4>Select Two-Factor Authentication Provider:</h4>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("SendCode", "Account", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.Hidden("rememberMe", @Model.RememberMe)
+
+                            <div class="form-group floating-addon">
+                                <label>Choose option for authentication</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend ">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                @Html.DropDownListFor(model => model.SelectedProvider, Model.Providers, new { @class = "form-control ml-2" })
+                                <input type="submit" class="btn btn-primary m-t-15 waves-effect" value="Recieve OTP" />
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-7 p-2">
+
+                    <div class=" author-box">
+                        <div class="card-body">
+                            <div class="author-box-center">
+                                <img alt="image" src="~/Content/assets/img/sec.jpg" class="img-fluid w-50">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

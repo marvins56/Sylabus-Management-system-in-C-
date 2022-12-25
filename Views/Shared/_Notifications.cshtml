@@ -1,0 +1,51 @@
+﻿
+@if (TempData["success"] != null)
+{
+    <link rel="stylesheet" href="~/Content/assets/bundles/izitoast/css/iziToast.min.css">
+    <script src="~/Content/assets/bundles/izitoast/js/iziToast.min.js"></script>
+    <script type="text/javascript">
+    iziToast.success({
+        title: 'SUCCESS',
+        message: '@TempData["success"]',
+        position: 'topRight'
+    });
+    </script>
+}
+else if (TempData["error"] != null)
+{
+    <link rel="stylesheet" href="~/Content/assets/bundles/izitoast/css/iziToast.min.css">
+    <script src="~/Content/assets/bundles/izitoast/js/iziToast.min.js"></script>
+    <script type="text/javascript">
+        iziToast.error({
+            title: 'ERROR!',
+            message: '@TempData["error"]',
+            position: 'topRight'
+        });
+    </script>
+}
+else if (TempData["warning"] != null)
+{
+    <link rel="stylesheet" href="~/Content/assets/bundles/izitoast/css/iziToast.min.css">
+    <script src="~/Content/assets/bundles/izitoast/js/iziToast.min.js"></script>
+    <script type="text/javascript">
+        iziToast.warning({
+            title: 'WARNING!',
+            message:'@TempData["warning"]',
+            position: 'topRight'
+        });
+    </script>
+}else if (TempData["info"] != null)
+{
+    <link rel="stylesheet" href="~/Content/assets/bundles/izitoast/css/iziToast.min.css">
+    <script src="~/Content/assets/bundles/izitoast/js/iziToast.min.js"></script>
+    <script type="text/javascript">
+        iziToast.info({
+            title: 'Notification!',
+            message:'@TempData["info"]',
+            position: 'topRight'
+        });
+    </script>
+}
+
+
+

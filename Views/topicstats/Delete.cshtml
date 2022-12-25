@@ -1,0 +1,65 @@
+﻿@model SMIS.Models.topicstat
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>topicstat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weekid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weekid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Topic_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topic_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class_id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

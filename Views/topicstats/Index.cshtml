@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SMIS.Models.topicstat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weekid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Class_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weekid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Topic_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Class_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,49 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>SMIS-AUTH</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="~/Content/assets/css/app.min.css">
+    @Styles.Render("~/Content/assets/css")
+    @Scripts.Render("~/Content/assets/bundles/")
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+    <link rel="stylesheet" href="~/Content/assets/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/custom.css">
+    <link rel='shortcut icon' type='image/x-icon' href='~/Content/assets/img/favicon.ico' />
+</head>
+
+<body>
+    <div class="loader"></div>
+    <div id="app">
+        <section class="section">
+            <div class="container mt-5">
+                @{
+                    Html.RenderPartial("_Notifications");
+                }
+                @RenderBody()
+            </div>
+        </section>
+    </div>
+    <!-- General JS Scripts -->
+    <script src="~/Content/assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyB55Np3_WsZwUQ9NS7DP-HnneleZLYZDNw&amp;sensor=true"></script>
+    <script src="~/Content/assets/bundles/gmaps.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="~/Content/assets/js/page/contact.js"></script>
+    <!-- Template JS File -->
+    <script src="~/Content/assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="~/Content/assets/js/custom.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+
+<!-- contact.html  21 Nov 2019 04:05:05 GMT -->
+</html>

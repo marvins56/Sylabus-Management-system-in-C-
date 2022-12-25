@@ -1,0 +1,168 @@
+﻿@model IEnumerable<SMIS.Models.topicstat>
+
+<div class="col-12 col-sm-12 col-lg-12">
+    <div class="card gradient-bottom">
+      
+        <div class="card-body" id="top-5-scroll">
+            <ul class="list-unstyled list-unstyled-border">
+                @foreach (var topicName in ViewBag.topicNames)
+                {
+                    foreach (var item in Model)
+                    {
+
+                        if (item.Topic_id == topicName.Topic_id)
+                        {
+                            if (item.value == 0)
+                            {
+
+                                <li class="media">
+                                    <img class="mr-3 rounded" width="55" src="~/Content/assets/img/products/product-1.png" alt="product">
+                                    <div class="media-body">
+                                        <div class="float-right">
+                                            <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
+                                        </div>
+                                        <div class="media-title">
+                                            @topicName
+                                        </div>
+                                        <div class="mt-1">
+                                            <div class="budget-price">
+                                                <div class="budget-price-square bg-danger" data-width="@item.value%"></div>
+                                                <div class="budget-price-label">@item.value complete </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                            else if (item.value == 25)
+                            {
+
+                                <li class="media">
+                                    <img class="mr-3 rounded" width="55" src="~/Content/assets/img/products/product-1.png" alt="product">
+                                    <div class="media-body">
+                                        <div class="float-right">
+                                            <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
+                                        </div>
+                                        <div class="media-title">
+                                            @topicName
+                                        </div>                                <div class="mt-1">
+                                            <div class="budget-price">
+                                                <div class="budget-price-square bg-danger" data-width="@item.value%"></div>
+                                                <div class="budget-price-label">@item.value complete </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                            else if (item.value == 50)
+                            {
+
+                                <li class="media">
+                                    <img class="mr-3 rounded" width="55" src="~/Content/assets/img/products/product-1.png" alt="product">
+                                    <div class="media-body">
+                                        <div class="float-right">
+                                            <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
+                                        </div>
+                                        <div class="media-title">
+                                            @topicName
+                                        </div>                                <div class="mt-1">
+                                            <div class="budget-price">
+                                                <div class="budget-price-square bg-warning" data-width="@item.value%"></div>
+                                                <div class="budget-price-label">@item.value complete </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                            else if (item.value == 75)
+                            {
+
+                                <li class="media">
+                                    <img class="mr-3 rounded" width="55" src="~/Content/assets/img/products/product-1.png" alt="product">
+                                    <div class="media-body">
+                                        <div class="float-right">
+                                            <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
+                                        </div>
+                                        <div class="media-title">
+                                            @topicName
+                                        </div>
+                                        <div class="mt-1">
+                                            <div class="budget-price">
+                                                <div class="budget-price-square bg-success" data-width="@item.value%"></div>
+                                                <div class="budget-price-label">@item.value complete </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                            else if (item.value == 100)
+                            {
+
+                                <li class="media">
+                                    <img class="mr-3 rounded" width="55" src="~/Content/assets/img/products/product-1.png" alt="product">
+                                    <div class="media-body">
+                                        <div class="float-right">
+                                            <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
+                                        </div>
+                                        <div class="media-title">@topicName</div>
+                                        <div class="mt-1">
+                                            <div class="budget-price">
+                                                <div class="budget-price-square bg-success" data-width="@item.value%"></div>
+                                                <div class="budget-price-label">@item.value complete </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="media">
+                                    <img class="mr-3 rounded" width="55" src="~/Content/assets/img/products/product-1.png" alt="product">
+                                    <div class="media-body">
+                                        <div class="float-right">
+                                            <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
+                                        </div>
+                                        <div class="media-title">
+                                            @topicName
+                                        </div>
+                                        <div class="mt-1">
+                                            <div class="budget-price">
+                                                <div class="budget-price-square bg-success" data-width="@item.value%"></div>
+                                                <div class="budget-price-label">@item.value complete </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+
+                    }
+                }
+            </ul>
+        </div>
+        <div class="col-12 col-sm-12 col-lg-12">
+            <div class="card-footer pt-3 d-flex justify-content-center ">
+                <div class="budget-price justify-content-center">
+                    <div class="budget-price-square bg-danger" data-width="20"></div>
+                    <div class="budget-price-label">0% Incomplete</div>
+                </div>
+                <div class="budget-price justify-content-center">
+                    <div class="budget-price-square bg-warning" data-width="20"></div>
+                    <div class="budget-price-label">50% complete</div>
+                </div>
+                <div class="budget-price justify-content-center">
+                    <div class="budget-price-square bg-success" data-width="20"></div>
+                    <div class="budget-price-label">10O% Complete</div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
