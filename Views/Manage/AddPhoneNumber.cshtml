@@ -4,26 +4,76 @@
     Layout = "~/Views/Shared/_smisLayout.cshtml";
 }
 
-<h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("AddPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Add a phone number</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Number, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Number, new { @class = "form-control" })
+
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+            <div class="login-brand">
+
+                <div class="alert alert-light alert-dismissible show fade alert-has-icon">
+                    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+
+                    <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                        </button>
+                        <p class="text-info">
+                            @ViewBag.Title.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-primary">
+                <div class="row m-0">
+                    <div class="col-12 col-md-12 col-lg-5 p-0">
+                        <div class="card-header text-center">
+                            <h4> Add Phone number</h4>
+                        </div>
+                        <div class="card-body">
+                            @using (Html.BeginForm("AddPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                                <div class="form-group floating-addon">
+                                    <label>Add Phone number</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-phone"></i>
+                                            </div>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Number, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Add Number" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-7 p-2">
+
+                        <div class=" author-box">
+                            <div class="card-body">
+                                <div class="author-box-center">
+                                    <img alt="image" src="~/Content/assets/img/sec.jpg" class="img-fluid w-50">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Submit" />
-        </div>
-    </div>
-}
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

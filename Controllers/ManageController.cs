@@ -253,10 +253,11 @@ namespace SMIS.Controllers
                 return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
             AddErrors(result);
+            TempData["error"] = (result).ToString();
             return View(model);
         }
 
-        //
+        
         // GET: /Manage/SetPassword
         public ActionResult SetPassword()
         {
@@ -282,6 +283,8 @@ namespace SMIS.Controllers
                     return RedirectToAction("Index", new { Message = ManageMessageId.SetPasswordSuccess });
                 }
                 AddErrors(result);
+                TempData["error"] = (result).ToString();
+
             }
 
             // If we got this far, something failed, redisplay form
@@ -296,6 +299,8 @@ namespace SMIS.Controllers
                 message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : "";
+            
+
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user == null)
             {

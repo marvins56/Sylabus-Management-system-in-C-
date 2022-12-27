@@ -134,7 +134,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right pullDown">
                     <div class="dropdown-title">
-                        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        @User.Identity.GetUserName()
                     </div>
 
                     <a href="@Url.Action("Index", "Manage")" class="dropdown-item has-icon">

@@ -3,29 +3,75 @@
     ViewBag.Title = "Verify Phone Number";
     Layout = "~/Views/Shared/_smisLayout.cshtml";
 }
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+            <div class="login-brand">
 
-<h2>@ViewBag.Title.</h2>
+                <div class="alert alert-warning alert-dismissible show fade alert-has-icon">
+                    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
 
-@using (Html.BeginForm("VerifyPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.Hidden("phoneNumber", @Model.PhoneNumber)
-    <h4>Enter verification code</h4>
-    <h5>@ViewBag.Status</h5>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Code, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+                    <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                        </button>
+                        <p class="text-info">
+                            @ViewBag.Title.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-primary">
+                <div class="row m-0">
+                    <div class="col-12 col-md-12 col-lg-5 p-0">
+                        <div class="card-header text-center">
+                            <h4> @ViewBag.Title.</h4>
+                        </div>
+                        <div class="card-body">
+                            @using (Html.BeginForm("VerifyPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.Hidden("phoneNumber", @Model.PhoneNumber)
+                                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                                <div class="form-group floating-addon">
+                                    <label>Verification Code</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-sms"></i>
+                                            </div>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Change Number" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-7 p-2">
+
+                        <div class=" author-box">
+                            <div class="card-body">
+                                <div class="author-box-center">
+                                    <img alt="image" src="~/Content/assets/img/sec.jpg" class="img-fluid w-50">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Submit" />
-        </div>
-    </div>
-}
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
