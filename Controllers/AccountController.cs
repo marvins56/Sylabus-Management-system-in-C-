@@ -81,6 +81,7 @@ namespace SMIS.Controllers
                     string callbackUrl = await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account-Resend");
 
                     ViewBag.errorMessage = "You must have a confirmed email to log on. kindly check your email for the confirmation link";
+                    TempData["error"] = "You must have a confirmed email to log on. kindly check your email for the confirmation link";
                     return View("Error");
                 }
             }
@@ -98,6 +99,7 @@ namespace SMIS.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
+                    TempData["error"] = "Invalid Login Attempt";
                     return View(model);
             }
         }
@@ -141,6 +143,8 @@ namespace SMIS.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid code.");
+                    TempData["error"] = "Invalid Code";
+
                     return View(model);
             }
         }
@@ -181,7 +185,7 @@ namespace SMIS.Controllers
 
                     ViewBag.Message = "Check your email and confirm your account, you must be confirmed "
                                     + "before you can log in.";
-                    TempData["successss"] = "Check your email and confirm your account, you must be confirmed "
+                    TempData["success"] = "Check your email and confirm your account, you must be confirmed "
                                     + "before you can log in.";
 
                     return View("Info");
@@ -279,6 +283,7 @@ namespace SMIS.Controllers
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
+                TempData["success"] = "password Reset successfull";
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
             AddErrors(result);

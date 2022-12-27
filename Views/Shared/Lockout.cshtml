@@ -2,9 +2,52 @@
 
 @{
     ViewBag.Title = "Locked Out";
+    Layout = "~/Views/Shared/_Emptybg.cshtml";
 }
 
-<hgroup>
-    <h1 class="text-danger">Locked out.</h1>
-    <h2 class="text-danger">This account has been locked out, please try again later.</h2>
-</hgroup>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+            <div class="login-brand">
+                @ViewBag.Title.
+            </div>
+            <div class="card card-primary">
+                <div class="row m-0">
+                    <div class="col-12 col-md-12 col-lg-5 p-0">
+                        <div class="card-header text-center">
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-danger alert-dismissible show fade alert-has-icon">
+                                <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+
+                                <div class="alert-body">
+                                    <button class="close" data-dismiss="alert">
+                                        <span>&times;</span>
+                                    </button>
+                                    <hgroup>
+                                        <h1 class="text-danger">Locked out.</h1>
+                                        <h2 class="text-danger">This account has been locked out, please try again later.</h2>
+                                    </hgroup>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-7 p-2">
+
+                        <div class=" author-box">
+                            <div class="card-body">
+                                <div class="author-box-center">
+                                    <img alt="image" src="~/Content/assets/img/sec.jpg" class="img-fluid w-50">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

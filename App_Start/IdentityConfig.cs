@@ -76,7 +76,13 @@ namespace SMIS
             // Send the email.
             if (client != null)
             {
-                await client.SendEmailAsync(msg);
+                try
+                {
+                    await client.SendEmailAsync(msg);
+                }catch(Exception e)
+                {
+                    Trace.TraceError("Error sending Mail");
+                }
             }
             else
             {
@@ -137,8 +143,8 @@ namespace SMIS
 
             // Configure user lockout defaults
             manager.UserLockoutEnabledByDefault = true;
-            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(60);
-            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(200);
+            manager.MaxFailedAccessAttemptsBeforeLockout = 3;
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.

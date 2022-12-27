@@ -1,8 +1,27 @@
 ﻿@{
     ViewBag.Title = "Login Failure";
-}
+    Layout = "~/Views/Shared/_Emptybg.cshtml";
 
-<hgroup>
-    <h2>@ViewBag.Title.</h2>
-    <h3 class="text-danger">Unsuccessful login with service.</h3>
-</hgroup>
+}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Request Failed</h4>
+            </div>
+            <div class="card-body">
+                <div class="empty-state" data-height="400">
+                    <div class="empty-state-icon bg-danger">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <h2>Authication Error</h2>
+                    <p class="lead">
+                        Unsuccessful login with service.                                                                                                     class="bb">14045</a>)
+                    </p>
+                    <a  href="@Url.Action("Login", "Account")" class="btn btn-warning mt-4">Try Again</a>
+                    <a href="@Url.Action("Login", "Account")" class="mt-4 bb">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
