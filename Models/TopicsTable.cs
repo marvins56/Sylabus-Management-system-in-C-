@@ -32,6 +32,8 @@ namespace SMIS.Models
         public int Week_id { get; set; }
         public string Overview { get; set; }
         public string File { get; set; }
+        public string ContentType { get; set; }
+        public byte[] Data { get; set; }
     
         public virtual ClassTable ClassTable { get; set; }
         public virtual SubjectTable SubjectTable { get; set; }

@@ -159,6 +159,8 @@
           <Property Name="Week_id" Type="int" Nullable="false" />
           <Property Name="Overview" Type="nvarchar(max)" />
           <Property Name="File" Type="nvarchar(max)" />
+          <Property Name="ContentType" Type="nvarchar(max)" />
+          <Property Name="Data" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="topicstats">
           <Key>
@@ -824,6 +826,8 @@
           <NavigationProperty Name="WeeksTable" Relationship="SMISModel.FK_weeks3" FromRole="TopicsTable" ToRole="WeeksTable" />
           <Property Name="Overview" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="File" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="WeeksTable">
           <Key>
@@ -1459,6 +1463,8 @@
           <EntitySetMapping Name="TopicsTables">
             <EntityTypeMapping TypeName="SMISModel.TopicsTable">
               <MappingFragment StoreEntitySet="TopicsTable">
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
                 <ScalarProperty Name="File" ColumnName="File" />
                 <ScalarProperty Name="Overview" ColumnName="Overview" />
                 <ScalarProperty Name="Week_id" ColumnName="Week_id" />

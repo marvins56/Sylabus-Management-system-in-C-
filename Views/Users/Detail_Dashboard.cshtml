@@ -119,8 +119,6 @@
                                                         
                                                         @{Html.RenderAction("subjecttopics", "Topics", new { weekid = item.Week_id });}
 
-
-
                                                     </div>
                                                     <div class="tab-pane fade" id="profile3_@count" role="tabpanel" aria-labelledby="profile-tab3_@count">
                                                         <div class="alert alert-light alert-dismissible show fade alert-has-icon">
@@ -133,6 +131,9 @@
                                                                 This is a light alert.
                                                             </div>
                                                         </div>
+                                                        @{Html.RenderAction("videos", "Topics", new { weekid = item.Week_id });}
+
+
                                                     </div>
                                                     <div class="tab-pane fade" id="contact3_@count" role="tabpanel" aria-labelledby="contact-tab3_@count">
                                                         <div class="alert alert-light alert-dismissible show fade alert-has-icon">
