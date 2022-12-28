@@ -392,6 +392,7 @@ namespace SMIS.Controllers
                 var info = await AuthenticationManager.GetExternalLoginInfoAsync();
                 if (info == null)
                 {
+                   
                     return View("ExternalLoginFailure");
                 }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -402,10 +403,12 @@ namespace SMIS.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        TempData["success"] = "Authentication successfull";
                         return RedirectToLocal(returnUrl);
                     }
                 }
                 AddErrors(result);
+                TempData["error"] = result.ToString();
             }
 
             ViewBag.ReturnUrl = returnUrl;
