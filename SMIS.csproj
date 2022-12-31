@@ -330,6 +330,7 @@
     <Compile Include="Models\ViewModel\Detail_Dashboard.cs" />
     <Compile Include="Models\ViewModel\Progress_dash.cs" />
     <Compile Include="Models\ViewModel\searchBar.cs" />
+    <Compile Include="Models\ViewModel\StudentMarks.cs" />
     <Compile Include="Models\WeeksTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -1552,6 +1553,7 @@
     <Content Include="Views\Shared\errors\internalerror.cshtml" />
     <Content Include="Views\Shared\_Emptybg.cshtml" />
     <Content Include="Views\Topics\vidoes.cshtml" />
+    <Content Include="Views\Students\Student_marks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

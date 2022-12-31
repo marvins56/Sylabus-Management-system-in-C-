@@ -30,7 +30,7 @@
 
                             <tr>
                                 <th class="text-center">
-                                    <i class="fas fa-th"></i>
+                                    
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.Student_Name)
@@ -44,6 +44,7 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Year.year1)
                                 </th>
+                                <th> Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,10 +78,10 @@
 
                                                 <a href="@Url.Action("studentMarks", "Students", new { id = item.Student_id })" class="dropdown-item has-icon"><i class="fas fa-eye"></i>View Marks</a>
 
-                                                <a href="@Url.Action("Details", "SubTopics", new { id = item.Student_id })" class="dropdown-item has-icon"><i class="fas fa-eye"></i>View </a>
-                                                <a href="@Url.Action("Edit", "SubTopics", new { id = item.Student_id })" class="dropdown-item has-icon"><i class="far fa-edit"></i>Edit</a>
+                                                @*<a href="@Url.Action("Details", "Students", new { id = item.Student_id })" class="dropdown-item has-icon"><i class="fas fa-eye"></i>View </a>*@
+                                                <a href="@Url.Action("Edit", "Students", new { id = item.Student_id })" class="dropdown-item has-icon"><i class="far fa-edit"></i>Edit</a>
                                                 <div class="dropdown-divider"></div>
-                                                <a href="@Url.Action("Delete", "SubTopics", new { id = item.Student_id})" class="dropdown-item has-icon text-danger">
+                                                <a href="@Url.Action("Delete", "Students", new { id = item.Student_id})" class="dropdown-item has-icon text-danger">
                                                     <i class="far fa-trash-alt"></i>delete
                                                 </a>
                                             </div>

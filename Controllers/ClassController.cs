@@ -117,6 +117,8 @@ namespace SMIS.Controllers
             var students = db.StudentsTables.Where(a => a.Class_id == id /*&& a.Year.Equals(studentyear)*/).ToList();
             return View(students);
         }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

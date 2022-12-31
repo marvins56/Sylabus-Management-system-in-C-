@@ -1,45 +1,57 @@
 ﻿@model IEnumerable<SMIS.Models.StudentsTable>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Student_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClassTable.Class_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Term.term1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Year.year1)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassTable.Class_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Term.term1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year.year1)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Student_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Student_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Student_id })
-        </td>
-    </tr>
+@{
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
+    var count = 1;
 }
 
-</table>
+<div class="alert alert-light alert-dismissible show fade alert-has-icon">
+    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+
+    <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        <p>To view tudent marks,kindly click on the student to view student marks</p>
+    </div>
+</div>
+
+<div class="col-6 col-md-6 col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4>...</h4>
+        </div>
+        <div class="card-body">
+            <div id="accordion">
+                @foreach (var item in Model)
+                {
+                    <div class="accordion">
+                        <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-@count"
+                             aria-expanded="true">
+                            <h4> @Html.DisplayFor(modelItem => item.Student_Name)</h4>
+                        </div>
+                        <div class="accordion-body collapse show " id="panel-body-@count" data-parent="#accordion">
+
+                            @if (count == 1)
+                            {
+                               
+                                    Html.RenderAction("Student_marks", "Students", new { student_id = item.Student_id });
+
+                            }
+                            else
+                            { Html.RenderAction("Student_marks", "Students", new { student_id = item.Student_id });}
+
+                        
+                        </div>
+                        </div>
+                    count++;
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<td>
+    @Html.ActionLink("Edit", "Edit", new { id = item.Student_id }) |
+    @Html.ActionLink("Details", "Details", new { id = item.Student_id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.Student_id })
+</td>*@

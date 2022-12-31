@@ -49,7 +49,7 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html">
+                        <a href="@Url.Action("index","Class")">
                             <img alt="image" src="~/Content/assets/img/logo.png" class="header-logo" /> <span class="logo-name">SMIS</span>
                         </a>
                     </div>
@@ -58,80 +58,7 @@
                         <li class="dropdown active">
                             <a href="#" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown">
-                                <i class="material-icons">assessment</i> <span class="icon-name">Syallabus stats</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="nav-link" href="chat.html">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            users
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="chat.html">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            topics
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="chat.html">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            subtopic
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="chat.html">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            Marks
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="chat.html">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            subjects
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="chat.html">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            Basic
-                                            Components
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="chat.html">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            Roles
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="chat.html">
-                                        <i class="material-icons">perm_contact_calendar</i> <span class="icon-name">Weeks</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="chat.html">
-                                        <i class="material-icons">perm_contact_calendar</i> <span class="icon-name">Years</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li class="dropdown">
                             <a href="#" class="menu-toggle nav-link has-dropdown">
                                 <i class="fas fa-cog"></i></i><span>Setting</span>
@@ -356,6 +283,9 @@
     <script src="~/Content/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
     <!-- Page Specific JS File -->
     <script src="~/Content/assets/js/page/advance-table.js"></script>
+    <script src="~/Content/assets/bundles/sweetalert/sweetalert.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="~/Content/assets/js/page/sweetalert.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 

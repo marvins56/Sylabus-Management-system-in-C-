@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SMIS.Models;
+using SMIS.Models.ViewModel;
 
 namespace SMIS.Controllers
 {
@@ -135,8 +136,42 @@ namespace SMIS.Controllers
             var studentmarks = db.MidtermMarksTables.Where(a => a.Student_id == id).ToList();
             return PartialView("studentMarks",studentmarks);
         }
+        [ChildActionOnly]
+        public PartialViewResult Student_marks(int? student_id)
+        {
+           
+            if (student_id == null)
+            {
+                TempData["error"] = "ERROR LOADING DATA";
+            }
 
-      
+           
+            var get_students = get_student(student_id);
+            var student_marks = Get_student_marks_info(student_id);
+
+            var studentMarks = new StudentMarks();
+
+            studentMarks.stdntMarks = student_marks;
+            studentMarks.student = get_students;
+
+            return PartialView("Student_marks", studentMarks);
+        }
+
+        public List<StudentsTable> get_student(int? id)
+        {
+            var studnts = db.StudentsTables.Where(a => a.Student_id == id).ToList();
+            return (studnts);
+        }
+        public List<MidtermMarksTable> Get_student_marks_info(int? id)
+        {
+           var std_marks = db.MidtermMarksTables.Where(a=>a.Student_id == id).ToList();
+            return std_marks;
+        }
+
+
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

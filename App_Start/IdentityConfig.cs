@@ -82,6 +82,7 @@ namespace SMIS
                 }catch(Exception e)
                 {
                     Trace.TraceError("Error sending Mail");
+                   
                 }
             }
             else

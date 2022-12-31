@@ -99,7 +99,7 @@ namespace SMIS.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    TempData["error"] = "Invalid Login Attempt";
+                    //TempData["error"] = "Invalid Login Attempt";
                     return View(model);
             }
         }

@@ -2,12 +2,13 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>
 
 <div>
-    <h4>AspNetUser</h4>
+ 
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -95,7 +96,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UserName)
+           
         </dd>
 
     </dl>
@@ -103,4 +104,114 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@
+
+<div class="row">
+    <div class="col-12 col-sm-7 col-lg-12">
+        <div class="card author-box card-primary">
+            <div class="card-body">
+                <div class="author-box-left">
+                    <img alt="image" src="~/Content/assets/img/users/user-1.png" class="rounded-circle author-box-picture">
+                    <div class="clearfix"></div>
+                    
+                </div>
+                <div class="author-box-details">
+                    <div class="author-box-name">
+                        <a href="#"> @Html.DisplayFor(model => model.UserName)</a>
+                    </div>
+                    <div class="author-box-job">@Html.DisplayFor(model => model.Email)</div>
+                    <div class="author-box-description">
+                        <p>
+                            <table>
+                                <tr class="m-5">
+                                     <td class="p-2">
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </td>
+                                     <td class="p-2">
+                                        @Html.DisplayFor(model => model.Email)
+                                    </td>
+                                </tr>
+                                <tr class="m-5">
+                                     <td class="p-2">
+                                        EmailConfirmed
+                                    </td>
+                                     <td class="p-2">
+                                        @if (Model.EmailConfirmed == true)
+                                        {
+                                            <button type="button" class="btn btn-outline-success">Confirmed</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="button" class="btn btn-outline-warning">pending confirmation</button>
+                                        }
+                                    </td>
+                                </tr >
+                                <tr class="m-5" >
+                                     <td class="p-2">
+                                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                                    </td>
+                                     <td class="p-2">
+                                        @Html.DisplayFor(model => model.PhoneNumber)
+                                    </td>
+                                </tr>
+                                <tr class="m-5">
+                                     <td class="p-2">
+                                     PhoneNumberConfirmed
+                                    </td>
+                                     <td class="p-2">
+                                        @if (Model.PhoneNumberConfirmed == true)
+                                        {
+                                            <button type="button" class="btn btn-outline-success">Confirmed</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="button" class="btn btn-outline-warning">pending confirmation</button>
+                                        }
+                                    </td>
+                                </tr>
+                                <tr class="m-5">
+                                     <td class="p-2">
+                                        TwoFactorEnabled
+                                    </td>
+                                     <td class="p-2">
+                                        @if (Model.TwoFactorEnabled == true)
+                                        {
+                                            <button type="button" class="btn btn-outline-success">Enabled</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="button" class="btn btn-outline-danger">Disabled</button>
+                                        }
+                                    </td>
+                                </tr>
+                            
+                                <tr class="m-5">
+                                     <td class="p-2">
+                                        @Html.DisplayNameFor(model => model.AccessFailedCount)
+                                    </td>
+                                     <td class="p-2">
+                                        @Html.DisplayFor(model => model.AccessFailedCount)
+                                    </td>
+                                </tr>
+                            </table>
+                           
+                           
+                        </p>
+                    </div>
+                    <div class="mb-2 mt-3">
+
+                    </div>
+                   
+                    <div class="w-100 d-sm-none"></div>
+                    <div class="float-right mt-sm-0 mt-3">
+                        <a href="@Url.Action("index","Users")" class="btn btn-primary">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    
