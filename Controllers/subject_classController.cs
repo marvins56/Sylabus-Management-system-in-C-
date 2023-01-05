@@ -25,16 +25,24 @@ namespace SMIS.Controllers
 
         public  ActionResult classSubjects(int? id)
         {
-            
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var classsubs = db.subject_class.Where(a => a.Class_id == id).ToList();
-            var classid = db.subject_class.Where(a => a.ID == id).Select(a => a.Class_id).FirstOrDefault();
-            Session["classid"] = classid;
 
-            return View( classsubs);
+            try
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var classsubs = db.subject_class.Where(a => a.Class_id == id).ToList();
+                var classid = db.subject_class.Where(a => a.ID == id).Select(a => a.Class_id).FirstOrDefault();
+                Session["classid"] = classid;
+
+                return View(classsubs);
+            }
+            catch(Exception EX)
+            {
+                TempData["error"] = EX.Message;
+                return View();
+            }
         }
   
         // GET: subject_class/Details/5
@@ -65,12 +73,20 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "ID,Subject_id,Class_id")] subject_class subject_class)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.subject_class.Add(subject_class);
-                await db.SaveChangesAsync();
-                TempData["success"] = "Subject Added to class";
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.subject_class.Add(subject_class);
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Subject Added to class";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception EX)
+            {
+                TempData["error"] = EX.Message;
+                
             }
 
             ViewBag.Class_id = new SelectList(db.ClassTables, "Class_id", "Class_Name", subject_class.Class_id);
@@ -100,11 +116,20 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "ID,Subject_id,Class_id")] subject_class subject_class)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(subject_class).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(subject_class).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Subject Changed saved ";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception EX)
+            {
+                TempData["error"] = EX.Message;
+
             }
             ViewBag.Class_id = new SelectList(db.ClassTables, "Class_id", "Class_Name", subject_class.Class_id);
             ViewBag.Subject_id = new SelectList(db.SubjectTables, "Subject_id", "Name", subject_class.Subject_id);
@@ -131,10 +156,20 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            subject_class subject_class = await db.subject_class.FindAsync(id);
-            db.subject_class.Remove(subject_class);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            try
+            {
+
+                subject_class subject_class = await db.subject_class.FindAsync(id);
+                db.subject_class.Remove(subject_class);
+                await db.SaveChangesAsync();
+                TempData["success"] = "Subject DELETED Succesfully";
+                return RedirectToAction("Index");
+            }
+            catch (Exception EX)
+            {
+                TempData["error"] = EX.Message;
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

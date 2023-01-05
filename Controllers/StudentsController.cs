@@ -60,7 +60,7 @@ namespace SMIS.Controllers
                     db.StudentsTables.Add(studentsTable);
                     await db.SaveChangesAsync();
                     TempData["success"] = "Student Created Successfully";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index" ,"Class");
                 }
             }catch(Exception e)
             {
@@ -103,7 +103,7 @@ namespace SMIS.Controllers
                     db.Entry(studentsTable).State = EntityState.Modified;
                     await db.SaveChangesAsync();
                     TempData["success"] = "Student Chnages Saved Successfully";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index","Class");
                 }
             }catch (Exception e)
             {

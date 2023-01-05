@@ -2,31 +2,48 @@
 
 @{
     ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>SubjectTable</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+<div class="card">
+    <div class="card-header">
+        <h4 class="text-danger">Are you sure you want to delete this? </h4>
+    </div>
+    <div class="card-body">
+        <div class="media">
+            <div class="media-body">
+                <p>
 
-    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                    </dl>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <a href="@Url.Action("Index", "Subject")" class=" btn btn-outline-primary">
+                                    Cancel
+                                </a>
+                                <input type="submit" value="Delete" class="btn btn-danger" />
+                            </div>
+                        </div>
+                    }
+
+                </p>
+            </div>
+            <img class="ml-3" src="~/Content/assets/img/image-64.png" alt="Generic placeholder image">
         </div>
-    }
+    </div>
 </div>
+

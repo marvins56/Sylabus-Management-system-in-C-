@@ -50,13 +50,22 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Subject_id,Name")] SubjectTable subjectTable)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.SubjectTables.Add(subjectTable);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
 
+                if (ModelState.IsValid)
+                {
+                    db.SubjectTables.Add(subjectTable);
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Subject Added successfully";
+                    return RedirectToAction("Index");
+                }
+
+            }
+            catch (Exception Ex)
+            {
+                TempData["error"] = Ex.Message;
+            }
             return View(subjectTable);
         }
 
@@ -75,18 +84,24 @@ namespace SMIS.Controllers
             return View(subjectTable);
         }
 
-        // POST: Subject/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Subject_id,Name")] SubjectTable subjectTable)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(subjectTable).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(subjectTable).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Subject Added successfully";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception Ex)
+            {
+                TempData["error"] = Ex.Message;
             }
             return View(subjectTable);
         }
@@ -111,10 +126,19 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            SubjectTable subjectTable = await db.SubjectTables.FindAsync(id);
-            db.SubjectTables.Remove(subjectTable);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            try
+            {
+                SubjectTable subjectTable = await db.SubjectTables.FindAsync(id);
+                db.SubjectTables.Remove(subjectTable);
+                await db.SaveChangesAsync();
+                TempData["success"] = "Subject DELETED successfully";
+                return RedirectToAction("Index");
+            }
+            catch (Exception Ex)
+            {
+                TempData["error"] = Ex.Message;
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

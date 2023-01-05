@@ -38,7 +38,7 @@ namespace SMIS.Controllers
                     var classid = Convert.ToInt32(Session["classid"]);
                     var result = db.topicstats.Where(a => a.weekid == weekid && a.Class_id == classid && a.Subject_id == subject).ToList();
                     TempData["info"] = "Fetching Data please Wait..";
-                    ViewBag.topicNames = db.TopicsTables.Where(a => a.Class_id == classid && a.Subject_id == subject && a.Week_id == weekid).Select(x => x.Topic_Name).ToList();
+                    ViewBag.topicNames = db.TopicsTables.Where(a => a.Class_id == classid && a.Subject_id == subject && a.Week_id == weekid).Select(x => x.Topic_id).ToList();
 
                     return PartialView("progressbar", result);
                 }
