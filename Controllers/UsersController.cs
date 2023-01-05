@@ -26,6 +26,9 @@ namespace SMIS.Controllers
         {
             return View();
         }
+       
+
+
         // GET: Users/Details/5
         public async Task<ActionResult> Details(string id)
         {
@@ -157,8 +160,8 @@ namespace SMIS.Controllers
             return null;
             
         }
-      
 
+       
         protected override void Dispose(bool disposing)
         {
             if (disposing)
