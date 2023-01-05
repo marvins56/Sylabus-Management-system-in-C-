@@ -4,30 +4,47 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.term1)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.term1)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Term_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Term_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Term_Id })
-        </td>
-    </tr>
-}
 
-</table>
+<div class="card">
+    <div class="card-header">
+    
+    </div>
+    <div class="card-body">
+        <div class="media">
+            <div class="media-body">
+                <p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.term1)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.term1)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Term_Id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.Term_Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Term_Id })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+</div>
+                    }
+                </p>
+            </div>
+            <img class="ml-3" src="~/Content/assets/img/image-64.png" alt="Generic placeholder image">
+        </div>
+    </div>
+</div>
+

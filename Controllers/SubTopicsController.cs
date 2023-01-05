@@ -53,11 +53,18 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "SubTopics_id,Topic_id,SubTopic,Overview,IsComplete,Datetime,Class_id,year_Id,Term_Id,File")] SubTopicsTable subTopicsTable)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.SubTopicsTables.Add(subTopicsTable);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.SubTopicsTables.Add(subTopicsTable);
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Topic ADDED Successfuly";
+                    return RedirectToAction("Index");
+                }
+            }catch(Exception e)
+            {
+                TempData["error"] = e.Message;
             }
 
             ViewBag.Class_id = new SelectList(db.ClassTables, "Class_id", "Class_Name", subTopicsTable.Class_id);
@@ -90,11 +97,18 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "SubTopics_id,Topic_id,SubTopic,Overview,IsComplete,Datetime,Class_id,year_Id,Term_Id,File")] SubTopicsTable subTopicsTable)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(subTopicsTable).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(subTopicsTable).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Topic Changes Saved Successfuly";
+                    return RedirectToAction("Index");
+                }
+            }catch(Exception ex)
+            {
+                TempData["error"] = ex.Message;
             }
             ViewBag.Class_id = new SelectList(db.ClassTables, "Class_id", "Class_Name", subTopicsTable.Class_id);
             ViewBag.Topic_id = new SelectList(db.TopicsTables, "Topic_id", "Topic_Name", subTopicsTable.Topic_id);
@@ -123,10 +137,19 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            SubTopicsTable subTopicsTable = await db.SubTopicsTables.FindAsync(id);
-            db.SubTopicsTables.Remove(subTopicsTable);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            try
+            {
+                SubTopicsTable subTopicsTable = await db.SubTopicsTables.FindAsync(id);
+                db.SubTopicsTables.Remove(subTopicsTable);
+                await db.SaveChangesAsync();
+                TempData["success"] = "topic DELETED successfully";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)
