@@ -43,18 +43,22 @@ namespace SMIS.Controllers
             return View();
         }
 
-        // POST: Terms/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Term_Id,term1")] Term term)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Terms.Add(term);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Terms.Add(term);
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Term Added Successfully";
+                    return RedirectToAction("Index");
+                }
+            }catch(Exception ex) {
+                TempData["error"] = ex.Message;      
             }
 
             return View(term);
@@ -75,19 +79,25 @@ namespace SMIS.Controllers
             return View(term);
         }
 
-        // POST: Terms/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Term_Id,term1")] Term term)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(term).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(term).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Changes Saved Successfully";
+                    return RedirectToAction("Index");
+                }
             }
+            catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
+            }
+
             return View(term);
         }
 

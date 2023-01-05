@@ -58,21 +58,14 @@
                         <li class="dropdown active">
                             <a href="@Url.Action("index","Home")" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
                         </li>
-
                         <li class="dropdown">
                             <a href="#" class="menu-toggle nav-link has-dropdown">
-                                <i class="fas fa-cog"></i></i><span>Setting</span>
+                                <i class="fas fa-cog"></i></i><span>User Management</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a class="nav-link" href="@Url.Action("Index", "Users")">
                                         <i class="material-icons">account_box</i> <span class="icon-name">Users</span>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "Students")">
-                                        <i class="material-icons">account_box</i> <span class="icon-name">Students</span>
 
                                     </a>
                                 </li>
@@ -86,22 +79,13 @@
                                         <i class="material-icons">account_box</i> <span class="icon-name">UserRoles</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "Topics")">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            topics
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "SubTopics")">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            subtopic
-                                        </span>
-                                    </a>
-                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown">
+                                <i class="fas fa-cog"></i></i><span>Student Management</span>
+                            </a>
+                            <ul class="dropdown-menu">
                                 <li>
                                     <a class="nav-link" href="@Url.Action("Index", "Marks")">
                                         <i data-feather="copy">
@@ -110,18 +94,64 @@
                                         </span>
                                     </a>
                                 </li>
-                              
                                 <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "Class")">
+                                    <a class="nav-link" href="@Url.Action("Index", "Students")">
+                                        <i class="material-icons">account_box</i> <span class="icon-name">Students</span>
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown">
+                                <i class="fas fa-cog"></i></i><span>Syllabus Statistics </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                            
+                                <li>
+                                    <a class="nav-link" href="@Url.Action("Index", "Topics")">
                                         <i data-feather="copy">
                                         </i><span>
-                                            Classes
+                                            Topics
                                         </span>
                                     </a>
                                 </li>
-                               
+                                <li>
+                                    <a class="nav-link" href="@Url.Action("Index", "SubTopics")">
+                                        <i data-feather="copy">
+                                        </i><span>
+                                            Subtopics
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="@Url.Action("Index", "Subject")">
+                                        <i data-feather="copy">
+                                        </i><span>
+                                            Subjects
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="nav-link" href="@Url.Action("Index", "subject_class")">
+                                        <i data-feather="copy">
+                                        </i><span>
+                                            Subject PER Class
+                                        </span>
+                                    </a>
+                                </li>
 
 
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown">
+                                <i class="fas fa-cog"></i></i><span> Other Setting</span>
+                            </a>
+                            <ul class="dropdown-menu">
                                 <li>
                                     <a class="nav-link" href="@Url.Action("Index", "Weeks")">
                                         <i class="material-icons">date_range</i> <span class="icon-name">Weeks</span>
@@ -135,61 +165,6 @@
                             </ul>
                         </li>
 
-                        <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown">
-                                <i class="fas fa-cog"></i></i><span>DONE</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "Users")">
-                                        <i class="material-icons">account_box</i> <span class="icon-name">Users</span>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "Students")">
-                                        <i class="material-icons">account_box</i> <span class="icon-name">Students</span>
-
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "Marks")">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            Marks
-                                        </span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "Class")">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            Classes
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "Subject")">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            subjects
-                                        </span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "subject_class")">
-                                        <i data-feather="copy">
-                                        </i><span>
-                                            Subject_Class
-                                        </span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
 
                     </ul>
                 </aside>

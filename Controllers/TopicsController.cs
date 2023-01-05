@@ -120,6 +120,7 @@ public async Task<ActionResult> Index()
                 {
                     // db.TopicsTables.Add(topicsTable);
 
+                    
                     byte[] bytes;
                     using (BinaryReader br = new BinaryReader(postedFile.InputStream))
                     {
