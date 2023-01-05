@@ -45,7 +45,7 @@ function chart1() {
     var options = {
         chart: {
             height: 230,
-            type: "line",
+            type: "bar",
             shadow: {
                 enabled: true,
                 color: "#000",

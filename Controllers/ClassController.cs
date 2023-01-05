@@ -24,16 +24,23 @@ namespace SMIS.Controllers
         }
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ClassTable classTable = await db.ClassTables.FindAsync(id);
-            if (classTable == null)
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                ClassTable classTable = await db.ClassTables.FindAsync(id);
+                if (classTable == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(classTable);
+            }catch(Exception ex)
             {
-                return HttpNotFound();
+                TempData["error"] = ex.Message;
+                return View();
             }
-            return View(classTable);
         }
 
         // GET: Class/Create
@@ -47,11 +54,18 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Class_id,Class_Name")] ClassTable classTable)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.ClassTables.Add(classTable);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.ClassTables.Add(classTable);
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Class Added Successfuly";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex){
+                TempData["error"] = ex.Message;
             }
 
             return View(classTable);
@@ -76,13 +90,22 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Class_id,Class_Name")] ClassTable classTable)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(classTable).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(classTable).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Changes Applied Successfuly";
+                    return RedirectToAction("Index");
+                }
+                return View(classTable);
+            }catch(Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return View();
             }
-            return View(classTable);
+            
         }
 
         // GET: Class/Delete/5
@@ -99,23 +122,37 @@ namespace SMIS.Controllers
             }
             return View(classTable);
         }
-
         // POST: Class/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            ClassTable classTable = await db.ClassTables.FindAsync(id);
-            db.ClassTables.Remove(classTable);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            try
+            {
+                ClassTable classTable = await db.ClassTables.FindAsync(id);
+                db.ClassTables.Remove(classTable);
+                await db.SaveChangesAsync();
+                TempData["success"] = "Class DELETED successfully";
+                return RedirectToAction("Index");
+            }catch(Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return RedirectToAction("Index");
+            }
         }
 
         public ActionResult studentsPerclass(int? id)
         {
-            var studentyear = DateTime.Now.Year;
-            var students = db.StudentsTables.Where(a => a.Class_id == id /*&& a.Year.Equals(studentyear)*/).ToList();
-            return View(students);
+            try
+            {
+                var studentyear = DateTime.Now.Year;
+                var students = db.StudentsTables.Where(a => a.Class_id == id /*&& a.Year.Equals(studentyear)*/).ToList();
+                return View(students);
+            }catch(Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return View();
+            }
         }
 
 

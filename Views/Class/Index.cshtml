@@ -6,7 +6,10 @@
 
 }
 
+<a href="@Url.Action("Create", "Class")" class="btn btn-icon btn-primary mb-2"><i class="fas fa-plus"></i> <span>Add Class</span></a>
+
 <div class="row ">
+
     @foreach (var item in Model)
     {
 
@@ -16,22 +19,22 @@
                     <div class="dropdown">
                         <a href="#" data-toggle="dropdown" class="btn btn-light dropdown-toggle">
                             <i class="fas fa-cog"></i>
-                        </a> 
-                        
+                        </a>
+
                         <div class="dropdown-menu">
-                            <a href="@Url.Action("classSubjects", "subject_class", new { id = item.Class_id })" class=" pt-4 ml-0 dropdown-item has-icon"><i class="fas fa-eye"></i>View Subjects </a>
+                            <a href="@Url.Action("classSubjects", "subject_class", new { id = item.Class_id })" class=" pt-4 ml-0 dropdown-item has-icon"><i class="fas fa-eye"></i>class Subjects </a>
 
                             <a href="@Url.Action("studentsPerclass", "Class", new { id = item.Class_id })" class=" pt-4 ml-0 dropdown-item has-icon"><i class="fas fa-eye"></i>View Students </a>
 
-                            <a href="@Url.Action("Details", "Class", new { id = item.Class_id })" class="dropdown-item has-icon"><i class="fas fa-eye"></i>View </a>
+                            @*<a href="@Url.Action("Details", "Class", new { id = item.Class_id })" class="dropdown-item has-icon"><i class="fas fa-eye"></i>View </a>*@
                             <a href="@Url.Action("Edit", "Class", new { id = item.Class_id })" class="dropdown-item has-icon"><i class="far fa-edit"></i>Edit</a>
                             <div class="dropdown-divider"></div>
-                            <a href="@Url.Action("Delete", "Class", new { id = item.Class_id })" class="dropdown-item has-icon text-danger">
-                                <i class="far fa-trash-alt"></i>delete
-                            </a>
+                            @*<a href="@Url.Action("Delete", "Class", new { id = item.Class_id })" class="dropdown-item has-icon text-danger">
+                                    <i class="far fa-trash-alt"></i>delete
+                                </a>*@
                         </div>
                     </div>
-                   
+
                 </div>
                 <div class="card-statistic-4">
                     <div class="align-items-center justify-content-between">

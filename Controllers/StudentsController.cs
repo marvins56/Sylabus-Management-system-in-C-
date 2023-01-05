@@ -53,11 +53,19 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Student_id,Student_Name,Class_id,Term_id,year_Id")] StudentsTable studentsTable)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.StudentsTables.Add(studentsTable);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.StudentsTables.Add(studentsTable);
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Student Created Successfully";
+                    return RedirectToAction("Index");
+                }
+            }catch(Exception e)
+            {
+                TempData["error"] = e.Message;
+
             }
 
             ViewBag.Class_id = new SelectList(db.ClassTables, "Class_id", "Class_Name", studentsTable.Class_id);
@@ -88,11 +96,18 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Student_id,Student_Name,Class_id,Term_id,year_Id")] StudentsTable studentsTable)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(studentsTable).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(studentsTable).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Student Chnages Saved Successfully";
+                    return RedirectToAction("Index");
+                }
+            }catch (Exception e)
+            {
+                TempData["error"] = e.Message;
             }
             ViewBag.Class_id = new SelectList(db.ClassTables, "Class_id", "Class_Name", studentsTable.Class_id);
             ViewBag.Term_id = new SelectList(db.Terms, "Term_Id", "term1", studentsTable.Term_id);
@@ -120,10 +135,19 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            StudentsTable studentsTable = await db.StudentsTables.FindAsync(id);
-            db.StudentsTables.Remove(studentsTable);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            try
+            {
+                StudentsTable studentsTable = await db.StudentsTables.FindAsync(id);
+                db.StudentsTables.Remove(studentsTable);
+                await db.SaveChangesAsync();
+                TempData["success"] = "DELETED successfully";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return RedirectToAction("Index");
+            }
         }
 
         public ActionResult studentMarks(int? id)
@@ -159,18 +183,29 @@ namespace SMIS.Controllers
 
         public List<StudentsTable> get_student(int? id)
         {
-            var studnts = db.StudentsTables.Where(a => a.Student_id == id).ToList();
-            return (studnts);
+            try
+            {
+                var studnts = db.StudentsTables.Where(a => a.Student_id == id).ToList();
+                return (studnts);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return null;
+            }
         }
         public List<MidtermMarksTable> Get_student_marks_info(int? id)
         {
-           var std_marks = db.MidtermMarksTables.Where(a=>a.Student_id == id).ToList();
-            return std_marks;
+            try
+            {
+                var std_marks = db.MidtermMarksTables.Where(a => a.Student_id == id).ToList();
+                return std_marks;
+            }catch(Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return null;
+            }
         }
-
-
-
-
 
         protected override void Dispose(bool disposing)
         {

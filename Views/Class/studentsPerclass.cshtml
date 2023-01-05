@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<SMIS.Models.StudentsTable>
 @{
-    Layout = "~/Views/Shared/_smisLayout.cshtml";
+    Layout = "~/Views/Shared/_Emptybg.cshtml";
     var count = 1;
 }
 
@@ -11,14 +11,18 @@
         <button class="close" data-dismiss="alert">
             <span>&times;</span>
         </button>
-        <p>To view tudent marks,kindly click on the student to view student marks</p>
+        <p>To view student marks,kindly click on the student to view student marks</p>
     </div>
 </div>
 
-<div class="col-6 col-md-6 col-lg-12">
+
     <div class="card">
         <div class="card-header">
-            <h4>...</h4>
+            <h4>
+                <a href="@Url.Action("Index", "Class")">
+                    <i class="fas fa-chevron-left fa-3x"></i>
+                </a>
+            </h4>
         </div>
         <div class="card-body">
             <div id="accordion">
@@ -29,17 +33,14 @@
                              aria-expanded="true">
                             <h4> @Html.DisplayFor(modelItem => item.Student_Name)</h4>
                         </div>
-                        <div class="accordion-body collapse show " id="panel-body-@count" data-parent="#accordion">
+                        <div class="accordion-body collapse " id="panel-body-@count" data-parent="#accordion">
 
-                            @if (count == 1)
+                            @if (count > 0)
                             {
-                               
                                     Html.RenderAction("Student_marks", "Students", new { student_id = item.Student_id });
 
                             }
-                            else
-                            { Html.RenderAction("Student_marks", "Students", new { student_id = item.Student_id });}
-
+                            
                         
                         </div>
                         </div>
@@ -48,7 +49,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 @*<td>
     @Html.ActionLink("Edit", "Edit", new { id = item.Student_id }) |

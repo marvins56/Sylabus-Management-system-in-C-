@@ -54,11 +54,18 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Marks_id,Subject_id,Student_id,Class_id,Marks,Status,Term_id,year_Id")] MidtermMarksTable midtermMarksTable)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.MidtermMarksTables.Add(midtermMarksTable);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.MidtermMarksTables.Add(midtermMarksTable);
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Marks Added successfully";
+                    return RedirectToAction("index", "Class");
+                }
+            }catch(Exception ex)
+            {
+                TempData["error"] = ex.Message;
             }
 
             ViewBag.Class_id = new SelectList(db.ClassTables, "Class_id", "Class_Name", midtermMarksTable.Class_id);
@@ -94,11 +101,19 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Marks_id,Subject_id,Student_id,Class_id,Marks,Status,Term_id,year_Id")] MidtermMarksTable midtermMarksTable)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(midtermMarksTable).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(midtermMarksTable).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    TempData["success"] = "Marks Added successfully";
+                    return RedirectToAction("index", "Class");
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
             }
             ViewBag.Class_id = new SelectList(db.ClassTables, "Class_id", "Class_Name", midtermMarksTable.Class_id);
             ViewBag.Student_id = new SelectList(db.StudentsTables, "Student_id", "Student_Name", midtermMarksTable.Student_id);
@@ -128,10 +143,19 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            MidtermMarksTable midtermMarksTable = await db.MidtermMarksTables.FindAsync(id);
-            db.MidtermMarksTables.Remove(midtermMarksTable);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            try
+            {
+                MidtermMarksTable midtermMarksTable = await db.MidtermMarksTables.FindAsync(id);
+                db.MidtermMarksTables.Remove(midtermMarksTable);
+                await db.SaveChangesAsync();
+                TempData["success"] = "Marks DELETED successfully";
+                return RedirectToAction("Index", "Class");
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return RedirectToAction("Index", "Class");
+            }
         }
 
         protected override void Dispose(bool disposing)

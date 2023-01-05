@@ -3,47 +3,36 @@
 @model StudentMarks
 @{
     ViewBag.Title = "Student Marks";
-    Layout = "~/Views/Shared/_smisLayout.cshtml";
+    Layout = "~/Views/Shared/_Emptybg.cshtml";
 
 }
-<div class="card">
-    <div class="card-header">
-        <h4>Hover</h4>
-    </div>
-    <div class="card-body">
-        <div class="section-title mt-0">Light</div>
-        <table class="table table-hover">
+<table class="table table-hover ">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">subject</th>
+                    <th scope="col">Marks</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>at</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>twitter</td>
-                </tr>
+                @foreach (var item in Model.stdntMarks)
+                {
+                    <tr>
+                        <td>@item.SubjectTable.Name</td>
+                        <td>@item.Marks</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Marks", new { id = item.Marks_id })" class="dropdown-item has-icon btn-outline-primary"><i class="far fa-edit"></i>Edit</a>
+
+                        </td>
+                    </tr>
+                }
+                @if (Model.stdntMarks.Count() == 0)
+                {
+
+                    <button type="button" class="btn btn-outline-danger  mb-2 ml-2"> No marks Allocated</button>
+
+                }
             </tbody>
         </table>
-      
-    </div>
-</div>
-
+   
 
