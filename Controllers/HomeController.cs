@@ -8,14 +8,42 @@ using System.Web.Mvc;
 
 namespace SMIS.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private SMISEntities db = new SMISEntities();
         public ActionResult Index()
+
         {
-            return View();
+            var students = get_Students();
+            var classes  = get_Classes();
+            var subjects = get_subjects();
+
+            Overal_Dashboard dashboard_content = new Overal_Dashboard();
+            dashboard_content.students= students;
+            dashboard_content.classes = classes;
+            dashboard_content.subjects = subjects;
+
+
+            return View(dashboard_content);
         }
-        
+        public List<StudentsTable> get_Students()
+        {
+            var result = db.StudentsTables.ToList();
+            return result;
+        }
+        public List<ClassTable> get_Classes()
+        {
+            var result = db.ClassTables.ToList();
+            return result;
+        }
+        public List<SubjectTable> get_subjects()
+        {
+            var result = db.SubjectTables.ToList();
+            return result;
+        }
+
+
 
     }
 }

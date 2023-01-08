@@ -12,8 +12,7 @@
                     </div>
                     <div class="card-body">
                         <div class="video-frame">
-                            <video id="VideoPlayer" src='@Url.Action("DownloadFile", "Topics", new {fileId = file.Topic_id})' controls="true"
-                                   style="width:100%; height:auto; " loop="true" />
+                            <video id="VideoPlayer" src='@Url.Action("DownloadFile", "Topics", new {fileId = file.Topic_id})' controls="true"  style="width:100%; height:auto;" loop="true" />
                         </div>
                         <hr class="padding-2" />
                         <div class="card-footer">
@@ -21,7 +20,7 @@
                             @file.Overview
                         </div>
 
-                        @*<a href="@Url.Action("Details","Videos", new {id = file.Id})" class="btn btn-primary"> DETAILS</a>*@
+                        <a href="@Url.Action("Details","Videos", new {id = file.Topic_id})" class="btn btn-primary"> DOWNLOAD</a>
                     </div>
 
 

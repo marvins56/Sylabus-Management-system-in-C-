@@ -81,7 +81,7 @@ namespace SMIS
                     await client.SendEmailAsync(msg);
                 }catch(Exception e)
                 {
-                    Trace.TraceError("Error sending Mail");
+                    Trace.TraceError(e.Message);
                    
                 }
             }

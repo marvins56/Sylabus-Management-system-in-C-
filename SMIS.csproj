@@ -1555,6 +1555,7 @@
     <Content Include="Views\Shared\_Emptybg.cshtml" />
     <Content Include="Views\Topics\vidoes.cshtml" />
     <Content Include="Views\Students\Student_marks.cshtml" />
+    <Content Include="Views\Topics\topicName.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -54,6 +54,7 @@ namespace SMIS.Controllers
             return PartialView("progressbar",null);
 
         }
+        
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)

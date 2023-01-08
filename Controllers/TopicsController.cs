@@ -27,7 +27,6 @@ public async Task<ActionResult> Index()
         [ChildActionOnly]
         public PartialViewResult subjecttopics(int? weekid)
         {
-
             if (weekid == null)
             {
                 TempData["error"] = "ERROR INVALID ID";
@@ -57,11 +56,9 @@ public async Task<ActionResult> Index()
         [ChildActionOnly]
         public PartialViewResult vidoes(int? weekid)
         {
-
             if (weekid == null)
             {
                 TempData["error"] = "ERROR INVALID ID";
-
             }
             else
             {
@@ -70,7 +67,7 @@ public async Task<ActionResult> Index()
                     var subject = Convert.ToInt32(Session["subjectid"]);
                     var classid = Convert.ToInt32(Session["classid"]);
 
-                    var result = db.TopicsTables.Where(a => a.Week_id == weekid && a.Class_id == classid && a.Subject_id == subject).ToList();
+                    var result = db.TopicsTables.Where(a => a.Week_id == weekid && a.Class_id == classid && a.Subject_id == subject && a.ContentType == "video/mp4").ToList();
                     TempData["info"] = "Fetching Data please Wait..";
                     return PartialView("vidoes", result);
                 }
@@ -187,7 +184,6 @@ public async Task<ActionResult> Index()
             return View(topicsTable);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Topic_id,Topic_Name,Class_id,IsComplete,DateTime,Subject_id,Term_id,year_Id,Week_id,Overview,File,ContentType,Data")] TopicsTable topicsTable)
@@ -221,7 +217,6 @@ public async Task<ActionResult> Index()
             return View(topicsTable);
         }
 
-        // POST: Topics/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
@@ -232,6 +227,12 @@ public async Task<ActionResult> Index()
             return RedirectToAction("Index");
         }
 
+        [ChildActionOnly]
+        public PartialViewResult topicName(int topicsid)
+        {
+                var result = db.TopicsTables.Where(a => a.Topic_id == topicsid).Select(a => a.Topic_Name).FirstOrDefault();
+                return PartialView("topicName", result);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

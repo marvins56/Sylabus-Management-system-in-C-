@@ -1,4 +1,8 @@
-﻿@{
+﻿
+@using SMIS.Models.ViewModel
+@model  Overal_Dashboard
+
+@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_smisLayout.cshtml";
 
@@ -12,9 +16,22 @@
                         <div class="row ">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                 <div class="card-content">
-                                    <h5 class="font-15">New Booking</h5>
-                                    <h2 class="mb-3 font-18">258</h2>
-                                    <p class="mb-0"><span class="col-green">10%</span> Increase</p>
+                                    <h5 class="font-15">Classess</h5>
+                                    <h2 class="mb-3 font-18">
+                                        @{
+                                            var result1 = Model.classes.Count();
+                                            if (result1 > 0)
+                                            {
+                                                @result1;
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-danger">No Data </button>
+                                            }
+                                        }
+                                    </h2>
+                                    <a href="@Url.Action("Index", "Class") " class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
+                                       title="Manage sysllabus ">Manage </a>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -56,12 +73,22 @@
                         <div class="row ">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                 <div class="card-content">
-                                    <h5 class="font-15">New Project</h5>
-                                    <h2 class="mb-3 font-18">128</h2>
-                                    <p class="mb-0">
-                                        <span class="col-green">18%</span>
-                                        Increase
-                                    </p>
+                                    <h5 class="font-15">Students</h5>
+                                    <h2 class="mb-3 font-18">
+                                        @{
+                                            var result = Model.students.Count();
+                                            if (result > 0)
+                                            {
+                                                @result;
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-danger">No Data </button>
+                                            }
+                                        }
+                                    </h2>
+                                    <a href="@Url.Action("Index", "Students")" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
+                                       title="Manage students ">Manage </a>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -81,9 +108,23 @@
                         <div class="row ">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                 <div class="card-content">
-                                    <h5 class="font-15">Revenue</h5>
-                                    <h2 class="mb-3 font-18">$48,697</h2>
-                                    <p class="mb-0"><span class="col-green">42%</span> Increase</p>
+                                    <h5 class="font-15">Subjects</h5>
+                                    <h2 class="mb-3 font-18">
+                                        @{
+                                            var res = Model.subjects.Count();
+                                            if (res > 0)
+                                            {
+                                                @res;
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-danger">No Data </button>
+                                            }
+                                        }
+                                    </h2>
+
+                                    <a href="@Url.Action("Index", "Subjects") " class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
+                                       title="Manage subjects ">Manage </a>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -593,82 +634,46 @@
         <div class="col-md-6 col-lg-12 col-xl-6">
             <div class="card">
                 <div class="card-header">
-                    <h4>Projects Payments</h4>
+                    <h4>CLASS MANAGEMENT</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-hover mb-0">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Client Name</th>
-                                    <th>Date</th>
-                                    <th>Payment Method</th>
-                                    <th>Amount</th>
+
+                                    <th>Class</th>
+                                    <th>Action</th>
+                                    <th></th>
+                                    <th></th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>John Doe </td>
-                                    <td>11-08-2018</td>
-                                    <td>NEFT</td>
-                                    <td>$258</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>
-                                        Cara Stevens
-                                    </td>
-                                    <td>15-07-2018</td>
-                                    <td>PayPal</td>
-                                    <td>$125</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>
-                                        Airi Satou
-                                    </td>
-                                    <td>25-08-2018</td>
-                                    <td>RTGS</td>
-                                    <td>$287</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>
-                                        Angelica Ramos
-                                    </td>
-                                    <td>01-05-2018</td>
-                                    <td>CASH</td>
-                                    <td>$170</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>
-                                        Ashton Cox
-                                    </td>
-                                    <td>18-04-2018</td>
-                                    <td>NEFT</td>
-                                    <td>$970</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>
-                                        John Deo
-                                    </td>
-                                    <td>22-11-2018</td>
-                                    <td>PayPal</td>
-                                    <td>$854</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>
-                                        Hasan Basri
-                                    </td>
-                                    <td>07-09-2018</td>
-                                    <td>Cash</td>
-                                    <td>$128</td>
-                                </tr>
+
+                                @foreach (var item in Model.classes)
+                                {
+                                    <tr>
+                                       
+                                        <td>
+                                           @item.Class_Name
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("classSubjects", "subject_class", new { id = item.Class_id }) " class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
+                                               title="View Class subjects">subjects</a>
+
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("studentsPerclass", "Class", new { id = item.Class_id })" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
+                                               title="View students in class"> Students</a>
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("Edit", "Class", new { id = item.Class_id })" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
+                                               title="Edit class data">  class</a>
+                                        </td>
+                                       
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>

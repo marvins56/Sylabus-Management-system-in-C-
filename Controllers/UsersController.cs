@@ -22,10 +22,7 @@ namespace SMIS.Controllers
             return View(await db.AspNetUsers.ToListAsync());
         }
 
-        public ActionResult Dashboard()
-        {
-            return View();
-        }
+       
        
 
 
@@ -161,7 +158,17 @@ namespace SMIS.Controllers
             
         }
 
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
        
+
+
+
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

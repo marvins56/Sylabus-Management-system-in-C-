@@ -2,27 +2,25 @@
 
 <div class="col-12 col-sm-12 col-lg-12">
     <div class="card gradient-bottom">
-      
+     
         <div class="card-body" id="top-5-scroll">
             <ul class="list-unstyled list-unstyled-border">
-                @foreach (var topicName in ViewBag.topicNames)
-                {
-                    foreach (var item in Model)
+               
+                    @foreach (var item in Model)
                     {
-
-                        if (item.Topic_id == topicName.Topic_id)
+                        
+                        if (item.value == 0)
                         {
-                            if (item.value == 0)
-                            {
-
-                                <li class="media">
+                            <li class="media">
                                     <img class="mr-3 rounded" width="55" src="~/Content/assets/img/products/product-1.png" alt="product">
                                     <div class="media-body">
                                         <div class="float-right">
                                             <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
                                         </div>
                                         <div class="media-title">
-                                            @topicName
+                                            @{
+                                                Html.RenderAction("topicName", "Topics", new { topicsid = item.Topic_id });  
+                                              }
                                         </div>
                                         <div class="mt-1">
                                             <div class="budget-price">
@@ -44,7 +42,8 @@
                                             <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
                                         </div>
                                         <div class="media-title">
-                                            @topicName
+                                            @{Html.RenderAction("topicName", "Topics", new { topicsid = item.Topic_id });}
+
                                         </div>                                <div class="mt-1">
                                             <div class="budget-price">
                                                 <div class="budget-price-square bg-danger" data-width="@item.value%"></div>
@@ -65,7 +64,8 @@
                                             <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
                                         </div>
                                         <div class="media-title">
-                                            @topicName
+                                            @{Html.RenderAction("topicName", "Topics", new { topicsid = item.Topic_id });}
+
                                         </div>                                <div class="mt-1">
                                             <div class="budget-price">
                                                 <div class="budget-price-square bg-warning" data-width="@item.value%"></div>
@@ -86,7 +86,8 @@
                                             <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
                                         </div>
                                         <div class="media-title">
-                                            @topicName
+                                            @{Html.RenderAction("topicName", "Topics", new { topicsid = item.Topic_id });}
+
                                         </div>
                                         <div class="mt-1">
                                             <div class="budget-price">
@@ -107,7 +108,10 @@
                                         <div class="float-right">
                                             <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
                                         </div>
-                                        <div class="media-title">@topicName</div>
+                                        <div class="media-title">
+                                            @{Html.RenderAction("topicName", "Topics", new { topicsid = item.Topic_id });}
+
+                                        </div>
                                         <div class="mt-1">
                                             <div class="budget-price">
                                                 <div class="budget-price-square bg-success" data-width="@item.value%"></div>
@@ -127,7 +131,8 @@
                                             <div class="font-weight-600 text-muted text-small">@item.Datetime</div>
                                         </div>
                                         <div class="media-title">
-                                            @topicName
+                                            @{Html.RenderAction("topicName", "Topics", new { topicsid = item.Topic_id });}
+
                                         </div>
                                         <div class="mt-1">
                                             <div class="budget-price">
@@ -141,8 +146,6 @@
                             }
                         }
 
-                    }
-                }
             </ul>
         </div>
         <div class="col-12 col-sm-12 col-lg-12">

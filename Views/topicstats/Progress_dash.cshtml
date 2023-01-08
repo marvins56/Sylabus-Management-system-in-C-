@@ -56,7 +56,9 @@
 
                             if (weekids.Equals(week.Week_id))
                             {
-                                    { Html.RenderAction("progressbar", "topicstats", new { weekid = week.Week_id }); }
+                                    { 
+                                    Html.RenderAction("progressbar", "topicstats", new { weekid = week.Week_id }); 
+                                    }
                             }
                         }
                         else {
@@ -67,8 +69,6 @@
 
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
