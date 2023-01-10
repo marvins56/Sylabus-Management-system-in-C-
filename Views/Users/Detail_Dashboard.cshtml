@@ -26,36 +26,162 @@
                     <button type="button" class="btn btn-outline-dark mb-2 ml-2 ">PENDING</button>
                 }
             </li>
-            <li>
-                <i class="fas fa-user-circle fa-3x"></i> Teacher:
-                @if (TempData["subject"] != null)
-                {
+            <p> this section contains-</p>
+            <li>Statistics</li>
+            <li>subject Videos</li>
+            <li>progress stats and forms</li>
+            <li>Allocated assignements or tests</li>
 
-                    <button type="button" class="btn btn-outline-dark mb-2 ml-2">@TempData["subject"]</button>
-                }
-                else
-                {
-                    <button type="button" class="btn btn-outline-dark  mb-2 ml-2">PENDING</button>
-                }
-            </li>
-            <li>
-                <i class="fas fa-book-reader fa-3x"></i> Overview:
 
-                @if (TempData["subject"] != null)
-                {
 
-                    <button type="button" class="btn btn-outline-dark mb-2 ml-2">@TempData["subject"]</button>
-                }
-                else
-                {
-                    <button type="button" class="btn btn-outline-dark mb-2 ml-2 ">PENDING</button>
-                }
-
-            </li>
-            
         </ul>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-6 col-lg-12 col-xl-12">
+
+        <div class="card ">
+            <div class="card-header">
+                <h4>CLASS STATISTICS </h4>
+                <div class="card-header-action">
+                   
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div id="chart16">
+                            @*@foreach(var item in Model.stats)
+            {
+                @item.value;<span>,</span>
+                  
+
+            }*@
+
+                            <script>
+
+                                var options = {
+                                    chart: {
+                                        height: 350,
+                                        type: 'bar',
+                                    },
+                                    dataLabels: {
+                                        enabled: false
+                                    },
+                                    series: [],
+                                    title: {
+                                        text: 'Ajax Example',
+                                    },
+                                    noData: {
+                                        text: 'Loading...'
+                                    }
+                                }
+
+                                var chart = new ApexCharts(
+                                    document.querySelector("#chart"),
+                                    options
+                                );
+
+                                chart.render();
+
+
+                                var url = 'Users/Getstats';
+
+                                $.getJSON(url, function (response) {
+                                    chart.updateSeries([{
+                                        name: 'progress',
+                                        data: response
+                                    }])
+                                });
+                            </script>
+                        </div>
+                        <div class="row mb-0">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="list-inline text-center">
+                                    <div class="list-inline-item p-r-30">
+                                        <i data-feather="arrow-up-circle"
+                                           class="col-green"></i>
+                                        <h5 class="m-b-0">$675</h5>
+                                        <p class="text-muted font-14 m-b-0">Weekly Earnings</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="list-inline text-center">
+                                    <div class="list-inline-item p-r-30">
+                                        <i data-feather="arrow-down-circle"
+                                           class="col-orange"></i>
+                                        <h5 class="m-b-0">$1,587</h5>
+                                        <p class="text-muted font-14 m-b-0">Monthly Earnings</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="list-inline text-center">
+                                    <div class="list-inline-item p-r-30">
+                                        <i data-feather="arrow-up-circle"
+                                           class="col-green"></i>
+                                        <h5 class="mb-0 m-b-0">$45,965</h5>
+                                        <p class="text-muted font-14 m-b-0">Yearly Earnings</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="row mt-5">
+                            <div class="col-7 col-xl-7 mb-3">Number of topics</div>
+                            <div class="col-5 col-xl-5 mb-3">
+                                <span class="text-big">
+                                    @{
+                                        var result3 = Model.topicscount.Count();
+                                        if (result3 > 0)
+                                        {
+                                            @result3;
+                                        }
+                                        else
+                                        {
+                                            <a  class="btn btn-danger">No Data </a>
+                                        }
+                                    }
+                                </span>
+                            </div>
+                            
+                            <div class="col-7 col-xl-7 mb-3">number of videos</div>
+                            <div class="col-5 col-xl-5 mb-3">
+                                <span class="text-big">
+                                    @{
+                                        var result1 = Model.videos.Count();
+                                        if (result1 > 0)
+                                        {
+                                            @result1;
+                                        }
+                                        else
+                                        {
+                                    <p class="btn btn-danger">No Data </p>                                        }
+                                    }
+
+
+                                </span>
+                                
+                            </div>
+                            <div class="col-7 col-xl-7 mb-3">number of assignments</div>
+                            <div class="col-5 col-xl-5 mb-3">
+                                <span class="text-big">
+                                    <p class="btn btn-danger">No Data </p>                                        
+
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
@@ -69,10 +195,12 @@
 
                         <div class="accordion">
                             <div class="accordion-header" @*role="button"*@ data-toggle="collapse" data-target="#panel-body-@count">
-                                <h4> <i data-feather="command"></i> @item.Week_Name
-                                <span>
-    <a href="@Url.Action("Progress_dash", "topicstats", new {weeksid = item.Week_id})" class="btn btn-outline-primary ">VIEW PROGRESS</a>
-</span></h4>                       
+                                <h4>
+                                    <i data-feather="command"></i> @item.Week_Name
+                                    <span>
+                                        <a href="@Url.Action("Progress_dash", "topicstats", new {weeksid = item.Week_id})" class="btn btn-outline-primary ">VIEW PROGRESS</a>
+                                    </span>
+                                </h4>
 
                             </div>
                             <div class="accordion-body collapse" id="panel-body-@count" data-parent="#accordion">
@@ -116,7 +244,7 @@
                                                             </div>
 
                                                         </div>
-                                                        
+
                                                         @{Html.RenderAction("subjecttopics", "Topics", new { weekid = item.Week_id });}
 
                                                     </div>
@@ -163,7 +291,3 @@
         </div>
     </div>
 </div>
-
-
- 
-    
