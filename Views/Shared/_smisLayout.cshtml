@@ -2,8 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- index.html  21 Nov 2019 03:44:50 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
@@ -69,16 +67,7 @@
 
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "AspNetRoles")">
-                                        <i class="material-icons">account_box</i> <span class="icon-name">Roles</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="#">
-                                        <i class="material-icons">account_box</i> <span class="icon-name">UserRoles</span>
-                                    </a>
-                                </li>
+
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -102,13 +91,13 @@
                                 </li>
                             </ul>
                         </li>
-                       
+
                         <li class="dropdown">
                             <a href="#" class="menu-toggle nav-link has-dropdown">
                                 <i class="fas fa-cog"></i></i><span>Syllabus Statistics </span>
                             </a>
                             <ul class="dropdown-menu">
-                            
+
                                 <li>
                                     <a class="nav-link" href="@Url.Action("Index", "Topics")">
                                         <i data-feather="copy">
@@ -147,24 +136,6 @@
 
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown">
-                                <i class="fas fa-cog"></i></i><span> Other Setting</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "Weeks")">
-                                        <i class="material-icons">date_range</i> <span class="icon-name">Weeks</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="@Url.Action("Index", "Years")">
-                                        <i class="material-icons">date_range</i> <span class="icon-name">Years</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
 
                     </ul>
                 </aside>
@@ -298,6 +269,8 @@
     <!-- Custom JS File -->
     <script src="~/Content/assets/js/custom.js"></script>
     <script src="~/Content/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
     <!-- Page Specific JS File -->
     <script src="~/Content/assets/js/page/advance-table.js"></script>
     <script src="~/Content/assets/bundles/sweetalert/sweetalert.min.js"></script>
@@ -306,6 +279,4 @@
     @RenderSection("scripts", required: false)
 </body>
 
-
-<!-- index.html  21 Nov 2019 03:47:04 GMT -->
 </html>

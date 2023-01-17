@@ -11,6 +11,8 @@
                 <tr>
                     <th scope="col">subject</th>
                     <th scope="col">Marks</th>
+                    <th scope="col">Term</th>
+                    <th scope="col">Comment</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -20,6 +22,8 @@
                     <tr>
                         <td>@item.SubjectTable.Name</td>
                         <td>@item.Marks</td>
+                        <td>@item.Term.term1</td>
+                        <td>@item.Status</td>
                         <td>
                             <a href="@Url.Action("Edit", "Marks", new { id = item.Marks_id })" class="dropdown-item has-icon btn-outline-primary"><i class="far fa-edit"></i>Edit</a>
 

@@ -87,7 +87,7 @@ namespace SMIS.Controllers
             }
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: true);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -104,7 +104,7 @@ namespace SMIS.Controllers
             }
         }
 
-        //
+        
         // GET: /Account/VerifyCode
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
@@ -352,6 +352,7 @@ namespace SMIS.Controllers
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {
+                TempData["error"] = "NO USER DATA FETCHED";
                 return RedirectToAction("Login");
             }
 
@@ -435,7 +436,7 @@ namespace SMIS.Controllers
 
             return callbackUrl;
         }
-        //
+        
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()

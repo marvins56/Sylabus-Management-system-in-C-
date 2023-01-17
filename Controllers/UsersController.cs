@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using SMIS.Models;
 using SMIS.Models.ViewModel;
+using Newtonsoft.Json;
 
 namespace SMIS.Controllers
 {
@@ -181,23 +182,41 @@ namespace SMIS.Controllers
             return res;
         }
         
-        public JsonResult Getstats( )
-        {
-            var classid = Session["cid"];
-            var subjectid = Session["sbid"];
-            var res = db.topicstats.Where(a => a.Class_id == classid && a.Subject_id == subjectid).Select(a=>a.value).ToList();
-            return Json(res, JsonRequestBehavior.AllowGet);
-        }
+        //public JsonResult Getstats( )
+        //{
+        //    var classid = Session["cid"];
+        //    var subjectid = Session["sbid"];
+        //    var res = db.topicstats.Where(a => a.Class_id == classid && a.Subject_id == subjectid).Select(a=>a.value).ToList();
+        //    return Json(res, JsonRequestBehavior.AllowGet);
+        //}
         public ActionResult Dashboard()
         {
             return View();
         }
-       
 
+        [ChildActionOnly]
+        public PartialViewResult chart()
+        {
+            try
+            {
+                var classid = Convert.ToInt32(Session["cid"]);
+                var subjectid = Convert.ToInt32(Session["sbid"]);
+                var dta = db.topicstats.Where(a => a.Class_id == classid && a.Subject_id == subjectid).Select(a => new { a.Topic_id, a.value, }).ToList();
+                List<DataPoint> dataPoints = new List<DataPoint>();
+                foreach(var d in dta)
+                {
+                    var topicname = db.TopicsTables.Where(a => a.Topic_id == d.Topic_id).Select(a => a.Topic_Name).FirstOrDefault();
+                    dataPoints.Add(new DataPoint(topicname, d.value));
+                    ViewBag.datapoints = JsonConvert.SerializeObject(dataPoints);
+                }
 
-
-
-
+                return PartialView("chart");
+            }catch(Exception e)
+            {
+                TempData["error"] = e.Message;
+                return PartialView("chart", null);
+            }
+        }
 
         protected override void Dispose(bool disposing)
         {

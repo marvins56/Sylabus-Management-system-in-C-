@@ -21,11 +21,9 @@ using SendGrid.Helpers.Mail;
 using SMIS.Models;
 
 
-
 namespace SMIS
 {
    
-
     public class EmailService : IIdentityMessageService
     {
         public async Task SendAsync(IdentityMessage message)

@@ -46,17 +46,17 @@ namespace SMIS
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            app.UseMicrosoftAccountAuthentication(
-                clientId: "0a98bb08-639a-4ae8-8cee-f56c89483b4c",
-                clientSecret: "5d82a46e-894e-411f-98f2-f71873f827a0");
+            //app.UseMicrosoftAccountAuthentication(
+            //    clientId: "0a98bb08-639a-4ae8-8cee-f56c89483b4c",
+            //    clientSecret: "5d82a46e-894e-411f-98f2-f71873f827a0");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            ////app.UseTwitterAuthentication(
+            ////   consumerKey: "",
+            ////   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "628700462369980",
-               appSecret: "748f89b45a40708be8ff66bea5475114");
+            //app.UseFacebookAuthentication(
+            //   appId: "628700462369980",
+            //   appSecret: "748f89b45a40708be8ff66bea5475114");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {

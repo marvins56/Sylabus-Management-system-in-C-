@@ -1,0 +1,28 @@
+﻿@using SMIS.Models.ViewModel
+@model DataPoint
+@{
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
+}
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Number of Employees under Each Manager"
+	},
+	axisY: {
+		title: "No. of Employees"
+	},
+	data: [{
+		type: "column",
+		dataPoints: @Html.Raw(ViewBag.datapoints)
+	}]
+});
+chart.render();
+
+}
+</script>
+
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
