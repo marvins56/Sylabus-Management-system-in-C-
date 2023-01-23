@@ -17,8 +17,9 @@
                     @foreach (var item in Model.subtopics)
                     {
                         <div class="mb-2">
-                            <span class="text-job"> @item.SubTopic;</span>
-                            <span class="bullet"></span>
+                            <span class="text-job"> @item.SubTopic </span>
+                            <span class="bullet ml-3">   <i class="fas fa-calendar"></i> @item.Datetime;</span>
+                       
 
                             <div class="float-left dropdown">
                                 <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-h mr-3"></i></a>
@@ -41,7 +42,7 @@
                 </div>
             </div>
 
-            <div class="activity">
+            @*<div class="activity">
 
                 <div class="activity-icon bg-primary text-white">
                     <i class="fas fa-arrows-alt"></i>
@@ -68,7 +69,7 @@
                     }
 
                 </div>
-            </div>
+            </div>*@
         </div>
     </div>
 </div>

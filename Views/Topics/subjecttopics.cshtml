@@ -7,23 +7,7 @@
 
                 <div class="card l-bg-cyan">
 
-                    <div class="card-header-action">
-                        <div class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="btn btn-light   dropdown-toggle">
-                                <i class="fas fa-cog"></i>
-                            </a>
-
-                            <div class="dropdown-menu">
-                                <a href="@Url.Action("Details", "Topics", new { id = topic.Topic_id })" class="dropdown-item has-icon"><i class="fas fa-eye"></i>View </a>
-                                <a href="@Url.Action("Edit", "Topics", new { id = topic.Topic_id })" class="dropdown-item has-icon"><i class="far fa-edit"></i>Edit</a>
-                                <div class="dropdown-divider"></div>
-                                @*<a href="@Url.Action("Delete", "Topics", new { id = topic.Topic_id})" class="dropdown-item has-icon text-danger">
-                             <i class="far fa-trash-alt"></i>delete
-                             </a>*@  
-                            </div>
-                        </div>
-
-                    </div>
+                    
                     <div class="card-statistic-3">
                         <div class="card-icon card-icon-large"><i class="fa fa-award"></i></div>
                         <div class="card-content">
@@ -68,20 +52,8 @@
                                     }
                                 </div>
                             </span>
-                            @*@{Html.RenderAction("progressbar", "topicstats", new { weekid = topic.Week_id });}*@
-                            @*<p class="mb-0 text-sm">
-            <span class="mr-2">
-                <ul>
-                    @foreach (var subtopic in Model.subtopics)
-                    {
-                        <li>
-                            @subtopic.SubTopic
-                        </li>
-                    }
-                    </ul>
-            </span>
-
-        </p>*@
+                           @{Html.RenderAction("progressbar", "topicstats", new { weekid = topic.Week_id,topicid = topic.Topic_id });}
+                         
                         </div>
                     </div>
                 </div>

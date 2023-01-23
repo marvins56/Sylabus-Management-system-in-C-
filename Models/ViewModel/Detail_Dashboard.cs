@@ -14,6 +14,8 @@ namespace SMIS.Models.ViewModel
       
         public List<SubTopicsTable> subtopics { get; set; }
         public List<topicstat> stats { get; set; }
+        public List<MidtermMarksTable> stdntMarks { get; set; }
+        public List<StudentsTable> student { get; set; }
 
 
     }

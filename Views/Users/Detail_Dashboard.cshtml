@@ -32,116 +32,104 @@
             <li>progress stats and forms</li>
             <li>Allocated assignements or tests</li>
 
-
-
         </ul>
+
     </div>
 </div>
 
-<div class="card ">
-    <div class="card-body">
-        
-        <div class="card-header-action">
+<div class="row">
+    <div class="col-md-6 col-lg-12 col-xl-12">
 
-        </div>
-    </div>
-</div>
-    <div class="row">
-        <div class="col-md-6 col-lg-12 col-xl-12">
+        <div class="card ">
+            <div class="card-header">
+                <h4>CLASS STATISTICS </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-9">
+                        @{Html.RenderAction("Subject_stats", "Users");}
+                        
 
-            <div class="card ">
-                <div class="card-header">
-                    <h4>CLASS STATISTICS </h4>
-                    <div class="card-header-action">
-
-                    </div>
-                </div>
-
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <div id="chart1">
-                                @*@{Html.RenderAction("chart", "Users");}*@
+                        <div class="row mb-0">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="list-inline text-center">
+                                    <div class="list-inline-item p-r-30">
+                                        <i data-feather="arrow-up-circle"
+                                           class="col-green"></i>
+                                        <h5 class="m-b-0">75-100%</h5>
+                                        <p class="text-muted font-14 m-b-0">Topic Complete</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row mb-0">
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                    <div class="list-inline text-center">
-                                        <div class="list-inline-item p-r-30">
-                                            <i data-feather="arrow-up-circle"
-                                               class="col-green"></i>
-                                            <h5 class="m-b-0">$675</h5>
-                                            <p class="text-muted font-14 m-b-0">Weekly Earnings</p>
-                                        </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="list-inline text-center">
+                                    <div class="list-inline-item p-r-30">
+                                        <i data-feather="arrow-down-circle"
+                                           class="col-orange"></i>
+                                        <h5 class="m-b-0">50-74%</h5>
+                                        <p class="text-muted font-14 m-b-0">Half way complete</p>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                    <div class="list-inline text-center">
-                                        <div class="list-inline-item p-r-30">
-                                            <i data-feather="arrow-down-circle"
-                                               class="col-orange"></i>
-                                            <h5 class="m-b-0">$1,587</h5>
-                                            <p class="text-muted font-14 m-b-0">Monthly Earnings</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                    <div class="list-inline text-center">
-                                        <div class="list-inline-item p-r-30">
-                                            <i data-feather="arrow-up-circle"
-                                               class="col-green"></i>
-                                            <h5 class="mb-0 m-b-0">$45,965</h5>
-                                            <p class="text-muted font-14 m-b-0">Yearly Earnings</p>
-                                        </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="list-inline text-center">
+                                    <div class="list-inline-item p-r-30">
+                                        <i data-feather="arrow-down-circle"
+                                           class="col-red"></i>
+                                        <h5 class="mb-0 m-b-0">0 - 25%</h5>
+                                        <p class="text-muted font-14 m-b-0">No Progress</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="row mt-5">
-                                <div class="col-7 col-xl-7 mb-3">Number of topics</div>
-                                <div class="col-5 col-xl-5 mb-3">
-                                    <span class="text-big">
-                                        @{
-                                            var result3 = Model.topicscount.Count();
-                                            if (result3 > 0)
-                                            {
-                                                @result3;
-                                            }
-                                            else
-                                            {
-                                                <a class="btn btn-danger">No Data </a>
-                                            }
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="row mt-5">
+                            <div class="col-7 col-xl-7 mb-3">Number of topics</div>
+                            <div class="col-5 col-xl-5 mb-3">
+                                <i data-feather="arrow-up-circle"
+                                   class="col-green"></i>
+                                <span class="text-big">
+                                    @{
+                                        var result3 = Model.topicscount.Count();
+                                        if (result3 > 0)
+                                        {
+                                            @result3;
                                         }
-                                    </span>
-                                </div>
-
-                                <div class="col-7 col-xl-7 mb-3">number of videos</div>
-                                <div class="col-5 col-xl-5 mb-3">
-                                    <span class="text-big">
-                                        @{
-                                            var result1 = Model.videos.Count();
-                                            if (result1 > 0)
-                                            {
-                                                @result1;
-                                            }
-                                            else
-                                            {
-                                                <p class="btn btn-danger">No Data </p> }
+                                        else
+                                        {
+                                            <a class="btn btn-danger">No Data </a>
                                         }
+                                    }
+                                </span>
+                            </div>
+
+                            <div class="col-7 col-xl-7 mb-3">number of videos</div>
+                            <div class="col-5 col-xl-5 mb-3">
+                                <span class="text-big">
+                                    @{
+                                        var result1 = Model.videos.Count();
+                                        if (result1 > 0)
+                                        {
+                                            @result1;
+                                        }
+                                        else
+                                        {
+                                            <p class="btn btn-danger">No Data </p> }
+                                    }
 
 
-                                    </span>
-
-                                </div>
-                                <div class="col-7 col-xl-7 mb-3">number of assignments</div>
-                                <div class="col-5 col-xl-5 mb-3">
-                                    <span class="text-big">
-                                        <p class="btn btn-danger">No Data </p>
-
-                                    </span>
-                                </div>
+                                </span>
 
                             </div>
+                            <div class="col-7 col-xl-7 mb-3">number of assignments</div>
+                            <div class="col-5 col-xl-5 mb-3">
+                                <span class="text-big">
+                                    <p class="btn btn-danger">No Data </p>
+
+                                </span>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -149,235 +137,140 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4>SYLLABUS MANAGER</h4>
-                </div>
-                <div class="card-body">
-                    <div id="accordion">
-                        @foreach (var item in Model.Weeks)
-                        {
 
-                            <div class="accordion">
-                                <div class="accordion-header" @*role="button"*@ data-toggle="collapse" data-target="#panel-body-@count">
-                                    <h4>
-                                        <i data-feather="command"></i> @item.Week_Name
-                                        <span>
-                                            <a href="@Url.Action("Progress_dash", "topicstats", new {weeksid = item.Week_id})" class="btn btn-outline-primary ">VIEW PROGRESS</a>
-                                        </span>
-                                    </h4>
+</div>
 
+<div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>SYLLABUS MANAGER</h4>
+                        <a href="@Url.Action("Dashboard","Users")" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
+                                       title="View Topic progress statistics ">Topic Statistics</a>
+                    </div>
+                    <div class="card-body">
+                        <h5>
+                            Topic progress radar
+                        </h5>
+
+                        <div class="col-12 col-sm-12 col-lg-12">
+                            <div class="card-footer pt-3 d-flex justify-content-center ">
+                                <div class="budget-price justify-content-center">
+                                    <div class="budget-price-square bg-danger" data-width="20"></div>
+                                    <div class="budget-price-label">0% Incomplete</div>
                                 </div>
-                                <div class="accordion-body collapse" id="panel-body-@count" data-parent="#accordion">
+                                <div class="budget-price justify-content-center">
+                                    <div class="budget-price-square bg-warning" data-width="20"></div>
+                                    <div class="budget-price-label">50% complete</div>
+                                </div>
+                                <div class="budget-price justify-content-center">
+                                    <div class="budget-price-square bg-success" data-width="20"></div>
+                                    <div class="budget-price-label">10O% Complete</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="accordion">
+                            @foreach (var item in Model.Weeks)
+                            {
 
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-lg-12">
-                                            <div class="card">
+                                <div class="accordion">
+                                    <div class="accordion-header" @*role="button"*@ data-toggle="collapse" data-target="#panel-body-@count">
+                                        <h4>
+                                            <i data-feather="command"></i> @item.Week_Name
 
-                                                <div class="card-body">
-                                                    <ul class="nav nav-pills" id="myTab3" role="tablist">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link active" id="home-tab3_@count" data-toggle="tab" href="#home3_@count" role="tab"
-                                                               aria-controls="home" aria-selected="true">Learning Outcomes</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" id="profile-tab3_@count" data-toggle="tab" href="#profile3_@count" role="tab"
-                                                               aria-controls="profile" aria-selected="false">Teaching and Learning Materials</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" id="contact-tab3_@count" data-toggle="tab" href="#contact3_@count" role="tab"
-                                                               aria-controls="contact" aria-selected="false">Activity/Activities</a>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="tab-content" id="myTabContent2">
-                                                        <div class="tab-pane fade show active" id="home3_@count" role="tabpanel" aria-labelledby="home-tab3_@count">
-                                                            <div class="alert alert-light alert-dismissible show fade alert-has-icon">
-                                                                <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                                        </h4>
 
-                                                                <div class="alert-body">
-                                                                    <button class="close" data-dismiss="alert">
-                                                                        <span>&times;</span>
-                                                                    </button>
+                                    </div>
+                                    <div class="accordion-body collapse" id="panel-body-@count" data-parent="#accordion">
 
-                                                                    In this tab Topics for the related week will show up here.
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 col-lg-12">
+                                                <div class="card">
 
-                                                                    also Managing topics for that week is done here
-                                                                    <div>
-                                                                        <a href="@Url.Action("Create", "Topics")" class="btn btn-icon btn-primary"><i class="fas fa-plus"></i> <span>Add Topic</span></a>
-                                                                        <a href="@Url.Action("Create", "SubTopics")" class="btn btn-icon btn-primary"><i class="fas fa-plus"></i> <span>Add SubTopic</span></a>
+                                                    <div class="card-body">
+                                                        <ul class="nav nav-pills" id="myTab3" role="tablist">
+                                                            <li class="nav-item">
+                                                                <a class="nav-link active" id="home-tab3_@count" data-toggle="tab" href="#home3_@count" role="tab"
+                                                                   aria-controls="home" aria-selected="true">Learning Outcomes</a>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <a class="nav-link" id="profile-tab3_@count" data-toggle="tab" href="#profile3_@count" role="tab"
+                                                                   aria-controls="profile" aria-selected="false">Teaching and Learning Materials</a>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <a class="nav-link" id="contact-tab3_@count" data-toggle="tab" href="#contact3_@count" role="tab"
+                                                                   aria-controls="contact" aria-selected="false">Activity/Activities</a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="tab-content" id="myTabContent2">
+                                                            <div class="tab-pane fade show active" id="home3_@count" role="tabpanel" aria-labelledby="home-tab3_@count">
+                                                                <div class="alert alert-light alert-dismissible show fade alert-has-icon">
+                                                                    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+
+                                                                    <div class="alert-body">
+                                                                        <button class="close" data-dismiss="alert">
+                                                                            <span>&times;</span>
+                                                                        </button>
+
+                                                                        In this tab Topics for the related week will show up here.
+
+                                                                        also Managing topics for that week is done here
+                                                                        <div>
+                                                                            <a href="@Url.Action("Create", "Topics")" class="btn btn-icon btn-outline-primary"><i class="fas fa-plus"></i> <span>Add Topic</span></a>
+                                                                            <a href="@Url.Action("Create", "SubTopics")" class="btn btn-icon btn-outline-primary"><i class="fas fa-plus"></i> <span>Add SubTopic</span></a>
+                                                                            <span>
+                                                                                <a href="@Url.Action("Progress_dash", "topicstats", new {weeksid = item.Week_id})" class="btn btn-outline-primary ">Topic Details</a>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                @{Html.RenderAction("subjecttopics", "Topics", new { weekid = item.Week_id });}
+
+                                                            </div>
+                                                            <div class="tab-pane fade" id="profile3_@count" role="tabpanel" aria-labelledby="profile-tab3_@count">
+                                                                <div class="alert alert-light alert-dismissible show fade alert-has-icon">
+                                                                    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+
+                                                                    <div class="alert-body">
+                                                                        <button class="close" data-dismiss="alert">
+                                                                            <span>&times;</span>
+                                                                        </button>
+                                                                        To Ad videos to the learning materials, kindly make sure you include  a video in the topics section.
                                                                     </div>
                                                                 </div>
+                                                                @{Html.RenderAction("vidoes", "Topics", new { weekid = item.Week_id });}
+
 
                                                             </div>
+                                                            <div class="tab-pane fade" id="contact3_@count" role="tabpanel" aria-labelledby="contact-tab3_@count">
+                                                                <div class="alert alert-light alert-dismissible show fade alert-has-icon">
+                                                                    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
 
-                                                            @{Html.RenderAction("subjecttopics", "Topics", new { weekid = item.Week_id });}
-
-                                                        </div>
-                                                        <div class="tab-pane fade" id="profile3_@count" role="tabpanel" aria-labelledby="profile-tab3_@count">
-                                                            <div class="alert alert-light alert-dismissible show fade alert-has-icon">
-                                                                <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
-
-                                                                <div class="alert-body">
-                                                                    <button class="close" data-dismiss="alert">
-                                                                        <span>&times;</span>
-                                                                    </button>
-                                                                    To Ad videos to the learning materials, kindly make sure you include  a video in the topics section.
-                                                                </div>
-                                                            </div>
-                                                            @{Html.RenderAction("vidoes", "Topics", new { weekid = item.Week_id });}
-
-
-                                                        </div>
-                                                        <div class="tab-pane fade" id="contact3_@count" role="tabpanel" aria-labelledby="contact-tab3_@count">
-                                                            <div class="alert alert-light alert-dismissible show fade alert-has-icon">
-                                                                <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
-
-                                                                <div class="alert-body">
-                                                                    <button class="close" data-dismiss="alert">
-                                                                        <span>&times;</span>
-                                                                    </button>
-                                                                    To assign coursework this week, click the Add an activity or resource link for add the relevant activity, such as an assignment, a quiz, or other activity. Otherwise, please delete.
+                                                                    <div class="alert-body">
+                                                                        <button class="close" data-dismiss="alert">
+                                                                            <span>&times;</span>
+                                                                        </button>
+                                                                        To assign coursework this week, click the Add an activity or resource link for add the relevant activity, such as an assignment, a quiz, or other activity. Otherwise, please delete.
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            count++;
-                        }
+                                count++;
+                            }
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-<script>
-    $(function () {
-        chart1();
-        chart2();
-        chart3();
-        chart4();
-
-        // select all on checkbox click
-        $("[data-checkboxes]").each(function () {
-            var me = $(this),
-                group = me.data('checkboxes'),
-                role = me.data('checkbox-role');
-
-            me.change(function () {
-                var all = $('[data-checkboxes="' + group + '"]:not([data-checkbox-role="dad"])'),
-                    checked = $('[data-checkboxes="' + group + '"]:not([data-checkbox-role="dad"]):checked'),
-                    dad = $('[data-checkboxes="' + group + '"][data-checkbox-role="dad"]'),
-                    total = all.length,
-                    checked_length = checked.length;
-
-                if (role == 'dad') {
-                    if (me.is(':checked')) {
-                        all.prop('checked', true);
-                    } else {
-                        all.prop('checked', false);
-                    }
-                } else {
-                    if (checked_length >= total) {
-                        dad.prop('checked', true);
-                    } else {
-                        dad.prop('checked', false);
-                    }
-                }
-            });
-        });
-
-
-
-    });
-
-
-
-    function chart1() {
-        var options = {
-            chart: {
-                height: 230,
-                type: "line",
-                shadow: {
-                    enabled: true,
-                    color: "#000",
-                    top: 18,
-                    left: 7,
-                    blur: 10,
-                    opacity: 1
-                },
-                toolbar: {
-                    show: false
-                }
-            },
-            colors: ["#786BED", "#999b9c"],
-            dataLabels: {
-                enabled: true
-            },
-            stroke: {
-                curve: "smooth"
-            },
-            series: [{
-                name: "High - 2019",
-                data: [5, 15, 14, 36, 32, 32]
-            },
-            {
-                name: "Low - 2019",
-                data: [7, 11, 30, 18, 25, 13]
-            }
-            ],
-            grid: {
-                borderColor: "#e7e7e7",
-                row: {
-                    colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-                    opacity: 0.0
-                }
-            },
-            markers: {
-                size: 6
-            },
-            xaxis: {
-                categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-
-                labels: {
-                    style: {
-                        colors: "#9aa0ac"
-                    }
-                }
-            },
-            yaxis: {
-                title: {
-                    text: "Income"
-                },
-                labels: {
-                    style: {
-                        color: "#9aa0ac"
-                    }
-                },
-                min: 5,
-                max: 40
-            },
-            legend: {
-                position: "top",
-                horizontalAlign: "right",
-                floating: true,
-                offsetY: -25,
-                offsetX: -5
-            }
-        };
-
-        var chart = new ApexCharts(document.querySelector("#chart1"), options);
-
-        chart.render();
-    }
-
-
-</script>

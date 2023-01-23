@@ -8,6 +8,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SMIS.Models;
+using SMIS.Models.ViewModel;
+using Newtonsoft.Json;
 
 namespace SMIS.Controllers
 {
@@ -25,7 +27,7 @@ namespace SMIS.Controllers
 
         public  ActionResult classSubjects(int? id)
         {
-
+            
             try
             {
                 if (id == null)
@@ -35,6 +37,9 @@ namespace SMIS.Controllers
                 var classsubs = db.subject_class.Where(a => a.Class_id == id).ToList();
                 var classid = db.subject_class.Where(a => a.ID == id).Select(a => a.Class_id).FirstOrDefault();
                 Session["classid"] = classid;
+
+                ViewBag.students = db.StudentsTables.Where(a => a.Class_id == classid).Count();
+                ViewBag.subjects = db.subject_class.Where(a => a.Class_id == classid).Count();
 
                 return View(classsubs);
             }
@@ -169,6 +174,30 @@ namespace SMIS.Controllers
             {
                 TempData["error"] = EX.Message;
                 return RedirectToAction("Index");
+            }
+        }
+        [ChildActionOnly]
+        public PartialViewResult chart()
+        {
+            try
+            {
+                var classid = Convert.ToInt32(Session["classid"]);
+                //var subjectid = Convert.ToInt32(Session["subjectid"]);
+                var dta = db.StudentsTables.Where(a => a.Class_id == classid ).Count();
+                var subjects = db.subject_class.Where(a => a.Class_id == classid).Count();
+                List<DataPoint> dataPoints = new List<DataPoint>();
+                List<DataPoint> dataPoints2 = new List<DataPoint>();
+                dataPoints.Add(new DataPoint("Students",dta));
+                dataPoints.Add(new DataPoint("subjects", subjects));
+                ViewBag.datapoints = JsonConvert.SerializeObject(dataPoints);
+
+
+                return PartialView("chart");
+            }
+            catch (Exception e)
+            {
+                TempData["error"] = e.Message;
+                return PartialView("chart", null);
             }
         }
 

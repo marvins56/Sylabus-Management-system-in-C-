@@ -352,7 +352,7 @@ namespace SMIS.Controllers
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {
-                TempData["error"] = "NO USER DATA FETCHED";
+                TempData["info"] = "PROCESSING USER DATA";
                 return RedirectToAction("Login");
             }
 

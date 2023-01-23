@@ -23,10 +23,11 @@ namespace SMIS.Controllers
         {
             return View(await db.topicstats.ToListAsync());
         }
+
         [ChildActionOnly]
-        public PartialViewResult progressbar(int? weekid)
+        public PartialViewResult progressbar(int? weekid,int? topicid)
         {
-            if (weekid == null)
+            if (((weekid == null) && (topicid == null)) ||(weekid == null)||(topicid == null))
             {
                 TempData["error"] = "ERROR INVALID ID";
             }
@@ -36,9 +37,8 @@ namespace SMIS.Controllers
                 {
                     var subject = Convert.ToInt32(Session["subjectid"]);
                     var classid = Convert.ToInt32(Session["classid"]);
-                    var result = db.topicstats.Where(a => a.weekid == weekid && a.Class_id == classid && a.Subject_id == subject).ToList();
+                    var result = db.topicstats.Where(a => a.weekid == weekid && a.Class_id == classid && a.Subject_id == subject && a.Topic_id == topicid).ToList();
                     TempData["info"] = "Fetching Data please Wait..";
-                    ViewBag.topicNames = db.TopicsTables.Where(a => a.Class_id == classid && a.Subject_id == subject && a.Week_id == weekid).Select(x => x.Topic_id).ToList();
 
                     return PartialView("progressbar", result);
                 }
@@ -48,8 +48,6 @@ namespace SMIS.Controllers
                 }
 
             }
-
-            
 
             return PartialView("progressbar",null);
 
@@ -217,6 +215,7 @@ namespace SMIS.Controllers
         // GET: topicstats/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -233,13 +232,18 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,value,weekid,Subject_id,Topic_id,Class_id")] topicstat topicstat)
         {
+            var redid = Convert.ToInt32(Session["redirectid"]);
             if (ModelState.IsValid)
             {
                 db.Entry(topicstat).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                TempData["Info"] = "UPDATE STATUS";
+                TempData["success"] = "Topic progress updated successsfully";
+                return RedirectToAction("Detail_Dashboard", "Users", new { id = redid });
+
             }
-            return View(topicstat);
+            return RedirectToAction("Detail_Dashboard", "Users", new { id = redid });
+
         }
 
         // GET: topicstats/Delete/5
@@ -262,12 +266,14 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
+            var redid = Convert.ToInt32(Session["redirectid"]);
             topicstat topicstat = await db.topicstats.FindAsync(id);
             db.topicstats.Remove(topicstat);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            TempData["Info"] = "UPDATE STATUS";
+            TempData["success"] = "Topic progress Deleted successsfully";
+            return RedirectToAction("Detail_Dashboard", "Users", new { id = redid });
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

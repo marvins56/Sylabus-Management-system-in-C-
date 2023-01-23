@@ -1,4 +1,5 @@
-﻿@using SMIS.Models.ViewModel
+﻿
+@using SMIS.Models.ViewModel
 @model DataPoint
 @{
     Layout = "~/Views/Shared/_Emptybg.cshtml";
@@ -13,13 +14,18 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
     exportEnabled: true,
 	title: {
-		text: "Topic porgress tracker"
+		text: "Subject porgress tracker"
 	},
 	axisY: {
-		title: "Progress in percentage(%)"
+		title: "students per subject"
 	},
-	data: [{
-		type: "column",
+		data: [{
+		type: "pie",
+		startAngle: 180,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabel: "{label} - {y}%",
 		dataPoints: @Html.Raw(ViewBag.datapoints)
 	}]
 });
@@ -30,5 +36,5 @@ chart.render();
 
 <div id="chartContainer" style="height: 370px; width: 100%;" class="pb-3 mb-3"></div>
 
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>

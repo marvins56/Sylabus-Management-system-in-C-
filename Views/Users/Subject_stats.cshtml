@@ -1,0 +1,40 @@
+﻿
+@using SMIS.Models.ViewModel
+@model DataPoint2
+@{
+    Layout = "~/Views/Shared/_Emptybg.cshtml";
+}
+<script>
+window.onload = function () {
+
+    var chart = new CanvasJS.Chart("Container2chart", {
+	animationEnabled: true,
+    zoomEnabled: true,
+
+	theme: "light2",
+    exportEnabled: true,
+	title: {
+		text: "Subject Marks porgress tracker"
+	},
+	axisY: {
+		title: "Percentages"
+	},
+		data: [{
+		type: "pie",
+		startAngle: 180,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabel: "{label} - {y}%",
+		dataPoints: @Html.Raw(ViewBag.class_datapoints)
+	}]
+});
+chart.render();
+
+}
+</script>
+
+<div id="Container2chart" style="height: 370px; width: 100%;" class="pb-3 mb-3"></div>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>

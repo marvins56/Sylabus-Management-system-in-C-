@@ -58,7 +58,6 @@ namespace SMIS.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
             return View(aspNetUser);
         }
 
@@ -115,6 +114,23 @@ namespace SMIS.Controllers
             return RedirectToAction("Index");
         }
 
+        [ChildActionOnly]
+        public PartialViewResult Subject_stats()
+        {
+            var subid = Convert.ToInt32(Session["subjectid"]);
+            var classids = Convert.ToInt32(Session["classid"]);
+            var student_failed = db.MidtermMarksTables.Where(a => a.Class_id == classids && a.Subject_id == subid && (a.Marks > 0 && a.Marks <49)).Count();
+            var student_average = db.MidtermMarksTables.Where(a => a.Class_id == classids && a.Subject_id == subid && (a.Marks >= 50 && a.Marks <= 75)).Count();
+            var student_passed = db.MidtermMarksTables.Where(a => a.Class_id == classids && a.Subject_id == subid && (a.Marks >= 76 && a.Marks <= 100)).Count();
+
+            List<DataPoint2> dataPoints2 = new List<DataPoint2>();
+            dataPoints2.Add(new DataPoint2("Below 49 %", student_failed));
+            dataPoints2.Add(new DataPoint2("average 50-75 %", student_average));
+            dataPoints2.Add(new DataPoint2("average 76-100 %", student_passed));
+            ViewBag.class_datapoints = JsonConvert.SerializeObject(dataPoints2);
+
+            return PartialView("Subject_stats");
+        }
         public ActionResult Detail_Dashboard(int? id)
         {
             Session["redirectid"] = id;
@@ -137,7 +153,7 @@ namespace SMIS.Controllers
             var topicsperclass = get_topics_perclass(classid, subjectid);
             var statperclass =get_stats_perclass(classid, subjectid);
             var videosperclass = get_videos_perclass(classid, subjectid);
-
+          
             var detailed_Dashboard = new Detail_Dashboard();
 
             detailed_Dashboard.Weeks = weeksdetails;
@@ -153,6 +169,7 @@ namespace SMIS.Controllers
         {
             return (db.WeeksTables.ToList());
         }
+       
         public List<TopicsTable> Get_Topics_info(int? id1)
         {
             var subid = Convert.ToInt32(Session["subjectid"]);
