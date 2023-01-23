@@ -17,28 +17,28 @@ namespace SMIS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ClassTable()
         {
+            this.subjecttopics = new HashSet<subjecttopic>();
             this.MidtermMarksTables = new HashSet<MidtermMarksTable>();
             this.SubTopicsTables = new HashSet<SubTopicsTable>();
+            this.subject_class = new HashSet<subject_class>();
             this.TopicsTables = new HashSet<TopicsTable>();
             this.StudentsTables = new HashSet<StudentsTable>();
-            this.subject_class = new HashSet<subject_class>();
-            this.subjecttopics = new HashSet<subjecttopic>();
         }
     
         public int Class_id { get; set; }
         public string Class_Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<subjecttopic> subjecttopics { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MidtermMarksTable> MidtermMarksTables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SubTopicsTable> SubTopicsTables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<subject_class> subject_class { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TopicsTable> TopicsTables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentsTable> StudentsTables { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<subject_class> subject_class { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<subjecttopic> subjecttopics { get; set; }
     }
 }

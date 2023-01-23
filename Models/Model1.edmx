@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SMISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SMISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -136,6 +136,16 @@
           <Property Name="year_Id" Type="int" Nullable="false" />
           <Property Name="Term_Id" Type="int" Nullable="false" />
           <Property Name="File" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Terms">
           <Key>
@@ -546,6 +556,7 @@
           <EntitySet Name="SubjectTable" EntityType="Self.SubjectTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="subjecttopics" EntityType="Self.subjecttopics" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubTopicsTable" EntityType="Self.SubTopicsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Terms" EntityType="Self.Terms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TopicsTable" EntityType="Self.TopicsTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="topicstats" EntityType="Self.topicstats" Schema="dbo" store:Type="Tables" />
@@ -664,10 +675,21 @@
             <End Role="TopicsTable" EntitySet="TopicsTable" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SMISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
             <PropertyRef Name="Id" />
@@ -723,12 +745,12 @@
           </Key>
           <Property Name="Class_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Class_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="subjecttopics" Relationship="Self.FK_class256" FromRole="ClassTable" ToRole="subjecttopics" />
           <NavigationProperty Name="MidtermMarksTables" Relationship="Self.FK_classstudent" FromRole="ClassTable" ToRole="MidtermMarksTable" />
           <NavigationProperty Name="SubTopicsTables" Relationship="Self.FK_classstudent1" FromRole="ClassTable" ToRole="SubTopicsTable" />
+          <NavigationProperty Name="subject_class" Relationship="Self.FK_classstudent1s" FromRole="ClassTable" ToRole="subject_class" />
           <NavigationProperty Name="TopicsTables" Relationship="Self.FK_classstudents" FromRole="ClassTable" ToRole="TopicsTable" />
           <NavigationProperty Name="StudentsTables" Relationship="Self.FK_classtable" FromRole="ClassTable" ToRole="StudentsTable" />
-          <NavigationProperty Name="subject_class" Relationship="SMISModel.FK_classstudent1s" FromRole="ClassTable" ToRole="subject_class" />
-          <NavigationProperty Name="subjecttopics" Relationship="SMISModel.FK_class256" FromRole="ClassTable" ToRole="subjecttopic" />
         </EntityType>
         <EntityType Name="MidtermMarksTable">
           <Key>
@@ -755,12 +777,22 @@
           <Property Name="Student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Student_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Class_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ClassTable" Relationship="Self.FK_classtable" FromRole="StudentsTable" ToRole="ClassTable" />
-          <NavigationProperty Name="MidtermMarksTables" Relationship="Self.FK_studentmarks" FromRole="StudentsTable" ToRole="MidtermMarksTable" />
           <Property Name="Term_id" Type="Int32" Nullable="false" />
           <Property Name="year_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Term" Relationship="SMISModel.FK_terms2" FromRole="StudentsTable" ToRole="Term" />
-          <NavigationProperty Name="Year" Relationship="SMISModel.FK_years2" FromRole="StudentsTable" ToRole="Year" />
+          <NavigationProperty Name="ClassTable" Relationship="Self.FK_classtable" FromRole="StudentsTable" ToRole="ClassTable" />
+          <NavigationProperty Name="MidtermMarksTables" Relationship="Self.FK_studentmarks" FromRole="StudentsTable" ToRole="MidtermMarksTable" />
+          <NavigationProperty Name="Term" Relationship="Self.FK_terms2" FromRole="StudentsTable" ToRole="Terms" />
+          <NavigationProperty Name="Year" Relationship="Self.FK_years2" FromRole="StudentsTable" ToRole="Years" />
+        </EntityType>
+        <EntityType Name="subject_class">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject_id" Type="Int32" Nullable="false" />
+          <Property Name="Class_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClassTable" Relationship="Self.FK_classstudent1s" FromRole="subject_class" ToRole="ClassTable" />
+          <NavigationProperty Name="SubjectTable" Relationship="Self.FK_classstudent1ss" FromRole="subject_class" ToRole="SubjectTable" />
         </EntityType>
         <EntityType Name="SubjectTable">
           <Key>
@@ -769,9 +801,25 @@
           <Property Name="Subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="MidtermMarksTables" Relationship="Self.FK_subjectstudent" FromRole="SubjectTable" ToRole="MidtermMarksTable" />
+          <NavigationProperty Name="subject_class" Relationship="Self.FK_classstudent1ss" FromRole="SubjectTable" ToRole="subject_class" />
+          <NavigationProperty Name="subjecttopics" Relationship="Self.FK_subject256" FromRole="SubjectTable" ToRole="subjecttopics" />
           <NavigationProperty Name="TopicsTables" Relationship="Self.FK_subjectstudents" FromRole="SubjectTable" ToRole="TopicsTable" />
-          <NavigationProperty Name="subject_class" Relationship="SMISModel.FK_classstudent1ss" FromRole="SubjectTable" ToRole="subject_class" />
-          <NavigationProperty Name="subjecttopics" Relationship="SMISModel.FK_subject256" FromRole="SubjectTable" ToRole="subjecttopic" />
+        </EntityType>
+        <EntityType Name="subjecttopic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Topic_id" Type="Int32" Nullable="false" />
+          <Property Name="Term_id" Type="Int32" Nullable="false" />
+          <Property Name="Week_id" Type="Int32" Nullable="false" />
+          <Property Name="subject_id" Type="Int32" Nullable="false" />
+          <Property Name="class_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClassTable" Relationship="Self.FK_class256" FromRole="subjecttopics" ToRole="ClassTable" />
+          <NavigationProperty Name="SubjectTable" Relationship="Self.FK_subject256" FromRole="subjecttopics" ToRole="SubjectTable" />
+          <NavigationProperty Name="Term" Relationship="Self.FK_terms256" FromRole="subjecttopics" ToRole="Terms" />
+          <NavigationProperty Name="TopicsTable" Relationship="Self.FK_topics256" FromRole="subjecttopics" ToRole="TopicsTable" />
+          <NavigationProperty Name="WeeksTable" Relationship="Self.FK_weeks256" FromRole="subjecttopics" ToRole="WeeksTable" />
         </EntityType>
         <EntityType Name="SubTopicsTable">
           <Key>
@@ -784,13 +832,23 @@
           <Property Name="IsComplete" Type="Boolean" />
           <Property Name="Datetime" Type="DateTime" Precision="3" />
           <Property Name="Class_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ClassTable" Relationship="Self.FK_classstudent1" FromRole="SubTopicsTable" ToRole="ClassTable" />
-          <NavigationProperty Name="TopicsTable" Relationship="Self.FK_Topic" FromRole="SubTopicsTable" ToRole="TopicsTable" />
           <Property Name="year_Id" Type="Int32" Nullable="false" />
           <Property Name="Term_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Term" Relationship="SMISModel.FK_terms" FromRole="SubTopicsTable" ToRole="Term" />
-          <NavigationProperty Name="Year" Relationship="SMISModel.FK_years" FromRole="SubTopicsTable" ToRole="Year" />
           <Property Name="File" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ClassTable" Relationship="Self.FK_classstudent1" FromRole="SubTopicsTable" ToRole="ClassTable" />
+          <NavigationProperty Name="Term" Relationship="Self.FK_terms" FromRole="SubTopicsTable" ToRole="Terms" />
+          <NavigationProperty Name="TopicsTable" Relationship="Self.FK_Topic" FromRole="SubTopicsTable" ToRole="TopicsTable" />
+          <NavigationProperty Name="Year" Relationship="Self.FK_years" FromRole="SubTopicsTable" ToRole="Years" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Term">
           <Key>
@@ -799,10 +857,10 @@
           <Property Name="Term_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="term1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="MidtermMarksTables" Relationship="Self.FK_term" FromRole="Terms" ToRole="MidtermMarksTable" />
-          <NavigationProperty Name="StudentsTables" Relationship="SMISModel.FK_terms2" FromRole="Term" ToRole="StudentsTable" />
-          <NavigationProperty Name="SubTopicsTables" Relationship="SMISModel.FK_terms" FromRole="Term" ToRole="SubTopicsTable" />
-          <NavigationProperty Name="TopicsTables" Relationship="SMISModel.FK_terms3" FromRole="Term" ToRole="TopicsTable" />
-          <NavigationProperty Name="subjecttopics" Relationship="SMISModel.FK_terms256" FromRole="Term" ToRole="subjecttopic" />
+          <NavigationProperty Name="StudentsTables" Relationship="Self.FK_terms2" FromRole="Terms" ToRole="StudentsTable" />
+          <NavigationProperty Name="subjecttopics" Relationship="Self.FK_terms256" FromRole="Terms" ToRole="subjecttopics" />
+          <NavigationProperty Name="SubTopicsTables" Relationship="Self.FK_terms" FromRole="Terms" ToRole="SubTopicsTable" />
+          <NavigationProperty Name="TopicsTables" Relationship="Self.FK_terms3" FromRole="Terms" ToRole="TopicsTable" />
         </EntityType>
         <EntityType Name="TopicsTable">
           <Key>
@@ -814,20 +872,32 @@
           <Property Name="IsComplete" Type="Boolean" />
           <Property Name="DateTime" Type="DateTime" Precision="3" />
           <Property Name="Subject_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ClassTable" Relationship="Self.FK_classstudents" FromRole="TopicsTable" ToRole="ClassTable" />
-          <NavigationProperty Name="SubjectTable" Relationship="Self.FK_subjectstudents" FromRole="TopicsTable" ToRole="SubjectTable" />
-          <NavigationProperty Name="SubTopicsTables" Relationship="Self.FK_Topic" FromRole="TopicsTable" ToRole="SubTopicsTable" />
           <Property Name="Term_id" Type="Int32" Nullable="false" />
           <Property Name="year_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Term" Relationship="SMISModel.FK_terms3" FromRole="TopicsTable" ToRole="Term" />
-          <NavigationProperty Name="Year" Relationship="SMISModel.FK_years3" FromRole="TopicsTable" ToRole="Year" />
-          <NavigationProperty Name="subjecttopics" Relationship="SMISModel.FK_topics256" FromRole="TopicsTable" ToRole="subjecttopic" />
           <Property Name="Week_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="WeeksTable" Relationship="SMISModel.FK_weeks3" FromRole="TopicsTable" ToRole="WeeksTable" />
           <Property Name="Overview" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="File" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="ClassTable" Relationship="Self.FK_classstudents" FromRole="TopicsTable" ToRole="ClassTable" />
+          <NavigationProperty Name="SubjectTable" Relationship="Self.FK_subjectstudents" FromRole="TopicsTable" ToRole="SubjectTable" />
+          <NavigationProperty Name="subjecttopics" Relationship="Self.FK_topics256" FromRole="TopicsTable" ToRole="subjecttopics" />
+          <NavigationProperty Name="SubTopicsTables" Relationship="Self.FK_Topic" FromRole="TopicsTable" ToRole="SubTopicsTable" />
+          <NavigationProperty Name="Term" Relationship="Self.FK_terms3" FromRole="TopicsTable" ToRole="Terms" />
+          <NavigationProperty Name="WeeksTable" Relationship="Self.FK_weeks3" FromRole="TopicsTable" ToRole="WeeksTable" />
+          <NavigationProperty Name="Year" Relationship="Self.FK_years3" FromRole="TopicsTable" ToRole="Years" />
+        </EntityType>
+        <EntityType Name="topicstat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="weekid" Type="Int32" Nullable="false" />
+          <Property Name="Subject_id" Type="Int32" Nullable="false" />
+          <Property Name="Topic_id" Type="Int32" Nullable="false" />
+          <Property Name="Class_id" Type="Int32" Nullable="false" />
+          <Property Name="Datetime" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="WeeksTable">
           <Key>
@@ -835,8 +905,8 @@
           </Key>
           <Property Name="Week_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Week_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="subjecttopics" Relationship="SMISModel.FK_weeks256" FromRole="WeeksTable" ToRole="subjecttopic" />
-          <NavigationProperty Name="TopicsTables" Relationship="SMISModel.FK_weeks3" FromRole="WeeksTable" ToRole="TopicsTable" />
+          <NavigationProperty Name="subjecttopics" Relationship="Self.FK_weeks256" FromRole="WeeksTable" ToRole="subjecttopics" />
+          <NavigationProperty Name="TopicsTables" Relationship="Self.FK_weeks3" FromRole="WeeksTable" ToRole="TopicsTable" />
         </EntityType>
         <EntityType Name="Year">
           <Key>
@@ -845,9 +915,9 @@
           <Property Name="year_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="year1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="MidtermMarksTables" Relationship="Self.FK_year" FromRole="Years" ToRole="MidtermMarksTable" />
-          <NavigationProperty Name="StudentsTables" Relationship="SMISModel.FK_years2" FromRole="Year" ToRole="StudentsTable" />
-          <NavigationProperty Name="SubTopicsTables" Relationship="SMISModel.FK_years" FromRole="Year" ToRole="SubTopicsTable" />
-          <NavigationProperty Name="TopicsTables" Relationship="SMISModel.FK_years3" FromRole="Year" ToRole="TopicsTable" />
+          <NavigationProperty Name="StudentsTables" Relationship="Self.FK_years2" FromRole="Years" ToRole="StudentsTable" />
+          <NavigationProperty Name="SubTopicsTables" Relationship="Self.FK_years" FromRole="Years" ToRole="SubTopicsTable" />
+          <NavigationProperty Name="TopicsTables" Relationship="Self.FK_years3" FromRole="Years" ToRole="TopicsTable" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -877,6 +947,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_class256">
+          <End Role="ClassTable" Type="Self.ClassTable" Multiplicity="1" />
+          <End Role="subjecttopics" Type="Self.subjecttopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassTable">
+              <PropertyRef Name="Class_id" />
+            </Principal>
+            <Dependent Role="subjecttopics">
+              <PropertyRef Name="class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_classstudent">
           <End Role="ClassTable" Type="Self.ClassTable" Multiplicity="1" />
           <End Role="MidtermMarksTable" Type="Self.MidtermMarksTable" Multiplicity="*" />
@@ -897,6 +979,18 @@
               <PropertyRef Name="Class_id" />
             </Principal>
             <Dependent Role="SubTopicsTable">
+              <PropertyRef Name="Class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_classstudent1s">
+          <End Role="ClassTable" Type="Self.ClassTable" Multiplicity="1" />
+          <End Role="subject_class" Type="Self.subject_class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassTable">
+              <PropertyRef Name="Class_id" />
+            </Principal>
+            <Dependent Role="subject_class">
               <PropertyRef Name="Class_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -973,6 +1067,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_terms2">
+          <End Role="Terms" Type="Self.Term" Multiplicity="1" />
+          <End Role="StudentsTable" Type="Self.StudentsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terms">
+              <PropertyRef Name="Term_Id" />
+            </Principal>
+            <Dependent Role="StudentsTable">
+              <PropertyRef Name="Term_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_years2">
+          <End Role="Years" Type="Self.Year" Multiplicity="1" />
+          <End Role="StudentsTable" Type="Self.StudentsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Years">
+              <PropertyRef Name="year_Id" />
+            </Principal>
+            <Dependent Role="StudentsTable">
+              <PropertyRef Name="year_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_classstudent1ss">
+          <End Role="SubjectTable" Type="Self.SubjectTable" Multiplicity="1" />
+          <End Role="subject_class" Type="Self.subject_class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectTable">
+              <PropertyRef Name="Subject_id" />
+            </Principal>
+            <Dependent Role="subject_class">
+              <PropertyRef Name="Subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subject256">
+          <End Role="SubjectTable" Type="Self.SubjectTable" Multiplicity="1" />
+          <End Role="subjecttopics" Type="Self.subjecttopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectTable">
+              <PropertyRef Name="Subject_id" />
+            </Principal>
+            <Dependent Role="subjecttopics">
+              <PropertyRef Name="subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_subjectstudents">
           <End Role="SubjectTable" Type="Self.SubjectTable" Multiplicity="1" />
           <End Role="TopicsTable" Type="Self.TopicsTable" Multiplicity="*" />
@@ -982,6 +1124,54 @@
             </Principal>
             <Dependent Role="TopicsTable">
               <PropertyRef Name="Subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_terms256">
+          <End Role="Terms" Type="Self.Term" Multiplicity="1" />
+          <End Role="subjecttopics" Type="Self.subjecttopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terms">
+              <PropertyRef Name="Term_Id" />
+            </Principal>
+            <Dependent Role="subjecttopics">
+              <PropertyRef Name="Term_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_topics256">
+          <End Role="TopicsTable" Type="Self.TopicsTable" Multiplicity="1" />
+          <End Role="subjecttopics" Type="Self.subjecttopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TopicsTable">
+              <PropertyRef Name="Topic_id" />
+            </Principal>
+            <Dependent Role="subjecttopics">
+              <PropertyRef Name="Topic_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_weeks256">
+          <End Role="WeeksTable" Type="Self.WeeksTable" Multiplicity="1" />
+          <End Role="subjecttopics" Type="Self.subjecttopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeeksTable">
+              <PropertyRef Name="Week_id" />
+            </Principal>
+            <Dependent Role="subjecttopics">
+              <PropertyRef Name="Week_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_terms">
+          <End Role="Terms" Type="Self.Term" Multiplicity="1" />
+          <End Role="SubTopicsTable" Type="Self.SubTopicsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terms">
+              <PropertyRef Name="Term_Id" />
+            </Principal>
+            <Dependent Role="SubTopicsTable">
+              <PropertyRef Name="Term_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -997,11 +1187,60 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_years">
+          <End Role="Years" Type="Self.Year" Multiplicity="1" />
+          <End Role="SubTopicsTable" Type="Self.SubTopicsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Years">
+              <PropertyRef Name="year_Id" />
+            </Principal>
+            <Dependent Role="SubTopicsTable">
+              <PropertyRef Name="year_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_terms3">
+          <End Role="Terms" Type="Self.Term" Multiplicity="1" />
+          <End Role="TopicsTable" Type="Self.TopicsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terms">
+              <PropertyRef Name="Term_Id" />
+            </Principal>
+            <Dependent Role="TopicsTable">
+              <PropertyRef Name="Term_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_weeks3">
+          <End Role="WeeksTable" Type="Self.WeeksTable" Multiplicity="1" />
+          <End Role="TopicsTable" Type="Self.TopicsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeeksTable">
+              <PropertyRef Name="Week_id" />
+            </Principal>
+            <Dependent Role="TopicsTable">
+              <PropertyRef Name="Week_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_years3">
+          <End Role="Years" Type="Self.Year" Multiplicity="1" />
+          <End Role="TopicsTable" Type="Self.TopicsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Years">
+              <PropertyRef Name="year_Id" />
+            </Principal>
+            <Dependent Role="TopicsTable">
+              <PropertyRef Name="year_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="AspNetUserRoles">
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="SMISEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SMISEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
@@ -1009,10 +1248,14 @@
           <EntitySet Name="ClassTables" EntityType="Self.ClassTable" />
           <EntitySet Name="MidtermMarksTables" EntityType="Self.MidtermMarksTable" />
           <EntitySet Name="StudentsTables" EntityType="Self.StudentsTable" />
+          <EntitySet Name="subject_class" EntityType="Self.subject_class" />
           <EntitySet Name="SubjectTables" EntityType="Self.SubjectTable" />
+          <EntitySet Name="subjecttopics" EntityType="Self.subjecttopic" />
           <EntitySet Name="SubTopicsTables" EntityType="Self.SubTopicsTable" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Terms" EntityType="Self.Term" />
           <EntitySet Name="TopicsTables" EntityType="Self.TopicsTable" />
+          <EntitySet Name="topicstats" EntityType="Self.topicstat" />
           <EntitySet Name="WeeksTables" EntityType="Self.WeeksTable" />
           <EntitySet Name="Years" EntityType="Self.Year" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -1023,6 +1266,10 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
           </AssociationSet>
+          <AssociationSet Name="FK_class256" Association="Self.FK_class256">
+            <End Role="ClassTable" EntitySet="ClassTables" />
+            <End Role="subjecttopics" EntitySet="subjecttopics" />
+          </AssociationSet>
           <AssociationSet Name="FK_classstudent" Association="Self.FK_classstudent">
             <End Role="ClassTable" EntitySet="ClassTables" />
             <End Role="MidtermMarksTable" EntitySet="MidtermMarksTables" />
@@ -1030,6 +1277,10 @@
           <AssociationSet Name="FK_classstudent1" Association="Self.FK_classstudent1">
             <End Role="ClassTable" EntitySet="ClassTables" />
             <End Role="SubTopicsTable" EntitySet="SubTopicsTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_classstudent1s" Association="Self.FK_classstudent1s">
+            <End Role="ClassTable" EntitySet="ClassTables" />
+            <End Role="subject_class" EntitySet="subject_class" />
           </AssociationSet>
           <AssociationSet Name="FK_classstudents" Association="Self.FK_classstudents">
             <End Role="ClassTable" EntitySet="ClassTables" />
@@ -1055,301 +1306,83 @@
             <End Role="Years" EntitySet="Years" />
             <End Role="MidtermMarksTable" EntitySet="MidtermMarksTables" />
           </AssociationSet>
+          <AssociationSet Name="FK_terms2" Association="Self.FK_terms2">
+            <End Role="Terms" EntitySet="Terms" />
+            <End Role="StudentsTable" EntitySet="StudentsTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_years2" Association="Self.FK_years2">
+            <End Role="Years" EntitySet="Years" />
+            <End Role="StudentsTable" EntitySet="StudentsTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_classstudent1ss" Association="Self.FK_classstudent1ss">
+            <End Role="SubjectTable" EntitySet="SubjectTables" />
+            <End Role="subject_class" EntitySet="subject_class" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subject256" Association="Self.FK_subject256">
+            <End Role="SubjectTable" EntitySet="SubjectTables" />
+            <End Role="subjecttopics" EntitySet="subjecttopics" />
+          </AssociationSet>
           <AssociationSet Name="FK_subjectstudents" Association="Self.FK_subjectstudents">
             <End Role="SubjectTable" EntitySet="SubjectTables" />
             <End Role="TopicsTable" EntitySet="TopicsTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_terms256" Association="Self.FK_terms256">
+            <End Role="Terms" EntitySet="Terms" />
+            <End Role="subjecttopics" EntitySet="subjecttopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_topics256" Association="Self.FK_topics256">
+            <End Role="TopicsTable" EntitySet="TopicsTables" />
+            <End Role="subjecttopics" EntitySet="subjecttopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_weeks256" Association="Self.FK_weeks256">
+            <End Role="WeeksTable" EntitySet="WeeksTables" />
+            <End Role="subjecttopics" EntitySet="subjecttopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_terms" Association="Self.FK_terms">
+            <End Role="Terms" EntitySet="Terms" />
+            <End Role="SubTopicsTable" EntitySet="SubTopicsTables" />
           </AssociationSet>
           <AssociationSet Name="FK_Topic" Association="Self.FK_Topic">
             <End Role="TopicsTable" EntitySet="TopicsTables" />
             <End Role="SubTopicsTable" EntitySet="SubTopicsTables" />
           </AssociationSet>
+          <AssociationSet Name="FK_years" Association="Self.FK_years">
+            <End Role="Years" EntitySet="Years" />
+            <End Role="SubTopicsTable" EntitySet="SubTopicsTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_terms3" Association="Self.FK_terms3">
+            <End Role="Terms" EntitySet="Terms" />
+            <End Role="TopicsTable" EntitySet="TopicsTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_weeks3" Association="Self.FK_weeks3">
+            <End Role="WeeksTable" EntitySet="WeeksTables" />
+            <End Role="TopicsTable" EntitySet="TopicsTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_years3" Association="Self.FK_years3">
+            <End Role="Years" EntitySet="Years" />
+            <End Role="TopicsTable" EntitySet="TopicsTables" />
+          </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK_terms2" Association="SMISModel.FK_terms2">
-            <End Role="Term" EntitySet="Terms" />
-            <End Role="StudentsTable" EntitySet="StudentsTables" />
-          </AssociationSet>
-          <AssociationSet Name="FK_years2" Association="SMISModel.FK_years2">
-            <End Role="Year" EntitySet="Years" />
-            <End Role="StudentsTable" EntitySet="StudentsTables" />
-          </AssociationSet>
-          <AssociationSet Name="FK_terms" Association="SMISModel.FK_terms">
-            <End Role="Term" EntitySet="Terms" />
-            <End Role="SubTopicsTable" EntitySet="SubTopicsTables" />
-          </AssociationSet>
-          <AssociationSet Name="FK_years" Association="SMISModel.FK_years">
-            <End Role="Year" EntitySet="Years" />
-            <End Role="SubTopicsTable" EntitySet="SubTopicsTables" />
-          </AssociationSet>
-          <AssociationSet Name="FK_terms3" Association="SMISModel.FK_terms3">
-            <End Role="Term" EntitySet="Terms" />
-            <End Role="TopicsTable" EntitySet="TopicsTables" />
-          </AssociationSet>
-          <AssociationSet Name="FK_years3" Association="SMISModel.FK_years3">
-            <End Role="Year" EntitySet="Years" />
-            <End Role="TopicsTable" EntitySet="TopicsTables" />
-          </AssociationSet>
-          <EntitySet Name="subject_class" EntityType="SMISModel.subject_class" />
-          <AssociationSet Name="FK_classstudent1s" Association="SMISModel.FK_classstudent1s">
-            <End Role="ClassTable" EntitySet="ClassTables" />
-            <End Role="subject_class" EntitySet="subject_class" />
-          </AssociationSet>
-          <AssociationSet Name="FK_classstudent1ss" Association="SMISModel.FK_classstudent1ss">
-            <End Role="SubjectTable" EntitySet="SubjectTables" />
-            <End Role="subject_class" EntitySet="subject_class" />
-          </AssociationSet>
-          <EntitySet Name="subjecttopics" EntityType="SMISModel.subjecttopic" />
-          <AssociationSet Name="FK_terms256" Association="SMISModel.FK_terms256">
-            <End Role="Term" EntitySet="Terms" />
-            <End Role="subjecttopic" EntitySet="subjecttopics" />
-          </AssociationSet>
-          <AssociationSet Name="FK_topics256" Association="SMISModel.FK_topics256">
-            <End Role="TopicsTable" EntitySet="TopicsTables" />
-            <End Role="subjecttopic" EntitySet="subjecttopics" />
-          </AssociationSet>
-          <AssociationSet Name="FK_weeks256" Association="SMISModel.FK_weeks256">
-            <End Role="WeeksTable" EntitySet="WeeksTables" />
-            <End Role="subjecttopic" EntitySet="subjecttopics" />
-          </AssociationSet>
-          <EntitySet Name="C__MigrationHistory" EntityType="SMISModel.C__MigrationHistory" />
-          <AssociationSet Name="FK_class256" Association="SMISModel.FK_class256">
-            <End Role="ClassTable" EntitySet="ClassTables" />
-            <End Role="subjecttopic" EntitySet="subjecttopics" />
-          </AssociationSet>
-          <AssociationSet Name="FK_subject256" Association="SMISModel.FK_subject256">
-            <End Role="SubjectTable" EntitySet="SubjectTables" />
-            <End Role="subjecttopic" EntitySet="subjecttopics" />
-          </AssociationSet>
-          <AssociationSet Name="FK_weeks3" Association="SMISModel.FK_weeks3">
-            <End Role="WeeksTable" EntitySet="WeeksTables" />
-            <End Role="TopicsTable" EntitySet="TopicsTables" />
-          </AssociationSet>
-          <EntitySet Name="topicstats" EntityType="SMISModel.topicstat" />
         </EntityContainer>
-        <Association Name="FK_terms2">
-          <End Type="SMISModel.Term" Role="Term" Multiplicity="1" />
-          <End Type="SMISModel.StudentsTable" Role="StudentsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Term">
-              <PropertyRef Name="Term_Id" />
-            </Principal>
-            <Dependent Role="StudentsTable">
-              <PropertyRef Name="Term_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_years2">
-          <End Type="SMISModel.Year" Role="Year" Multiplicity="1" />
-          <End Type="SMISModel.StudentsTable" Role="StudentsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Year">
-              <PropertyRef Name="year_Id" />
-            </Principal>
-            <Dependent Role="StudentsTable">
-              <PropertyRef Name="year_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_terms">
-          <End Type="SMISModel.Term" Role="Term" Multiplicity="1" />
-          <End Type="SMISModel.SubTopicsTable" Role="SubTopicsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Term">
-              <PropertyRef Name="Term_Id" />
-            </Principal>
-            <Dependent Role="SubTopicsTable">
-              <PropertyRef Name="Term_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_years">
-          <End Type="SMISModel.Year" Role="Year" Multiplicity="1" />
-          <End Type="SMISModel.SubTopicsTable" Role="SubTopicsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Year">
-              <PropertyRef Name="year_Id" />
-            </Principal>
-            <Dependent Role="SubTopicsTable">
-              <PropertyRef Name="year_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_terms3">
-          <End Type="SMISModel.Term" Role="Term" Multiplicity="1" />
-          <End Type="SMISModel.TopicsTable" Role="TopicsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Term">
-              <PropertyRef Name="Term_Id" />
-            </Principal>
-            <Dependent Role="TopicsTable">
-              <PropertyRef Name="Term_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_years3">
-          <End Type="SMISModel.Year" Role="Year" Multiplicity="1" />
-          <End Type="SMISModel.TopicsTable" Role="TopicsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Year">
-              <PropertyRef Name="year_Id" />
-            </Principal>
-            <Dependent Role="TopicsTable">
-              <PropertyRef Name="year_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="subject_class">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Subject_id" Type="Int32" Nullable="false" />
-          <Property Name="Class_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ClassTable" Relationship="SMISModel.FK_classstudent1s" FromRole="subject_class" ToRole="ClassTable" />
-          <NavigationProperty Name="SubjectTable" Relationship="SMISModel.FK_classstudent1ss" FromRole="subject_class" ToRole="SubjectTable" />
-        </EntityType>
-        <Association Name="FK_classstudent1s">
-          <End Type="SMISModel.ClassTable" Role="ClassTable" Multiplicity="1" />
-          <End Type="SMISModel.subject_class" Role="subject_class" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ClassTable">
-              <PropertyRef Name="Class_id" />
-            </Principal>
-            <Dependent Role="subject_class">
-              <PropertyRef Name="Class_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_classstudent1ss">
-          <End Type="SMISModel.SubjectTable" Role="SubjectTable" Multiplicity="1" />
-          <End Type="SMISModel.subject_class" Role="subject_class" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubjectTable">
-              <PropertyRef Name="Subject_id" />
-            </Principal>
-            <Dependent Role="subject_class">
-              <PropertyRef Name="Subject_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="subjecttopic">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Topic_id" Type="Int32" Nullable="false" />
-          <Property Name="Term_id" Type="Int32" Nullable="false" />
-          <Property Name="Week_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Term" Relationship="SMISModel.FK_terms256" FromRole="subjecttopic" ToRole="Term" />
-          <NavigationProperty Name="TopicsTable" Relationship="SMISModel.FK_topics256" FromRole="subjecttopic" ToRole="TopicsTable" />
-          <NavigationProperty Name="WeeksTable" Relationship="SMISModel.FK_weeks256" FromRole="subjecttopic" ToRole="WeeksTable" />
-          <Property Name="subject_id" Type="Int32" Nullable="false" />
-          <Property Name="class_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ClassTable" Relationship="SMISModel.FK_class256" FromRole="subjecttopic" ToRole="ClassTable" />
-          <NavigationProperty Name="SubjectTable" Relationship="SMISModel.FK_subject256" FromRole="subjecttopic" ToRole="SubjectTable" />
-        </EntityType>
-        <Association Name="FK_terms256">
-          <End Type="SMISModel.Term" Role="Term" Multiplicity="1" />
-          <End Type="SMISModel.subjecttopic" Role="subjecttopic" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Term">
-              <PropertyRef Name="Term_Id" />
-            </Principal>
-            <Dependent Role="subjecttopic">
-              <PropertyRef Name="Term_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_topics256">
-          <End Type="SMISModel.TopicsTable" Role="TopicsTable" Multiplicity="1" />
-          <End Type="SMISModel.subjecttopic" Role="subjecttopic" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TopicsTable">
-              <PropertyRef Name="Topic_id" />
-            </Principal>
-            <Dependent Role="subjecttopic">
-              <PropertyRef Name="Topic_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_weeks256">
-          <End Type="SMISModel.WeeksTable" Role="WeeksTable" Multiplicity="1" />
-          <End Type="SMISModel.subjecttopic" Role="subjecttopic" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WeeksTable">
-              <PropertyRef Name="Week_id" />
-            </Principal>
-            <Dependent Role="subjecttopic">
-              <PropertyRef Name="Week_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK_class256">
-          <End Type="SMISModel.ClassTable" Role="ClassTable" Multiplicity="1" />
-          <End Type="SMISModel.subjecttopic" Role="subjecttopic" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ClassTable">
-              <PropertyRef Name="Class_id" />
-            </Principal>
-            <Dependent Role="subjecttopic">
-              <PropertyRef Name="class_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_subject256">
-          <End Type="SMISModel.SubjectTable" Role="SubjectTable" Multiplicity="1" />
-          <End Type="SMISModel.subjecttopic" Role="subjecttopic" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubjectTable">
-              <PropertyRef Name="Subject_id" />
-            </Principal>
-            <Dependent Role="subjecttopic">
-              <PropertyRef Name="subject_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_weeks3">
-          <End Type="SMISModel.WeeksTable" Role="WeeksTable" Multiplicity="1" />
-          <End Type="SMISModel.TopicsTable" Role="TopicsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WeeksTable">
-              <PropertyRef Name="Week_id" />
-            </Principal>
-            <Dependent Role="TopicsTable">
-              <PropertyRef Name="Week_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="topicstat">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="value" Type="Int32" />
-          <Property Name="weekid" Type="Int32" Nullable="false" />
-          <Property Name="Subject_id" Type="Int32" Nullable="false" />
-          <Property Name="Topic_id" Type="Int32" Nullable="false" />
-          <Property Name="Class_id" Type="Int32" Nullable="false" />
-          <Property Name="Datetime" Type="DateTime" Precision="3" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SMISModelStoreContainer" CdmEntityContainer="SMISEntities">
+        <EntityContainerMapping StorageEntityContainer="SMISModelStoreContainer" CdmEntityContainer="SMISEntities2">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="SMISModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="SMISModel.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
@@ -1420,10 +1453,19 @@
           <EntitySetMapping Name="StudentsTables">
             <EntityTypeMapping TypeName="SMISModel.StudentsTable">
               <MappingFragment StoreEntitySet="StudentsTable">
-                <ScalarProperty Name="year_Id" ColumnName="year_Id" />
-                <ScalarProperty Name="Term_id" ColumnName="Term_id" />
                 <ScalarProperty Name="Student_id" ColumnName="Student_id" />
                 <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+                <ScalarProperty Name="Class_id" ColumnName="Class_id" />
+                <ScalarProperty Name="Term_id" ColumnName="Term_id" />
+                <ScalarProperty Name="year_Id" ColumnName="year_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subject_class">
+            <EntityTypeMapping TypeName="SMISModel.subject_class">
+              <MappingFragment StoreEntitySet="subject_class">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
                 <ScalarProperty Name="Class_id" ColumnName="Class_id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1436,12 +1478,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="subjecttopics">
+            <EntityTypeMapping TypeName="SMISModel.subjecttopic">
+              <MappingFragment StoreEntitySet="subjecttopics">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Topic_id" ColumnName="Topic_id" />
+                <ScalarProperty Name="Term_id" ColumnName="Term_id" />
+                <ScalarProperty Name="Week_id" ColumnName="Week_id" />
+                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+                <ScalarProperty Name="class_id" ColumnName="class_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="SubTopicsTables">
             <EntityTypeMapping TypeName="SMISModel.SubTopicsTable">
               <MappingFragment StoreEntitySet="SubTopicsTable">
-                <ScalarProperty Name="File" ColumnName="File" />
-                <ScalarProperty Name="Term_Id" ColumnName="Term_Id" />
-                <ScalarProperty Name="year_Id" ColumnName="year_Id" />
                 <ScalarProperty Name="SubTopics_id" ColumnName="SubTopics_id" />
                 <ScalarProperty Name="Topic_id" ColumnName="Topic_id" />
                 <ScalarProperty Name="SubTopic" ColumnName="SubTopic" />
@@ -1449,6 +1500,20 @@
                 <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
                 <ScalarProperty Name="Datetime" ColumnName="Datetime" />
                 <ScalarProperty Name="Class_id" ColumnName="Class_id" />
+                <ScalarProperty Name="year_Id" ColumnName="year_Id" />
+                <ScalarProperty Name="Term_Id" ColumnName="Term_Id" />
+                <ScalarProperty Name="File" ColumnName="File" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SMISModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1463,19 +1528,32 @@
           <EntitySetMapping Name="TopicsTables">
             <EntityTypeMapping TypeName="SMISModel.TopicsTable">
               <MappingFragment StoreEntitySet="TopicsTable">
-                <ScalarProperty Name="Data" ColumnName="Data" />
-                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
-                <ScalarProperty Name="File" ColumnName="File" />
-                <ScalarProperty Name="Overview" ColumnName="Overview" />
-                <ScalarProperty Name="Week_id" ColumnName="Week_id" />
-                <ScalarProperty Name="year_Id" ColumnName="year_Id" />
-                <ScalarProperty Name="Term_id" ColumnName="Term_id" />
                 <ScalarProperty Name="Topic_id" ColumnName="Topic_id" />
                 <ScalarProperty Name="Topic_Name" ColumnName="Topic_Name" />
                 <ScalarProperty Name="Class_id" ColumnName="Class_id" />
                 <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
                 <ScalarProperty Name="DateTime" ColumnName="DateTime" />
                 <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+                <ScalarProperty Name="Term_id" ColumnName="Term_id" />
+                <ScalarProperty Name="year_Id" ColumnName="year_Id" />
+                <ScalarProperty Name="Week_id" ColumnName="Week_id" />
+                <ScalarProperty Name="Overview" ColumnName="Overview" />
+                <ScalarProperty Name="File" ColumnName="File" />
+                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="topicstats">
+            <EntityTypeMapping TypeName="SMISModel.topicstat">
+              <MappingFragment StoreEntitySet="topicstats">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="weekid" ColumnName="weekid" />
+                <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+                <ScalarProperty Name="Topic_id" ColumnName="Topic_id" />
+                <ScalarProperty Name="Class_id" ColumnName="Class_id" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1503,50 +1581,6 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="subject_class">
-            <EntityTypeMapping TypeName="SMISModel.subject_class">
-              <MappingFragment StoreEntitySet="subject_class">
-                <ScalarProperty Name="Class_id" ColumnName="Class_id" />
-                <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="subjecttopics">
-            <EntityTypeMapping TypeName="SMISModel.subjecttopic">
-              <MappingFragment StoreEntitySet="subjecttopics">
-                <ScalarProperty Name="class_id" ColumnName="class_id" />
-                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
-                <ScalarProperty Name="Week_id" ColumnName="Week_id" />
-                <ScalarProperty Name="Term_id" ColumnName="Term_id" />
-                <ScalarProperty Name="Topic_id" ColumnName="Topic_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="SMISModel.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="topicstats">
-            <EntityTypeMapping TypeName="SMISModel.topicstat">
-              <MappingFragment StoreEntitySet="topicstats">
-                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
-                <ScalarProperty Name="Class_id" ColumnName="Class_id" />
-                <ScalarProperty Name="Topic_id" ColumnName="Topic_id" />
-                <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
-                <ScalarProperty Name="weekid" ColumnName="weekid" />
-                <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

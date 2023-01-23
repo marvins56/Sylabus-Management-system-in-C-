@@ -21,10 +21,10 @@ namespace SMIS.Models
         public int subject_id { get; set; }
         public int class_id { get; set; }
     
+        public virtual ClassTable ClassTable { get; set; }
+        public virtual SubjectTable SubjectTable { get; set; }
         public virtual Term Term { get; set; }
         public virtual TopicsTable TopicsTable { get; set; }
         public virtual WeeksTable WeeksTable { get; set; }
-        public virtual ClassTable ClassTable { get; set; }
-        public virtual SubjectTable SubjectTable { get; set; }
     }
 }

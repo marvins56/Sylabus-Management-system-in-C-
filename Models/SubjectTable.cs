@@ -18,9 +18,9 @@ namespace SMIS.Models
         public SubjectTable()
         {
             this.MidtermMarksTables = new HashSet<MidtermMarksTable>();
-            this.TopicsTables = new HashSet<TopicsTable>();
             this.subject_class = new HashSet<subject_class>();
             this.subjecttopics = new HashSet<subjecttopic>();
+            this.TopicsTables = new HashSet<TopicsTable>();
         }
     
         public int Subject_id { get; set; }
@@ -29,10 +29,10 @@ namespace SMIS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MidtermMarksTable> MidtermMarksTables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TopicsTable> TopicsTables { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<subject_class> subject_class { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<subjecttopic> subjecttopics { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TopicsTable> TopicsTables { get; set; }
     }
 }

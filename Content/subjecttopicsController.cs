@@ -13,7 +13,7 @@ namespace SMIS.Content
 {
     public class subjecttopicsController : Controller
     {
-        private SMISEntities db = new SMISEntities();
+        private SMISEntities2 db = new SMISEntities2();
 
         // GET: subjecttopics
         public async Task<ActionResult> Index()

@@ -14,7 +14,7 @@ namespace SMIS.Controllers
     [Authorize]
     public class ClassController : Controller
     {
-        private SMISEntities db = new SMISEntities();
+        private SMISEntities2 db = new SMISEntities2();
 
         // GET: Class
         public async Task<ActionResult> Index()

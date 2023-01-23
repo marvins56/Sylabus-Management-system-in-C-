@@ -11,7 +11,7 @@ namespace SMIS.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private SMISEntities db = new SMISEntities();
+        private SMISEntities2 db = new SMISEntities2();
         public ActionResult Index()
 
         {

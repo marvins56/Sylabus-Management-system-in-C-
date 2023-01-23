@@ -4,51 +4,52 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="be9238b76a0741c7aa7e707a4e9e15bc" Name="Diagram1">
-        <EntityTypeShape EntityType="SMISModel.AspNetRole" Width="1.5" PointX="8.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.AspNetUserClaim" Width="1.5" PointX="13.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.AspNetUserLogin" Width="1.5" PointX="13.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.AspNetUser" Width="1.5" PointX="11" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.ClassTable" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.MidtermMarksTable" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.StudentsTable" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.SubjectTable" Width="1.5" PointX="3.75" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.SubTopicsTable" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.Term" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.TopicsTable" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.WeeksTable" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMISModel.Year" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+      <Diagram DiagramId="be58fd74045148fc956289ab739120af" Name="Diagram1">
+        <EntityTypeShape EntityType="SMISModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.AspNetRole" Width="1.5" PointX="5.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.AspNetUser" Width="1.5" PointX="8" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.ClassTable" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.MidtermMarksTable" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.StudentsTable" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.subject_class" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.SubjectTable" Width="1.5" PointX="3.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.subjecttopic" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.SubTopicsTable" Width="1.5" PointX="6" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.Term" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.TopicsTable" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.topicstat" Width="1.5" PointX="8.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.WeeksTable" Width="1.5" PointX="0.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMISModel.Year" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
         <AssociationConnector Association="SMISModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_class256" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_classstudent" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_classstudent1" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_classstudent1s" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_classstudents" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_classtable" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_studentmarks" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_subjectstudent" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_term" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_year" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_terms2" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_years2" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_classstudent1ss" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_subject256" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_subjectstudents" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_terms256" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_topics256" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_weeks256" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_terms" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_Topic" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_years" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_terms3" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_weeks3" ManuallyRouted="false" />
+        <AssociationConnector Association="SMISModel.FK_years3" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.AspNetUserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="SMISModel.FK_terms2" />
-        <AssociationConnector Association="SMISModel.FK_years2" />
-        <AssociationConnector Association="SMISModel.FK_terms" />
-        <AssociationConnector Association="SMISModel.FK_years" />
-        <AssociationConnector Association="SMISModel.FK_terms3" />
-        <AssociationConnector Association="SMISModel.FK_years3" />
-        <EntityTypeShape EntityType="SMISModel.subject_class" Width="1.5" PointX="9" PointY="6.375" />
-        <AssociationConnector Association="SMISModel.FK_classstudent1s" />
-        <AssociationConnector Association="SMISModel.FK_classstudent1ss" />
-        <EntityTypeShape EntityType="SMISModel.subjecttopic" Width="1.5" PointX="8.25" PointY="9.5" />
-        <AssociationConnector Association="SMISModel.FK_terms256" />
-        <AssociationConnector Association="SMISModel.FK_topics256" />
-        <AssociationConnector Association="SMISModel.FK_weeks256" />
-        <EntityTypeShape EntityType="SMISModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="3.75" />
-        <AssociationConnector Association="SMISModel.FK_class256" />
-        <AssociationConnector Association="SMISModel.FK_subject256" />
-        <AssociationConnector Association="SMISModel.FK_weeks3" />
-        <EntityTypeShape EntityType="SMISModel.topicstat" Width="1.5" PointX="10.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

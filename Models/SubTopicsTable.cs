@@ -26,8 +26,8 @@ namespace SMIS.Models
         public string File { get; set; }
     
         public virtual ClassTable ClassTable { get; set; }
-        public virtual TopicsTable TopicsTable { get; set; }
         public virtual Term Term { get; set; }
+        public virtual TopicsTable TopicsTable { get; set; }
         public virtual Year Year { get; set; }
     }
 }

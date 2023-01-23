@@ -17,8 +17,8 @@ namespace SMIS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TopicsTable()
         {
-            this.SubTopicsTables = new HashSet<SubTopicsTable>();
             this.subjecttopics = new HashSet<subjecttopic>();
+            this.SubTopicsTables = new HashSet<SubTopicsTable>();
         }
     
         public int Topic_id { get; set; }
@@ -38,11 +38,11 @@ namespace SMIS.Models
         public virtual ClassTable ClassTable { get; set; }
         public virtual SubjectTable SubjectTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<subjecttopic> subjecttopics { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SubTopicsTable> SubTopicsTables { get; set; }
         public virtual Term Term { get; set; }
-        public virtual Year Year { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<subjecttopic> subjecttopics { get; set; }
         public virtual WeeksTable WeeksTable { get; set; }
+        public virtual Year Year { get; set; }
     }
 }
