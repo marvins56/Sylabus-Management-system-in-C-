@@ -63,7 +63,6 @@ namespace SMIS.Controllers
                         if (subTopicsTable.Class_id != (Convert.ToInt32(Session["classid"])))
                         {
                             TempData["error"] = "Kindly select exact class changes are being made";
-
                         }
                         else
                         {

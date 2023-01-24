@@ -136,7 +136,7 @@ public async Task<ActionResult> Index()
                         }
                         else
                         {
-                            if(topicsTable.Class_id != (Convert.ToInt32(Session["classid"])) && topicsTable.Subject_id !=(Convert.ToInt32(Session["subjectid"])) )
+                            if(topicsTable.Class_id != (Convert.ToInt32(Session["classid"])) /*&& topicsTable.Subject_id !=(Convert.ToInt32(Session["subjectid"]))*/ )
                                 {
                                 TempData["error"] = "Kindly select exact class changes are being made";
 
@@ -231,7 +231,7 @@ public async Task<ActionResult> Index()
                 {
                     try
                     {
-                        if (topicsTable.Class_id != (Convert.ToInt32(Session["classid"])) && topicsTable.Subject_id != (Convert.ToInt32(Session["subjectid"])))
+                        if (topicsTable.Class_id != (Convert.ToInt32(Session["classid"])))
                         {
                             TempData["error"] = "Kindly select exact class changes are being made";
 
