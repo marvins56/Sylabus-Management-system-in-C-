@@ -54,9 +54,9 @@ namespace SMIS
             ////   consumerKey: "",
             ////   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "628700462369980",
-            //   appSecret: "748f89b45a40708be8ff66bea5475114");
+            app.UseFacebookAuthentication(
+               appId: "628700462369980",
+               appSecret: "748f89b45a40708be8ff66bea5475114");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {

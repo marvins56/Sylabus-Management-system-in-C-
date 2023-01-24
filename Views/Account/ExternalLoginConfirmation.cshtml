@@ -7,15 +7,16 @@
 <div class="row justify-content-center">
     <div class="col-12 col-md-6 col-sm-12">
         <div class="card">
-            <div class="card-header">
-                <h4>Associate your @ViewBag.LoginProvider account.</h4>
-            </div>
+            
             <div class="card-body">
+               
                 <div class="empty-state" data-height="400">
-                    <div class="empty-state-icon bg-danger">
-                        <i class="fas fa-times"></i>
+                    <div class="empty-state-icon bg-success">
+                        <i class="fas fa-check"></i>
                     </div>
                     <h2>@ViewBag.Title.</h2>
+                    <h4>Associate your @ViewBag.LoginProvider account.</h4>
+
                     <p>
                         @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                         {
@@ -35,18 +36,15 @@
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                             </div>
+                            <input type="submit" class="btn btn-primary" value="Register" />
+
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" class="btn btn-primary" value="Register" />
-                            </div>
-                        </div>
+                        
                     }
-                        </p>
-                        <a href="@Url.Action("Login", "Account")" class="btn btn-warning mt-4">Try Again</a>
-                        <a href="@Url.Action("Login", "Account")" class="mt-4 bb">Cancel</a>
+                       
+
                     </div>
-            </div>
+                </div>
         </div>
     </div>
 </div>
