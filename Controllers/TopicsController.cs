@@ -107,6 +107,15 @@ public async Task<ActionResult> Index()
             return View();
         }
 
+        [NonAction]
+        public bool TopicExists(int id, int id2, int id3,string topicname)
+        {
+            var v = db.TopicsTables.Where(a => a.Subject_id == id && id2 == a.Class_id && a.Week_id == id3 && a.Topic_Name.ToLower() == topicname.ToLower() ).FirstOrDefault();
+            return v != null;
+
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Topic_id,Topic_Name,Class_id,IsComplete,DateTime,Subject_id,Term_id,year_Id,Week_id,Overview,File,ContentType,Data")] TopicsTable topicsTable, HttpPostedFileBase postedFile)
@@ -117,33 +126,61 @@ public async Task<ActionResult> Index()
                 {
                     // db.TopicsTables.Add(topicsTable);
 
-                    
-                    byte[] bytes;
-                    using (BinaryReader br = new BinaryReader(postedFile.InputStream))
-                    {
-                        bytes = br.ReadBytes(postedFile.ContentLength);
-                    }
+                    var ids = Convert.ToInt32(Session["redirectid"]);
+                    if(ids > 0) {
 
-                    db.TopicsTables.Add(new TopicsTable
-                    {
-                        File = Path.GetFileName(postedFile.FileName),
-                        ContentType = postedFile.ContentType,
-                        Data = bytes,
-                        Topic_Name = topicsTable.Topic_Name,
-                        Class_id = topicsTable.Class_id,
-                        IsComplete = topicsTable.IsComplete,
+                        var boolres = TopicExists(topicsTable.Subject_id, topicsTable.Class_id, topicsTable.Week_id, topicsTable.Topic_Name);
+                        if(boolres == true)
+                        {
+                            TempData["error"] = "TOPIC EXIXTS, kindly make changes to exixting topic";
+                        }
+                        else
+                        {
+                            if(topicsTable.Class_id != (Convert.ToInt32(Session["classid"])) && topicsTable.Subject_id !=(Convert.ToInt32(Session["subjectid"])) )
+                                {
+                                TempData["error"] = "Kindly select exact class changes are being made";
+
+                            }
+                            else
+                            {
+
+                                byte[] bytes;
+                                using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+                                {
+                                    bytes = br.ReadBytes(postedFile.ContentLength);
+                                }
+
+                                db.TopicsTables.Add(new TopicsTable
+                                {
+                                    File = Path.GetFileName(postedFile.FileName),
+                                    ContentType = postedFile.ContentType,
+                                    Data = bytes,
+                                    Topic_Name = topicsTable.Topic_Name,
+                                    Class_id = topicsTable.Class_id,
+                                    IsComplete = topicsTable.IsComplete,
+
+                                    Subject_id = topicsTable.Subject_id,
+                                    Term_id = topicsTable.Term_id,
+                                    year_Id = topicsTable.year_Id,
+                                    Week_id = topicsTable.Week_id,
+                                    Overview = topicsTable.Overview,
+                                    DateTime = DateTime.Now
+
+                                });
+
+                                await db.SaveChangesAsync();
+                                return RedirectToAction("Detail_Dashboard", "Users", new { id = ids });
+                            }
+
+                        }
+
                         
-                        Subject_id = topicsTable.Subject_id,
-                        Term_id = topicsTable.Term_id,
-                        year_Id = topicsTable.year_Id,
-                        Week_id = topicsTable.Week_id,
-                        Overview = topicsTable.Overview,
-                        DateTime = DateTime.Now
-
-                    });
-                    
-                    await db.SaveChangesAsync();
-                    return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        TempData["Info"] = "Error fetching data";
+                    }
+                   
                 }
             }catch(Exception ex)
             {
@@ -160,7 +197,6 @@ public async Task<ActionResult> Index()
         [HttpGet]
         public FileResult DownloadFile(int? fileId)
         {
-
             TopicsTable file = db.TopicsTables.ToList().Find(p => p.Topic_id == fileId.Value);
             return File(file.Data, file.ContentType, file.File);
         }
@@ -190,9 +226,26 @@ public async Task<ActionResult> Index()
         {
             if (ModelState.IsValid)
             {
-                db.Entry(topicsTable).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                var ids = Convert.ToInt32(Session["redirectid"]);
+                if (ids > 0)
+                {
+                    try
+                    {
+                        if (topicsTable.Class_id != (Convert.ToInt32(Session["classid"])) && topicsTable.Subject_id != (Convert.ToInt32(Session["subjectid"])))
+                        {
+                            TempData["error"] = "Kindly select exact class changes are being made";
+
+                        }
+                        else
+                        {
+                            db.Entry(topicsTable).State = EntityState.Modified;
+                            await db.SaveChangesAsync();
+                            return RedirectToAction("Detail_Dashboard", "Users", new { id = ids });
+                        }
+                    }catch(Exception ex){
+                        TempData["error"] = ex.Message;
+                    }
+                    }
             }
             ViewBag.Class_id = new SelectList(db.ClassTables, "Class_id", "Class_Name", topicsTable.Class_id);
             ViewBag.Subject_id = new SelectList(db.SubjectTables, "Subject_id", "Name", topicsTable.Subject_id);

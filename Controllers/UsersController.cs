@@ -23,10 +23,6 @@ namespace SMIS.Controllers
             return View(await db.AspNetUsers.ToListAsync());
         }
 
-       
-       
-
-
         // GET: Users/Details/5
         public async Task<ActionResult> Details(string id)
         {
@@ -84,6 +80,7 @@ namespace SMIS.Controllers
             {
                 db.Entry(aspNetUser).State = EntityState.Modified;
                 await db.SaveChangesAsync();
+                TempData["success"] = "Changes made successfully";
                 return RedirectToAction("Index");
             }
             return View(aspNetUser);
@@ -108,10 +105,19 @@ namespace SMIS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(string id)
         {
-            AspNetUser aspNetUser = await db.AspNetUsers.FindAsync(id);
-            db.AspNetUsers.Remove(aspNetUser);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            try
+            {
+                AspNetUser aspNetUser = await db.AspNetUsers.FindAsync(id);
+                db.AspNetUsers.Remove(aspNetUser);
+                await db.SaveChangesAsync();
+                TempData["success"] = "Changes made successfully";
+
+                return RedirectToAction("Index");
+            }catch(Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return RedirectToAction("Index");
+            }
         }
 
         [ChildActionOnly]
@@ -234,7 +240,6 @@ namespace SMIS.Controllers
                 return PartialView("chart", null);
             }
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

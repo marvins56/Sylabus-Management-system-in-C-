@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using SMIS.Models;
 using SMIS.Models.ViewModel;
 using Newtonsoft.Json;
+using Twilio.TwiML.Messaging;
 
 namespace SMIS.Controllers
 {
@@ -27,7 +28,7 @@ namespace SMIS.Controllers
 
         public  ActionResult classSubjects(int? id)
         {
-            
+            Session["returnclassid"] = id;
             try
             {
                 if (id == null)
@@ -73,7 +74,13 @@ namespace SMIS.Controllers
             return View();
         }
 
-    
+        [NonAction]
+        public bool SubjectExixts(int id,int id2)
+        {
+            var v = db.subject_class.Where(a =>a.Subject_id == id && id2 == a.Class_id).FirstOrDefault();
+            return v != null;
+
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "ID,Subject_id,Class_id")] subject_class subject_class)
@@ -82,10 +89,27 @@ namespace SMIS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.subject_class.Add(subject_class);
-                    await db.SaveChangesAsync();
-                    TempData["success"] = "Subject Added to class";
-                    return RedirectToAction("Index");
+                    var id = Convert.ToInt32(Session["returnclassid"]);
+                    if(id > 0)
+                    {
+                        var boolres = SubjectExixts(subject_class.Subject_id, subject_class.Class_id);
+                        if(boolres == true)
+                        {
+                            TempData["error"] = "SUBJECT ALREADY EXISTS IN CLASS";
+                        }
+                        else
+                        {
+                            db.subject_class.Add(subject_class);
+                            await db.SaveChangesAsync();
+                            TempData["success"] = "Subject Added to class";
+                            return RedirectToAction("classSubjects", "subject_class", new { id = id });
+                        }
+                    }
+                    else
+                    {
+                        TempData["info"] = "Error fetching results";
+                    }
+                    
                 }
             }
             catch (Exception EX)
@@ -125,10 +149,20 @@ namespace SMIS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Entry(subject_class).State = EntityState.Modified;
-                    await db.SaveChangesAsync();
-                    TempData["success"] = "Subject Changed saved ";
-                    return RedirectToAction("Index");
+                    var idz = Convert.ToInt32(Session["returnclassid"]);
+                    if (idz > 0)
+                    {
+                        db.Entry(subject_class).State = EntityState.Modified;
+                        await db.SaveChangesAsync();
+                        TempData["success"] = "Subject Changed saved ";
+                        return RedirectToAction("classSubjects", "subject_class", new { id = idz });
+
+                    }
+                    else
+                    {
+                        TempData["info"] = "Error fetching results";
+                    }
+
                 }
             }
             catch (Exception EX)
@@ -163,7 +197,6 @@ namespace SMIS.Controllers
         {
             try
             {
-
                 subject_class subject_class = await db.subject_class.FindAsync(id);
                 db.subject_class.Remove(subject_class);
                 await db.SaveChangesAsync();

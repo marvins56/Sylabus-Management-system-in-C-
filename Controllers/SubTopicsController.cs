@@ -57,10 +57,23 @@ namespace SMIS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.SubTopicsTables.Add(subTopicsTable);
-                    await db.SaveChangesAsync();
-                    TempData["success"] = "Topic ADDED Successfuly";
-                    return RedirectToAction("Index");
+                    var ids = Convert.ToInt32(Session["redirectid"]);
+                    if (ids > 0)
+                    {
+                        if (subTopicsTable.Class_id != (Convert.ToInt32(Session["classid"])))
+                        {
+                            TempData["error"] = "Kindly select exact class changes are being made";
+
+                        }
+                        else
+                        {
+                            db.SubTopicsTables.Add(subTopicsTable);
+                            await db.SaveChangesAsync();
+                            TempData["success"] = "Topic ADDED Successfuly";
+                            return RedirectToAction("Detail_Dashboard", "Users", new { id = ids });
+                        }
+
+                    }
                 }
             }catch(Exception e)
             {
@@ -101,12 +114,17 @@ namespace SMIS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Entry(subTopicsTable).State = EntityState.Modified;
-                    await db.SaveChangesAsync();
-                    TempData["success"] = "Topic Changes Saved Successfuly";
-                    return RedirectToAction("Index");
+                    var ids = Convert.ToInt32(Session["redirectid"]);
+                    if (ids > 0)
+                    {
+                        db.Entry(subTopicsTable).State = EntityState.Modified;
+                        await db.SaveChangesAsync();
+                        TempData["success"] = "Topic Changes Saved Successfuly";
+                        return RedirectToAction("Detail_Dashboard", "Users", new { id = ids });
+                    }
                 }
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 TempData["error"] = ex.Message;
             }
