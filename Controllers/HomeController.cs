@@ -11,7 +11,7 @@ namespace SMIS.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private SMISEntities2 db = new SMISEntities2();
+        private SMISEntities db = new SMISEntities();
         public ActionResult Index()
 
         {
@@ -42,8 +42,5 @@ namespace SMIS.Controllers
             var result = db.SubjectTables.ToList();
             return result;
         }
-
-
-
     }
 }

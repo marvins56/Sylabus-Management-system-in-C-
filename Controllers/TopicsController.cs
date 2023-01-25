@@ -16,7 +16,7 @@ namespace SMIS.Controllers
     [Authorize]
     public class TopicsController : Controller
     {
-        private SMISEntities2 db = new SMISEntities2();
+        private SMISEntities db = new SMISEntities();
 
      
 public async Task<ActionResult> Index()
@@ -167,14 +167,11 @@ public async Task<ActionResult> Index()
                                     DateTime = DateTime.Now
 
                                 });
-
                                 await db.SaveChangesAsync();
                                 return RedirectToAction("Detail_Dashboard", "Users", new { id = ids });
                             }
 
                         }
-
-                        
                     }
                     else
                     {

@@ -14,7 +14,7 @@ namespace SMIS.Controllers
     [Authorize]
     public class SubTopicsController : Controller
     {
-        private SMISEntities2 db = new SMISEntities2();
+        private SMISEntities db = new SMISEntities();
 
         // GET: SubTopics
         public async Task<ActionResult> Index()

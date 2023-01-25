@@ -14,7 +14,7 @@ namespace SMIS.Controllers
     [Authorize]
     public class WeeksController : Controller
     {
-        private SMISEntities2 db = new SMISEntities2();
+        private SMISEntities db = new SMISEntities();
 
         // GET: Weeks
         public async Task<ActionResult> Index()

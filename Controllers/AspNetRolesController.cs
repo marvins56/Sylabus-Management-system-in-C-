@@ -14,7 +14,7 @@ namespace SMIS.Controllers
     [Authorize]
     public class AspNetRolesController : Controller
     {
-        private SMISEntities2 db = new SMISEntities2();
+        private SMISEntities db = new SMISEntities();
 
         // GET: AspNetRoles
         public async Task<ActionResult> Index()
