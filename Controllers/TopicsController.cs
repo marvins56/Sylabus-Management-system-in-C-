@@ -17,8 +17,6 @@ namespace SMIS.Controllers
     public class TopicsController : Controller
     {
         private SMISEntities db = new SMISEntities();
-
-     
 public async Task<ActionResult> Index()
         {
             var topicsTables = db.TopicsTables.Include(t => t.ClassTable).Include(t => t.SubjectTable).Include(t => t.Term).Include(t => t.Year).Include(t => t.WeeksTable);
@@ -30,7 +28,6 @@ public async Task<ActionResult> Index()
             if (weekid == null)
             {
                 TempData["error"] = "ERROR INVALID ID";
-
             }
             else
             {
@@ -47,9 +44,7 @@ public async Task<ActionResult> Index()
                 {
                     TempData["error"] = e.Message;
                 }
-
             }
-
             return PartialView("subjecttopics");
 
         }
@@ -96,7 +91,6 @@ public async Task<ActionResult> Index()
             return View(topicsTable);
         }
 
-        // GET: Topics/Create
         public ActionResult Create()
         {
             ViewBag.Class_id = new SelectList(db.ClassTables, "Class_id", "Class_Name");
@@ -143,7 +137,6 @@ public async Task<ActionResult> Index()
                             }
                             else
                             {
-
                                 byte[] bytes;
                                 using (BinaryReader br = new BinaryReader(postedFile.InputStream))
                                 {

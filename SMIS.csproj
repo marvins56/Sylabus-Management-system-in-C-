@@ -1559,6 +1559,7 @@
     <Content Include="Views\Users\chart.cshtml" />
     <Content Include="Views\subject_class\chart.cshtml" />
     <Content Include="Views\Users\Subject_stats.cshtml" />
+    <Content Include="SMIS.bak" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
