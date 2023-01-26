@@ -43,9 +43,6 @@ namespace SMIS.Controllers
             return View();
         }
 
-        // POST: AspNetRoles/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,Name")] AspNetRole aspNetRole)
