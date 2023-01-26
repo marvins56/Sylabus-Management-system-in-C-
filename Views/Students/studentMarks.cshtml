@@ -5,9 +5,6 @@
     Layout = "~/Views/Shared/_smisLayout.cshtml";
 
 }
-
-
-
 <div class="card">
     <div class="card-header">
         <h4>Students Management</h4>
@@ -17,14 +14,37 @@
             <div class="media-body">
                 <p>
                     <table class="table">
-                        <tr>
+                        <tr class="">
+                            
+                            <td>
+                                @Html.DisplayNameFor(model => model.SubjectTable.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Marks)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.ClassTable.Class_Name)
+                            </td>
 
-                            <th></th>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Term.term1)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Year.year1)
+                            </td>
+
                         </tr>
 
                         @foreach (var item in Model)
                         {
                             <tr>
+                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectTable.Name)
+                                </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Marks)
                                 </td>
@@ -34,23 +54,14 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.ClassTable.Class_Name)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.StudentsTable.Student_Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.SubjectTable.Name)
-                                </td>
+
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Term.term1)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Year.year1)
                                 </td>
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.Marks_id }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.Marks_id }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.Marks_id })
-                                </td>
+
                             </tr>
                         }
 
