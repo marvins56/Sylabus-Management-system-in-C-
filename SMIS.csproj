@@ -961,6 +961,9 @@
     <Content Include="Content\assets\img\banner\2.png" />
     <Content Include="Content\assets\img\banner\3.png" />
     <Content Include="Content\assets\img\banner\4.png" />
+    <Content Include="Content\assets\img\banner\5.jpg" />
+    <Content Include="Content\assets\img\banner\6.jpg" />
+    <Content Include="Content\assets\img\banner\7.jpg" />
     <Content Include="Content\assets\img\blog\img01.png" />
     <Content Include="Content\assets\img\blog\img02.png" />
     <Content Include="Content\assets\img\blog\img03.png" />
