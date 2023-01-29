@@ -1,4 +1,6 @@
 ﻿
+
+
 @model System.Web.Mvc.HandleErrorInfo
 
 @{
@@ -11,26 +13,25 @@
     <div class="col-12 col-md-6 col-sm-12">
         <div class="card">
             <div class="card-header">
-                <h4>Request Failed</h4>
+                <h4>500</h4>
             </div>
             <div class="card-body">
                 <div class="empty-state" data-height="400">
                     <div class="empty-state-icon bg-danger">
                         <i class="fas fa-times"></i>
                     </div>
-                    <h2>Authication Error</h2>
+                    <h1>CODE 500</h1>
                     <p class="lead">
                         @if (String.IsNullOrEmpty(ViewBag.errorMessage))
                         {
-                        <h2 class="text-danger">An error occurred while processing your request.</h2>
+                            <h2 class="text-danger">An error occurred while processing your request</h2>
                         }
                         else
                         {
-                        <h2 class="text-danger">@ViewBag.errorMessage</h2>
-                        }                                                                                                   
+                            <h2 class="text-danger">@ViewBag.errorMessage</h2>
+                        }                                                                                                  
                     </p>
-                    <a href="@Url.Action("Login", "Account")" class="btn btn-warning mt-4">Try Again</a>
-                    <a href="@Url.Action("Login", "Account")" class="mt-4 bb">Cancel</a>
+
                 </div>
             </div>
         </div>
