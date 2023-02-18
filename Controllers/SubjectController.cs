@@ -44,8 +44,7 @@ namespace SMIS.Controllers
         }
 
         // POST: Subject/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Subject_id,Name")] SubjectTable subjectTable)
@@ -55,10 +54,18 @@ namespace SMIS.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    db.SubjectTables.Add(subjectTable);
-                    await db.SaveChangesAsync();
-                    TempData["success"] = "Subject Added successfully";
-                    return RedirectToAction("Index");
+                    var boolresult = SubjectExixts(subjectTable.Name);
+                    if (boolresult == true)
+                    {
+                        TempData["error"] = "Subject Already exixts";
+                    }
+                    else {
+                        db.SubjectTables.Add(subjectTable);
+                        await db.SaveChangesAsync();
+                        TempData["success"] = "Subject Added successfully";
+                        return RedirectToAction("Index");
+                    }
+                    
                 }
 
             }
@@ -140,7 +147,13 @@ namespace SMIS.Controllers
                 return RedirectToAction("Index");
             }
         }
+        [NonAction]
+        public bool SubjectExixts(String subject)
+        {
+            var v = db.SubjectTables.Where(a => a.Name == subject).FirstOrDefault();
+            return v != null;
 
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

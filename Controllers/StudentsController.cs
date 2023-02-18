@@ -57,10 +57,20 @@ namespace SMIS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.StudentsTables.Add(studentsTable);
-                    await db.SaveChangesAsync();
-                    TempData["success"] = "Student Created Successfully";
-                    return RedirectToAction("Index" ,"Class");
+                    var boolresult = StudentExists(studentsTable.Student_Name);
+                    if(boolresult == true)
+                    {
+                        TempData["error"] = "Student Already Exixts";
+
+                    }
+                    else
+                    {
+                        db.StudentsTables.Add(studentsTable);
+                        await db.SaveChangesAsync();
+                        TempData["success"] = "Student Created Successfully";
+                        return RedirectToAction("Index", "Class");
+                    }
+                   
                 }
             }catch(Exception e)
             {
@@ -206,7 +216,13 @@ namespace SMIS.Controllers
                 return null;
             }
         }
+        [NonAction]
+        public bool StudentExists(String stName)
+        {
+            var v = db.StudentsTables.Where(a => a.Student_Name == stName).FirstOrDefault();
+            return v != null;
 
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
