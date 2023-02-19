@@ -41,5 +41,6 @@ namespace SMIS.Models
         public virtual DbSet<topicstat> topicstats { get; set; }
         public virtual DbSet<WeeksTable> WeeksTables { get; set; }
         public virtual DbSet<Year> Years { get; set; }
+        public virtual DbSet<Teacher> Teachers { get; set; }
     }
 }

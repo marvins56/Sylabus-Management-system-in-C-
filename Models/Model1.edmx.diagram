@@ -48,6 +48,9 @@
         <AssociationConnector Association="SMISModel.FK_weeks3" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.FK_years3" ManuallyRouted="false" />
         <AssociationConnector Association="SMISModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SMISModel.Teacher" Width="1.5" PointX="9" PointY="9.125" />
+        <AssociationConnector Association="SMISModel.FK_classteacher" />
+        <AssociationConnector Association="SMISModel.FK_sujectteacher" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

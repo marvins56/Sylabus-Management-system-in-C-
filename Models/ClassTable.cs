@@ -23,6 +23,7 @@ namespace SMIS.Models
             this.subject_class = new HashSet<subject_class>();
             this.TopicsTables = new HashSet<TopicsTable>();
             this.StudentsTables = new HashSet<StudentsTable>();
+            this.Teachers = new HashSet<Teacher>();
         }
     
         public int Class_id { get; set; }
@@ -40,5 +41,7 @@ namespace SMIS.Models
         public virtual ICollection<TopicsTable> TopicsTables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentsTable> StudentsTables { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

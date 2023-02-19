@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SMISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SMISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -126,6 +126,15 @@
           <Property Name="year_Id" Type="int" Nullable="false" />
           <Property Name="Term_Id" Type="int" Nullable="false" />
           <Property Name="File" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Teacher" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Class_id" Type="int" />
+          <Property Name="Subject_id" Type="int" />
         </EntityType>
         <EntityType Name="Terms">
           <Key>
@@ -262,6 +271,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_classteacher">
+          <End Role="ClassTable" Type="Self.ClassTable" Multiplicity="0..1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassTable">
+              <PropertyRef Name="Class_id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="Class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -362,6 +383,18 @@
               <PropertyRef Name="Subject_id" />
             </Principal>
             <Dependent Role="TopicsTable">
+              <PropertyRef Name="Subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sujectteacher">
+          <End Role="SubjectTable" Type="Self.SubjectTable" Multiplicity="0..1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectTable">
+              <PropertyRef Name="Subject_id" />
+            </Principal>
+            <Dependent Role="Teacher">
               <PropertyRef Name="Subject_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -535,6 +568,7 @@
           <EntitySet Name="SubjectTable" EntityType="Self.SubjectTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="subjecttopics" EntityType="Self.subjecttopics" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubTopicsTable" EntityType="Self.SubTopicsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Terms" EntityType="Self.Terms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TopicsTable" EntityType="Self.TopicsTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="topicstats" EntityType="Self.topicstats" Schema="dbo" store:Type="Tables" />
@@ -568,6 +602,10 @@
             <End Role="ClassTable" EntitySet="ClassTable" />
             <End Role="StudentsTable" EntitySet="StudentsTable" />
           </AssociationSet>
+          <AssociationSet Name="FK_classteacher" Association="Self.FK_classteacher">
+            <End Role="ClassTable" EntitySet="ClassTable" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -599,6 +637,10 @@
           <AssociationSet Name="FK_subjectstudents" Association="Self.FK_subjectstudents">
             <End Role="SubjectTable" EntitySet="SubjectTable" />
             <End Role="TopicsTable" EntitySet="TopicsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sujectteacher" Association="Self.FK_sujectteacher">
+            <End Role="SubjectTable" EntitySet="SubjectTable" />
+            <End Role="Teacher" EntitySet="Teacher" />
           </AssociationSet>
           <AssociationSet Name="FK_term" Association="Self.FK_term">
             <End Role="Terms" EntitySet="Terms" />
@@ -653,8 +695,7 @@
             <End Role="TopicsTable" EntitySet="TopicsTable" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SMISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -719,6 +760,7 @@
           <NavigationProperty Name="subject_class" Relationship="Self.FK_classstudent1s" FromRole="ClassTable" ToRole="subject_class" />
           <NavigationProperty Name="TopicsTables" Relationship="Self.FK_classstudents" FromRole="ClassTable" ToRole="TopicsTable" />
           <NavigationProperty Name="StudentsTables" Relationship="Self.FK_classtable" FromRole="ClassTable" ToRole="StudentsTable" />
+          <NavigationProperty Name="Teachers" Relationship="SMISModel.FK_classteacher" FromRole="ClassTable" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="MidtermMarksTable">
           <Key>
@@ -772,6 +814,7 @@
           <NavigationProperty Name="subject_class" Relationship="Self.FK_classstudent1ss" FromRole="SubjectTable" ToRole="subject_class" />
           <NavigationProperty Name="subjecttopics" Relationship="Self.FK_subject256" FromRole="SubjectTable" ToRole="subjecttopics" />
           <NavigationProperty Name="TopicsTables" Relationship="Self.FK_subjectstudents" FromRole="SubjectTable" ToRole="TopicsTable" />
+          <NavigationProperty Name="Teachers" Relationship="SMISModel.FK_sujectteacher" FromRole="SubjectTable" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="subjecttopic">
           <Key>
@@ -1322,7 +1365,51 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="Teachers" EntityType="SMISModel.Teacher" />
+          <AssociationSet Name="FK_classteacher" Association="SMISModel.FK_classteacher">
+            <End Role="ClassTable" EntitySet="ClassTables" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sujectteacher" Association="SMISModel.FK_sujectteacher">
+            <End Role="SubjectTable" EntitySet="SubjectTables" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Teacher1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Class_id" Type="Int32" />
+          <Property Name="Subject_id" Type="Int32" />
+          <NavigationProperty Name="ClassTable" Relationship="SMISModel.FK_classteacher" FromRole="Teacher" ToRole="ClassTable" />
+          <NavigationProperty Name="SubjectTable" Relationship="SMISModel.FK_sujectteacher" FromRole="Teacher" ToRole="SubjectTable" />
+        </EntityType>
+        <Association Name="FK_classteacher">
+          <End Type="SMISModel.ClassTable" Role="ClassTable" Multiplicity="0..1" />
+          <End Type="SMISModel.Teacher" Role="Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassTable">
+              <PropertyRef Name="Class_id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="Class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sujectteacher">
+          <End Type="SMISModel.SubjectTable" Role="SubjectTable" Multiplicity="0..1" />
+          <End Type="SMISModel.Teacher" Role="Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectTable">
+              <PropertyRef Name="Subject_id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="Subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1516,6 +1603,16 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="SMISModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+                <ScalarProperty Name="Class_id" ColumnName="Class_id" />
+                <ScalarProperty Name="Teacher1" ColumnName="Teacher" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
