@@ -1,0 +1,43 @@
+﻿@model SMIS.Models.Teacher
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_smisLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Teacher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacher1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teacher1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassTable.Class_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassTable.Class_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubjectTable.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubjectTable.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

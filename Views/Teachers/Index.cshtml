@@ -1,21 +1,23 @@
-﻿@model IEnumerable<SMIS.Models.TopicsTable>
+﻿@model IEnumerable<SMIS.Models.Teacher>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_smisLayout.cshtml";
 }
 
+
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4>TOPIC DETAILS</h4>
+                <h4>Teachers Details</h4>
                 <div class="card-header-action">
                     <form>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                           
                             <div class="input-group-btn">
-                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                <a href="@Url.Action("Create","Teachers")" class="btn btn-primary"> Add Teacher</a>
+                               
                             </div>
                         </div>
                     </form>
@@ -27,30 +29,20 @@
                         <thead>
 
                             <tr>
-                                <th class="text-center">
-                                    <i class="fas fa-th"></i>
+                                <th>
+                                   
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Topic_Name)
+                                    Teacher
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.IsComplete)
-                                </th>
-
-                                <th>
-                                    @Html.DisplayNameFor(model => model.ClassTable.Class_Name)
+                                    Class
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.SubjectTable.Name)
+                                    Subject
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Term.term1)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Year.year1)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.WeeksTable.Week_Name)
+                                    Action
                                 </th>
                             </tr>
                         </thead>
@@ -64,34 +56,13 @@
                                         </div>
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Topic_Name)
+                                        @Html.DisplayFor(modelItem => item.Teacher1)
                                     </td>
-                                    <td>
-                                        @if (item.IsComplete == true)
-                                        {
-                                            <button type="button" class="btn btn-outline-success">Complete</button>
-                                        }
-                                        else
-                                        {
-                                            <button type="button" class="btn btn-outline-warning">In Progress</button>
-                                        }
-
-                                    </td>
-
                                     <td>
                                         @Html.DisplayFor(modelItem => item.ClassTable.Class_Name)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.SubjectTable.Name)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Term.term1)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Year.year1)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.WeeksTable.Week_Name)
                                     </td>
                                     <td>
                                         <div class="dropdown">
@@ -100,12 +71,9 @@
                                             </a>
 
                                             <div class="dropdown-menu">
-
-
-                                                <a href="@Url.Action("Details", "Topics", new { id = item.Topic_id })" class="dropdown-item has-icon"><i class="fas fa-eye"></i>View </a>
-                                                <a href="@Url.Action("Edit", "Topics", new { id = item.Topic_id })" class="dropdown-item has-icon"><i class="far fa-edit"></i>Edit</a>
+                                                <a href="@Url.Action("Edit", "Teachers", new { id = item.Id })" class="dropdown-item has-icon"><i class="far fa-edit"></i>Edit</a>
                                                 <div class="dropdown-divider"></div>
-                                                <a href="@Url.Action("Delete", "Topics", new { id = item.Topic_id})" class="dropdown-item has-icon text-danger">
+                                                <a href="@Url.Action("Delete", "Teachers", new { id = item.Id})" class="dropdown-item has-icon text-danger">
                                                     <i class="far fa-trash-alt"></i>delete
                                                 </a>
                                             </div>

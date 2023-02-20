@@ -131,7 +131,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Teacher" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Class_id" Type="int" />
           <Property Name="Subject_id" Type="int" />

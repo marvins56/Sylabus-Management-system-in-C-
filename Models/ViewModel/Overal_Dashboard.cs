@@ -20,6 +20,7 @@ namespace SMIS.Models.ViewModel
         public List<SubjectTable> subjects { get; set; }
         public List<Term> terms { get; set; }
         public List<topicstat> topicstats { get; set; }
+        public List<Teacher> Teachers { get; set; }
 
     }
 }

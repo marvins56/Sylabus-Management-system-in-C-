@@ -256,6 +256,7 @@
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\subject_classController.cs" />
     <Compile Include="Controllers\SubTopicsController.cs" />
+    <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\TermsController.cs" />
     <Compile Include="Controllers\TopicsController.cs" />
     <Compile Include="Controllers\topicstatsController.cs" />
@@ -1572,6 +1573,11 @@
     <Content Include="Views\Error\NotFoundException.cshtml" />
     <Content Include="Views\Error\badrequest.cshtml" />
     <Content Include="Views\Error\internalerror.cshtml" />
+    <Content Include="Views\Teachers\Create.cshtml" />
+    <Content Include="Views\Teachers\Delete.cshtml" />
+    <Content Include="Views\Teachers\Details.cshtml" />
+    <Content Include="Views\Teachers\Edit.cshtml" />
+    <Content Include="Views\Teachers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
