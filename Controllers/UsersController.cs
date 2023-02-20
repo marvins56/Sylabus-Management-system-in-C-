@@ -148,8 +148,11 @@ namespace SMIS.Controllers
             var classid = db.subject_class.Where(a=>a.ID == id).Select(a=>a.Class_id).FirstOrDefault();
             var subjectid = db.subject_class.Where(a => a.ID == id).Select(a => a.Subject_id).FirstOrDefault();
             var subject = db.SubjectTables.Where(a => a.Subject_id == subjectid).Select(a => a.Name).FirstOrDefault();
+            var teacher = db.Teachers.Where(a => a.Subject_id == subjectid && a.Class_id == classid).Select(a => a.Teacher1).FirstOrDefault(); ;
+
             Session["cid"] = classid;
             Session["sbid"] = subjectid;
+            TempData["teacher"] = teacher;
 
             TempData["subject"] = subject;
             Session["subjectid"] = subjectid;
@@ -159,7 +162,9 @@ namespace SMIS.Controllers
             var topicsperclass = get_topics_perclass(classid, subjectid);
             var statperclass =get_stats_perclass(classid, subjectid);
             var videosperclass = get_videos_perclass(classid, subjectid);
-          
+
+            var teacherdetails = Get_class_subjectTeacher();
+
             var detailed_Dashboard = new Detail_Dashboard();
 
             detailed_Dashboard.Weeks = weeksdetails;
@@ -167,15 +172,26 @@ namespace SMIS.Controllers
             detailed_Dashboard.topicscount = topicsperclass;
             detailed_Dashboard.videos = videosperclass;
             detailed_Dashboard.stats = statperclass;
+            detailed_Dashboard.teachers = teacherdetails;
 
             return View(detailed_Dashboard);
+        }
+
+        public List<Teacher> Get_class_subjectTeacher()
+        {
+            var subid = Convert.ToInt32(Session["subjectid"]);
+            var classids = Convert.ToInt32(Session["classid"]);
+            var data = db.Teachers.Where(a => a.Subject_id == subid && a.Class_id == classids).ToList();
+            
+            return data;
+            
         }
 
         public List<WeeksTable> Get_weeks_info()
         {
             return (db.WeeksTables.ToList());
         }
-       
+
         public List<TopicsTable> Get_Topics_info(int? id1)
         {
             var subid = Convert.ToInt32(Session["subjectid"]);
