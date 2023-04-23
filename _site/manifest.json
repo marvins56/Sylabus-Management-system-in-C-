@@ -1,0 +1,1110 @@
+{
+  "homepages": [],
+  "source_base_path": "F:/SMIS",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "hkJgwfZnnPFgmsIzrw2wUYSFwF4WLUmyh9lspkonFmY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "YwCPg0arDCE4f1LbxJiF1Xa/lT8C9l6MpxuTObEsahE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "+sbIUNsaKt7VV2aT2rYY5W0Qks8LdKfWZCb8j6S7xiw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "ae03B6Q12qzRNzfAXUB1NAu0uMvkKVoFvADPSPWgACc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.ApplicationSignInManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.ApplicationSignInManager.html",
+          "hash": "B2P7RTz6kKnVhCaA4A/WbAZ8t+4SWCXv5HVEX8743o4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.ApplicationUserManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.ApplicationUserManager.html",
+          "hash": "xhzHfz1mYbK1vyIQObealweJnSRM7kLLj/YKZnnTlo4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.BundleConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.BundleConfig.html",
+          "hash": "LuUCMEFb80rkSByNIupkU2UqJYsZLVCr0RYbBzcASR0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Content.subjecttopicsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Content.subjecttopicsController.html",
+          "hash": "ZUGqqR9180ckW8vUhdmU/ISdKioKnZmR8heid21gH9M="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Content.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Content.html",
+          "hash": "wbrXVpIAM2FwYWvQZNj9M8JvTwxKfWTNAMLUzaGOGC8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.AccountController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.AccountController.html",
+          "hash": "odYtpsxYB2OyMFen4tF5fjyN4+VjkSFMkLOFTXDl2iU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.AspNetRolesController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.AspNetRolesController.html",
+          "hash": "u0A83Os573Oe13pfugW/1jINBdh9AQTRS+T/dZ+TYVk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.AspNetUserClaimsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.AspNetUserClaimsController.html",
+          "hash": "QLm18Yy29rBRnX2OwFhjB+lvLlmhjQLWrx1r70X1to4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.AspNetUserLoginsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.AspNetUserLoginsController.html",
+          "hash": "PhpEHld4B8cjahNdKTXUEBJDh96NZqJDocaQtB6ibOo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.ClassController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.ClassController.html",
+          "hash": "GcE7gnEXkyqDjmUJwen4DQ4HmYCGzqAbyX2s6NCCrvU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.ErrorController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.ErrorController.html",
+          "hash": "AcoWorj/p3GtYD4xovLzooDZ/QD+CeXcRNvX6waGx3g="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.ErrorsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.ErrorsController.html",
+          "hash": "p2kQiljTaiqegucwEvSCxAJ3SkxRxcFIM5iIh5OFb8g="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.HomeController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.HomeController.html",
+          "hash": "oxlzD88NAgtSs4vnpJjjK5S81TpaSXbHSUdiOO1WHUo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.ManageController.ManageMessageId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.ManageController.ManageMessageId.html",
+          "hash": "ydGNPSXNZwy7y+axMUnfNiMZITu2YavBiYLRL7i3V9M="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.ManageController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.ManageController.html",
+          "hash": "F+QYF4z5KHOWwjf570gcG4TsjMV/ykeGxMIFahkjv1c="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.MarksController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.MarksController.html",
+          "hash": "HqV+XYavNapkmt9Y651aA5pgbi/48ymmf/lDNkaID44="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.StudentsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.StudentsController.html",
+          "hash": "Qvj6xZl1rJ1iu5L+2UIVMQwY+pO5UiGOV++Wfsa/16c="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.SubTopicsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.SubTopicsController.html",
+          "hash": "oJcvGcVHpWasAiVZyd+M0EHIzvvt8MQogHESx5tdS+U="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.SubjectController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.SubjectController.html",
+          "hash": "Q5fminc5Mle386iiQhyMSrC+W9SYEpyqrPzIpCkG5/E="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.TeachersController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.TeachersController.html",
+          "hash": "xRwYg/FLeAiztDXY8xVPwHh4VgPb+cVkTSCbs3xZT7s="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.TermsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.TermsController.html",
+          "hash": "kXJ5Ne+L2xHCByZrfgQONfoOlEqKtBe/gOsq79dn/V0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.TopicsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.TopicsController.html",
+          "hash": "Uj/WkXS70ehTio6X8TrD/74+P47pUXjfmLN1XjaNPq8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.UsersController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.UsersController.html",
+          "hash": "iPVOa4EeDsOI0IHjKXjZ5oB+uKnkjWemHsjoualNvOA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.WeeksController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.WeeksController.html",
+          "hash": "gEtIS3ZNv9MhY0QmjdM/wnwOZh5KlseH3M6Bg5Su3rY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.YearsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.YearsController.html",
+          "hash": "0vKeOlTGl9g+Jn8DKFVec2ooFGdOu+StfNbRQ6DNBbs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.subject_classController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.subject_classController.html",
+          "hash": "i4wlbNIO+XbSGtRlT5Qn7CSyhI7zmPmK6bubuWvCaNk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.topicstatsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.topicstatsController.html",
+          "hash": "hyPZAF1bXAVRXH8v3S2wwbgyN5CvLKf4An2fPCdzAjk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Controllers.html",
+          "hash": "PMbIlfzs5656eRStpvAmGHwLd0fGzq8BBzBkvUQr8lE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.EmailService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.EmailService.html",
+          "hash": "lyi19WALGJjo+Q8uTM9NwxcabJLM7EsBpGxR9dpujeE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.FilterConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.FilterConfig.html",
+          "hash": "EgJdpeLKHBS1ri1DvvJ1Q/NP81dqgauuRu1rnqrJfB4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.AddPhoneNumberViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.AddPhoneNumberViewModel.html",
+          "hash": "3pRzJKFcAPdpEqiLKpiVnDlfwMGT9kTxFmILhAqg03w="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ApplicationDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ApplicationDbContext.html",
+          "hash": "66bsD9LeNOCS9xR9qiPCAQE7Lzyk6jNOfXw0w7c6114="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ApplicationUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ApplicationUser.html",
+          "hash": "/B8fB2wPpvPzXzs4cxTeq6zzfVHAbHmKiEK/xiS4+Qw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.AspNetRole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.AspNetRole.html",
+          "hash": "2C36jFLkSiVTjxqNOUcM48NNQGXvTp6CNyG8pv3tJ1I="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.AspNetUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.AspNetUser.html",
+          "hash": "6KwbamtDDNm+2wwy3Wu51f3fu+dl0/l590Jj4s8K4Bs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.AspNetUserClaim.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.AspNetUserClaim.html",
+          "hash": "tiz3a+tfwQn5/XPoFa/EV5zZ7Q1oMn2+hDdmr6A2ACs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.AspNetUserLogin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.AspNetUserLogin.html",
+          "hash": "3b2epWmIDh4irpLrqepInrt5HustQDt3RfxGmIXO/vc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ChangePasswordViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ChangePasswordViewModel.html",
+          "hash": "aHXS2BbsRVyXzCk+2Gt0aG0EfQ8dbYia8c4TrVl+8dQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ClassTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ClassTable.html",
+          "hash": "/gKC9YI+GcFRZyuC3WgEJcYu8ozlss77V5L2BcXr7Xo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ConfigureTwoFactorViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ConfigureTwoFactorViewModel.html",
+          "hash": "q0b51a77lkZoA0l8CTEsvLI+IS+mhRVepFAm/OjesGU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ExternalLoginConfirmationViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ExternalLoginConfirmationViewModel.html",
+          "hash": "bQYmk/5JKYOn0wWqhGgumSUk9BRBGGaQ3K7vr+HM7uQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ExternalLoginListViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ExternalLoginListViewModel.html",
+          "hash": "Ig0uVbMMrQhm4PTtQOCEPfGKKOWfmJAhdyQ3hMwB+5E="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.FactorViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.FactorViewModel.html",
+          "hash": "4P7+2r/p6yLrCkRRpTQI52/7G6AgboDnJq8BCuAvU6E="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ForgotPasswordViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ForgotPasswordViewModel.html",
+          "hash": "yb1UiIGCJlVPK4fnoLJW9kH8Jun2tWwNsd7OxErV49E="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ForgotViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ForgotViewModel.html",
+          "hash": "ggNIwfZO/ue8HJ7059w4xKwFX1BmbdX4+AlJRR7W89M="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.IndexViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.IndexViewModel.html",
+          "hash": "saP/Cn9cYNKWx5IY5wjzh23l5b9OmpSIrhnjVgkoYbE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.LoginViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.LoginViewModel.html",
+          "hash": "uz0zHyeQDsXZiMz044AKO0aYmpOUiWhpPYMhavnt7II="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ManageLoginsViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ManageLoginsViewModel.html",
+          "hash": "PxNKcLd0r9PamagKni/JjwqsfjrJXgWTt9xo3ETNhBY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.MidtermMarksTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.MidtermMarksTable.html",
+          "hash": "XRmZ8CRGct05bhkucWfL8wbG9o4NKIyEgfNVh/MTufc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.RegisterViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.RegisterViewModel.html",
+          "hash": "88oRWCkyw+Rx+7VSmYBioart2i90tr16B6NJ8FzBCOo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ResetPasswordViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ResetPasswordViewModel.html",
+          "hash": "G9c0L/IXUwbKZvbDwMDKukWXxztU+gsbl0ZSvMa5USw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.SMISEntities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.SMISEntities.html",
+          "hash": "iEHnnfJURTWLhwONCXEVIR8D6wscKzYvJycmi87pjAY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.SendCodeViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.SendCodeViewModel.html",
+          "hash": "INmrLDaFnrCLVEqcaiGAb15L/xf41bV0d16RAf9P2tY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.SetPasswordViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.SetPasswordViewModel.html",
+          "hash": "4/TcUqXORVOy5KKpkO9WaEHo9jIZQ5I8kJESvsO7TYg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.StudentsTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.StudentsTable.html",
+          "hash": "ldAspX6X2n30JAUJakVdKsa2hn0MxZTKTZ8wDqxRTWI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.SubTopicsTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.SubTopicsTable.html",
+          "hash": "KU62ABjCmCorSH2LXt4EFtdUeGUm2evradLZv8W80xk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.SubjectTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.SubjectTable.html",
+          "hash": "mKgTHcj96El8oDVNVw2IRCve6fyrqUZ5GbzP6cJQVBo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.Teacher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.Teacher.html",
+          "hash": "DPikXBFpQPU4ZOaEFWbqeV0PfW5Ig0hEJUa8SbwOENw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.Term.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.Term.html",
+          "hash": "iD6iGhEq4sZ6WXqsPawckKpCDlGgFZxBAY2Rs9o0/wM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.TopicsTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.TopicsTable.html",
+          "hash": "F02ozPEwNsB3+pswHox5o38MoTdpxcrGarv+R1Vi1tw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.VerifyCodeViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.VerifyCodeViewModel.html",
+          "hash": "5kEru6d45jO0Lk+VZtz2abkSkjhcw6ATAm+3vix1rs4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.VerifyPhoneNumberViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.VerifyPhoneNumberViewModel.html",
+          "hash": "KdvQ/bHLWiQ7IV7rpaFGwWvqYjwxJk68xBLuIj7r67g="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ViewModel.DataPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ViewModel.DataPoint.html",
+          "hash": "ca6XfZkJkqQcO3JEljo2SlP2UUIkOORhm1Lf3pFic7s="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ViewModel.DataPoint2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ViewModel.DataPoint2.html",
+          "hash": "p6UsfR29M5BIvh7MA8IimCSmrT2hhQA/H0HuE34GEv0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ViewModel.Detail_Dashboard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ViewModel.Detail_Dashboard.html",
+          "hash": "d72pw/WDhlLEHwuq8wkW7PbOFLRtCW8eD7fX94Xe4DU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ViewModel.Overal_Dashboard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ViewModel.Overal_Dashboard.html",
+          "hash": "2a3EmRdPKodgAp+yPknNVmdLtXjxtqLNf+Sny8ywxNM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ViewModel.Progress_dash.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ViewModel.Progress_dash.html",
+          "hash": "fk9/8KdUKm2WoYwzKpMApxS5th/q4IEHp5grte8dglI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ViewModel.StudentMarks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ViewModel.StudentMarks.html",
+          "hash": "eJ5HtatMr+f/A9aWXHA/FMG8zdGnwwBAujc7i6tP9hg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ViewModel.searchBar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ViewModel.searchBar.html",
+          "hash": "2mMgKrjlm8VafF9jTHex1lKUUDaRQWzB4R4zXiHtqPM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.ViewModel.html",
+          "hash": "SLc2DVYnN6GQbbQVZYxvdYn35x7xbV+ZI18OzVVJrls="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.WeeksTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.WeeksTable.html",
+          "hash": "OZX64qCECVlEs9SBwBB6ffIaFC4UKgtxJxtl2RDPUKk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.Year.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.Year.html",
+          "hash": "PtnW1poriUUGuM14xyu3EIS7ny2SOqU4k/ALNcOGrjQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.subject_class.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.subject_class.html",
+          "hash": "nIYMxfbOSrfvNK3s1SvBAJyDGhnYNCwnZ7D2KrKG70k="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.subjecttopic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.subjecttopic.html",
+          "hash": "oQjnhNgx7X4uxiJtZdfseEP4Hd1s58qp1XAkas/fj40="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.topicstat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.topicstat.html",
+          "hash": "7LeVdaWMl0rYx0nOXztC/H7CWltOHFp5V3+OBlUe6cA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Models.html",
+          "hash": "03tvxo950u/srZphWEWLm76BwXYhvnw+/Z2Z7cgKKgU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.MvcApplication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.MvcApplication.html",
+          "hash": "sjEeF45GA4FJiPxje9uqSt3PxJPwEWoZwIm61pJfEUg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.RouteConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.RouteConfig.html",
+          "hash": "BPWzSEEWkWKVB2fbdJB3ceR4cn5bBIbi+nPQ1Rt230c="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.SmsService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.SmsService.html",
+          "hash": "JLKt1VD9TblmtYJ2Gh6yxjiLGVGF+YVCumjJlXdHDRE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.Startup.html",
+          "hash": "KzOAA7+UhTGrDfFOwFOL8TOr8dq9d1QjkEh2bl9YucY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SMIS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SMIS.html",
+          "hash": "IvP+ujUzcI5LSePwAzFCKsOESvAu4LQorQwfhGQnIoE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "qBDgFVO4tQyKytiPG45seWg6Y8iZKYPMWPagD8plshg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "Oa9PuD4E1hvZnCkVjUgzNBX6S00Zo5YilamTERTZo54="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 4
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 81,
+          "skipped_file_count": 81
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
