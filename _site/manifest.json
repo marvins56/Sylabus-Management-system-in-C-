@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "F:/SMIS",
+  "source_base_path": "C:/Users/DELL/Desktop/Marvin/Sylabus-Management-system-in-C-",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,10 +9,10 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "hkJgwfZnnPFgmsIzrw2wUYSFwF4WLUmyh9lspkonFmY="
+          "hash": "Qb3iZcXNOlAPzjkOTmkgqc8A/gMWds4Vlv6hejKVUcA="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -21,10 +21,10 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "YwCPg0arDCE4f1LbxJiF1Xa/lT8C9l6MpxuTObEsahE="
+          "hash": "gLZ0vvWOO9JTX9IxRchG25j8JJ0j6D8yU04CzorI6N8="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -33,10 +33,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "+sbIUNsaKt7VV2aT2rYY5W0Qks8LdKfWZCb8j6S7xiw="
+          "hash": "/510i650OqG/G9pmwcaF9xty+ZRICRY2iZjRT4Ba/kU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -57,10 +57,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "ae03B6Q12qzRNzfAXUB1NAu0uMvkKVoFvADPSPWgACc="
+          "hash": "yOjE+RCk38Jc1ELkfSiFbrWLDW1+8LHz3cqQJMxTJVc="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -69,10 +69,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.ApplicationSignInManager.html",
-          "hash": "B2P7RTz6kKnVhCaA4A/WbAZ8t+4SWCXv5HVEX8743o4="
+          "hash": "ZNVARDaU8jdDvVsa2zwYkpcFe8infYBLjWxY2yaFe90="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -81,10 +81,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.ApplicationUserManager.html",
-          "hash": "xhzHfz1mYbK1vyIQObealweJnSRM7kLLj/YKZnnTlo4="
+          "hash": "qETzZ2B8PkrPnDuKL/YHcUNJ557ItOJBA4up3C5Nv3g="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -93,10 +93,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.BundleConfig.html",
-          "hash": "LuUCMEFb80rkSByNIupkU2UqJYsZLVCr0RYbBzcASR0="
+          "hash": "jx4l7gbA5bGCasNXgQOEEnD6JI5cu+fJkgqILnQBCVU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -105,10 +105,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Content.subjecttopicsController.html",
-          "hash": "ZUGqqR9180ckW8vUhdmU/ISdKioKnZmR8heid21gH9M="
+          "hash": "+7dQmgaekkPeVRjGXAzMcwWG2A8jeVA8egoNzrjYcxg="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -120,7 +120,7 @@
           "hash": "wbrXVpIAM2FwYWvQZNj9M8JvTwxKfWTNAMLUzaGOGC8="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -129,10 +129,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.AccountController.html",
-          "hash": "odYtpsxYB2OyMFen4tF5fjyN4+VjkSFMkLOFTXDl2iU="
+          "hash": "wbvHu6Il2Q80GhBRP0z1wHw8N9axjWohELmd/oob7mE="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -141,10 +141,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.AspNetRolesController.html",
-          "hash": "u0A83Os573Oe13pfugW/1jINBdh9AQTRS+T/dZ+TYVk="
+          "hash": "xF0MhXY1byUD71lv63686KZu6thqVV14M1vk8xXar/0="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -153,10 +153,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.AspNetUserClaimsController.html",
-          "hash": "QLm18Yy29rBRnX2OwFhjB+lvLlmhjQLWrx1r70X1to4="
+          "hash": "7ztlotX8PF4AaFf6xLg62uzcICgIzOz/iZI+S413igM="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -165,10 +165,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.AspNetUserLoginsController.html",
-          "hash": "PhpEHld4B8cjahNdKTXUEBJDh96NZqJDocaQtB6ibOo="
+          "hash": "lLKrsrIaLGqlJDkBFhn6lk6PZaloUtgBhydD23SJcMg="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -177,10 +177,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.ClassController.html",
-          "hash": "GcE7gnEXkyqDjmUJwen4DQ4HmYCGzqAbyX2s6NCCrvU="
+          "hash": "aNYKqDaoGw7CqhEvU2hdonziw/SuzAl3NeAGWFMLZq4="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -189,10 +189,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.ErrorController.html",
-          "hash": "AcoWorj/p3GtYD4xovLzooDZ/QD+CeXcRNvX6waGx3g="
+          "hash": "qCCpf/xHBSLllYKuB429bJUT5QIBIKkXKbP6jHAGDLs="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -201,10 +201,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.ErrorsController.html",
-          "hash": "p2kQiljTaiqegucwEvSCxAJ3SkxRxcFIM5iIh5OFb8g="
+          "hash": "JF62hi3sbxaVM8MwIvm1Avq2E51IoIayFdptcEysUoM="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -213,10 +213,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.HomeController.html",
-          "hash": "oxlzD88NAgtSs4vnpJjjK5S81TpaSXbHSUdiOO1WHUo="
+          "hash": "HKk6rpV6IsiUvtX7RsetWGn/kW78SsM/xh9TUzZxyzI="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -225,10 +225,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.ManageController.ManageMessageId.html",
-          "hash": "ydGNPSXNZwy7y+axMUnfNiMZITu2YavBiYLRL7i3V9M="
+          "hash": "SBhyu0EA+LeFp3ftp1QbryFlw2i87CtI5U2sHWvCLvs="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -237,10 +237,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.ManageController.html",
-          "hash": "F+QYF4z5KHOWwjf570gcG4TsjMV/ykeGxMIFahkjv1c="
+          "hash": "zJuqCAfF37pvb3HasihoTQU60H2+MCgNHKE65W8957c="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -249,10 +249,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.MarksController.html",
-          "hash": "HqV+XYavNapkmt9Y651aA5pgbi/48ymmf/lDNkaID44="
+          "hash": "Ey38QTOK8TCc+T+ar7aQmj+b6jaHrKOhyT0lDCC5KKM="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -261,10 +261,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.StudentsController.html",
-          "hash": "Qvj6xZl1rJ1iu5L+2UIVMQwY+pO5UiGOV++Wfsa/16c="
+          "hash": "6nWPXKLhfHg20NtyGeeulueE7ufKp/XkO7JSkqYyTx8="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -273,10 +273,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.SubTopicsController.html",
-          "hash": "oJcvGcVHpWasAiVZyd+M0EHIzvvt8MQogHESx5tdS+U="
+          "hash": "WzuEtJ6g7fxkBlw/f/uMOKjRG1S9q5emBAELjGdp4X4="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -285,10 +285,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.SubjectController.html",
-          "hash": "Q5fminc5Mle386iiQhyMSrC+W9SYEpyqrPzIpCkG5/E="
+          "hash": "oaKBn7efY81rQLBNGeoJ0q0R0jEr66g76ouKMz/obfY="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -297,10 +297,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.TeachersController.html",
-          "hash": "xRwYg/FLeAiztDXY8xVPwHh4VgPb+cVkTSCbs3xZT7s="
+          "hash": "zHSWSvmaz7Y983Qvob/HnnOwQroJiJjbdl2NU3a+M2A="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -309,10 +309,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.TermsController.html",
-          "hash": "kXJ5Ne+L2xHCByZrfgQONfoOlEqKtBe/gOsq79dn/V0="
+          "hash": "rQvIfQDeOIqHJ2VQpPcx7m/Qx0LUjWNcdK9HBjIUwAc="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -321,10 +321,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.TopicsController.html",
-          "hash": "Uj/WkXS70ehTio6X8TrD/74+P47pUXjfmLN1XjaNPq8="
+          "hash": "MsZM+tkEQQ+a6SI3uZUiM7DTryxN6u6TbSmIa5wfNbc="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -333,10 +333,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.UsersController.html",
-          "hash": "iPVOa4EeDsOI0IHjKXjZ5oB+uKnkjWemHsjoualNvOA="
+          "hash": "aGvyxP3dlBiryBJU9duT7AW4bKuoqJmdzwGNTFmXRqA="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -345,10 +345,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.WeeksController.html",
-          "hash": "gEtIS3ZNv9MhY0QmjdM/wnwOZh5KlseH3M6Bg5Su3rY="
+          "hash": "/805FfTaa/nxzRyKXaoKRHWPRSqOOf+VBOihapxoV/o="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -357,10 +357,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.YearsController.html",
-          "hash": "0vKeOlTGl9g+Jn8DKFVec2ooFGdOu+StfNbRQ6DNBbs="
+          "hash": "jtq2irz4w02At8cFZaSw4iEWn1oX4qJ9e3uCuWFQgZY="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -369,10 +369,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.subject_classController.html",
-          "hash": "i4wlbNIO+XbSGtRlT5Qn7CSyhI7zmPmK6bubuWvCaNk="
+          "hash": "MNFanZPcRzGmB0zGv5xmJR0bKrFSQ663c9S63zqTJco="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -381,10 +381,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Controllers.topicstatsController.html",
-          "hash": "hyPZAF1bXAVRXH8v3S2wwbgyN5CvLKf4An2fPCdzAjk="
+          "hash": "YEaDtRnhEm+DLwVdu5EiUG1dNDOZmkc7qRvBTL28X28="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -396,7 +396,7 @@
           "hash": "PMbIlfzs5656eRStpvAmGHwLd0fGzq8BBzBkvUQr8lE="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -405,10 +405,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.EmailService.html",
-          "hash": "lyi19WALGJjo+Q8uTM9NwxcabJLM7EsBpGxR9dpujeE="
+          "hash": "Q5T6zT1dHWBlJIN61tFCLT+uAeQngERaRQI2e3KEvWY="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -417,10 +417,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.FilterConfig.html",
-          "hash": "EgJdpeLKHBS1ri1DvvJ1Q/NP81dqgauuRu1rnqrJfB4="
+          "hash": "s0ZyxVDQdJ/oxVQQvrz3Rk1H9T3fr8szB4UCao5wZU0="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -429,10 +429,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.AddPhoneNumberViewModel.html",
-          "hash": "3pRzJKFcAPdpEqiLKpiVnDlfwMGT9kTxFmILhAqg03w="
+          "hash": "vzB5kziss/eiWVkQ4c6lRMSjh+U7/SpZ8GctWp00L+M="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -441,10 +441,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ApplicationDbContext.html",
-          "hash": "66bsD9LeNOCS9xR9qiPCAQE7Lzyk6jNOfXw0w7c6114="
+          "hash": "u1a585bDaJdE+rP/hkWXSs/kqSugg5vZ5rvkwLkCJzg="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -453,10 +453,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ApplicationUser.html",
-          "hash": "/B8fB2wPpvPzXzs4cxTeq6zzfVHAbHmKiEK/xiS4+Qw="
+          "hash": "gdrKBKU3zPpFAVNuoxiAOEjFtFWvp8cMl/JWAMVJc/Y="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -465,10 +465,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.AspNetRole.html",
-          "hash": "2C36jFLkSiVTjxqNOUcM48NNQGXvTp6CNyG8pv3tJ1I="
+          "hash": "VOU5aN9ZidiB9eJ4fKuw5GLJAAOr/3alWGZGwBk1iTQ="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -477,10 +477,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.AspNetUser.html",
-          "hash": "6KwbamtDDNm+2wwy3Wu51f3fu+dl0/l590Jj4s8K4Bs="
+          "hash": "z3QSsH3Dn65B7jztD4rbzL2Ew6VQ/7/mYAb3HvUxBEg="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -489,10 +489,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.AspNetUserClaim.html",
-          "hash": "tiz3a+tfwQn5/XPoFa/EV5zZ7Q1oMn2+hDdmr6A2ACs="
+          "hash": "9FsE3Kgp4l5Zt/By2uBE/Nx0yi31uFHp4/j0Xua8T7Y="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -501,10 +501,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.AspNetUserLogin.html",
-          "hash": "3b2epWmIDh4irpLrqepInrt5HustQDt3RfxGmIXO/vc="
+          "hash": "lXS+8E13/KFxOrFUmL2M9tU63pXKXKNSFMmUA0H9bGE="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -513,10 +513,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ChangePasswordViewModel.html",
-          "hash": "aHXS2BbsRVyXzCk+2Gt0aG0EfQ8dbYia8c4TrVl+8dQ="
+          "hash": "fm2mOZueRkpvXGCNlCpg/uoLw+dye7zpu5VOAD6/B5U="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -525,10 +525,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ClassTable.html",
-          "hash": "/gKC9YI+GcFRZyuC3WgEJcYu8ozlss77V5L2BcXr7Xo="
+          "hash": "GxZGA2OZbjb5HLJTFs6bpEaFHlh3QPoMBuJczyrwsKo="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -537,10 +537,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ConfigureTwoFactorViewModel.html",
-          "hash": "q0b51a77lkZoA0l8CTEsvLI+IS+mhRVepFAm/OjesGU="
+          "hash": "g+8JwoBF+oRVdL/nIvdiIUxfmcXYztiAnyF7C6mOGaY="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -549,10 +549,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ExternalLoginConfirmationViewModel.html",
-          "hash": "bQYmk/5JKYOn0wWqhGgumSUk9BRBGGaQ3K7vr+HM7uQ="
+          "hash": "nU1gQrDqOsQpDhv3CkBhhuaFbU3WaLOn7Wl0v+ErozY="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -561,10 +561,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ExternalLoginListViewModel.html",
-          "hash": "Ig0uVbMMrQhm4PTtQOCEPfGKKOWfmJAhdyQ3hMwB+5E="
+          "hash": "feVBxwlB94lf9xrMC5qI9Hso6klF6BsObBjdSSnSxmo="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -573,10 +573,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.FactorViewModel.html",
-          "hash": "4P7+2r/p6yLrCkRRpTQI52/7G6AgboDnJq8BCuAvU6E="
+          "hash": "SzcS6oObH5LzwjkoR7ehSX3kEqytBrTXluVFJURAFJ4="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -585,10 +585,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ForgotPasswordViewModel.html",
-          "hash": "yb1UiIGCJlVPK4fnoLJW9kH8Jun2tWwNsd7OxErV49E="
+          "hash": "fKhra0VBS1hX7btv7kJGBf0t77+32mszzNERwzUJ+bM="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -597,10 +597,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ForgotViewModel.html",
-          "hash": "ggNIwfZO/ue8HJ7059w4xKwFX1BmbdX4+AlJRR7W89M="
+          "hash": "gDfP4EMnPyhQ3XwbHW1oGGQu3aUpX/LfHLFCDUzzfik="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -609,10 +609,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.IndexViewModel.html",
-          "hash": "saP/Cn9cYNKWx5IY5wjzh23l5b9OmpSIrhnjVgkoYbE="
+          "hash": "eOSrwfqBzZALuAlCaRMeF8sezo6I83EWbYpK9cUjT1U="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -621,10 +621,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.LoginViewModel.html",
-          "hash": "uz0zHyeQDsXZiMz044AKO0aYmpOUiWhpPYMhavnt7II="
+          "hash": "qCqeg+WGUIhsjOkHA8a5qb2x2Cs9qus80JgMQAjOIOQ="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -633,10 +633,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ManageLoginsViewModel.html",
-          "hash": "PxNKcLd0r9PamagKni/JjwqsfjrJXgWTt9xo3ETNhBY="
+          "hash": "EvRK3sBx3LwyNkvgk9DmT244Pb5mSRjlerycA/PIFcw="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -645,10 +645,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.MidtermMarksTable.html",
-          "hash": "XRmZ8CRGct05bhkucWfL8wbG9o4NKIyEgfNVh/MTufc="
+          "hash": "hWYz5/uI/+NR653JCgqRRXRsH3F/Y5fpTnFjNqsyTds="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -657,10 +657,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.RegisterViewModel.html",
-          "hash": "88oRWCkyw+Rx+7VSmYBioart2i90tr16B6NJ8FzBCOo="
+          "hash": "WQeFg8gzm0s+FA5kT4VEETbVSn+gTUDmhEIFnRCzqus="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -669,10 +669,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ResetPasswordViewModel.html",
-          "hash": "G9c0L/IXUwbKZvbDwMDKukWXxztU+gsbl0ZSvMa5USw="
+          "hash": "Usz1XEpJHimhzboPnRpv7cu/0PmxUAF5lsWrPFK4YJA="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -681,10 +681,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.SMISEntities.html",
-          "hash": "iEHnnfJURTWLhwONCXEVIR8D6wscKzYvJycmi87pjAY="
+          "hash": "zt97SQLg8NZLOCjid9NPAETBeovajyPLERc630D57nI="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -693,10 +693,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.SendCodeViewModel.html",
-          "hash": "INmrLDaFnrCLVEqcaiGAb15L/xf41bV0d16RAf9P2tY="
+          "hash": "+7fHU4QsexFe8BG+Gw6C0PiieGabWbr2kKSbIKmlbo8="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -705,10 +705,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.SetPasswordViewModel.html",
-          "hash": "4/TcUqXORVOy5KKpkO9WaEHo9jIZQ5I8kJESvsO7TYg="
+          "hash": "iH1HjX1MG0kfJe2Juq1xMKwsN8KAyi3+0ywmnGUYcag="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -717,10 +717,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.StudentsTable.html",
-          "hash": "ldAspX6X2n30JAUJakVdKsa2hn0MxZTKTZ8wDqxRTWI="
+          "hash": "OHyl5Um1+Tc0BEaxyRVVwLGEcy7Bjiw0DA9GEyXzmNU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -729,10 +729,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.SubTopicsTable.html",
-          "hash": "KU62ABjCmCorSH2LXt4EFtdUeGUm2evradLZv8W80xk="
+          "hash": "3qk1YxwUbW47EoZY3zol2D8P4b+6rBCkeS99JWwULhs="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -741,10 +741,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.SubjectTable.html",
-          "hash": "mKgTHcj96El8oDVNVw2IRCve6fyrqUZ5GbzP6cJQVBo="
+          "hash": "FrtdnhBTnvr8nEYWzVR06gdkWGhwzywZj1U2E7l62O4="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -753,10 +753,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.Teacher.html",
-          "hash": "DPikXBFpQPU4ZOaEFWbqeV0PfW5Ig0hEJUa8SbwOENw="
+          "hash": "kKSKAbkbFgwnwLk0K1ruB6QxkokaHK/acxVhrqZyu4c="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -765,10 +765,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.Term.html",
-          "hash": "iD6iGhEq4sZ6WXqsPawckKpCDlGgFZxBAY2Rs9o0/wM="
+          "hash": "ZrmTJsDnQZ5AzkwcvbjOpJ2PH6/GGzd6GAhBrT2puEU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -777,10 +777,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.TopicsTable.html",
-          "hash": "F02ozPEwNsB3+pswHox5o38MoTdpxcrGarv+R1Vi1tw="
+          "hash": "vcDxmWrYlkzvgKGwiKqUzaMmBOAnrVIS15LOkCZPC6M="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -789,10 +789,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.VerifyCodeViewModel.html",
-          "hash": "5kEru6d45jO0Lk+VZtz2abkSkjhcw6ATAm+3vix1rs4="
+          "hash": "arkIiut06at4Vk3BFvY1EdIZEN1EbFz++x0sp6AfwYU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -801,10 +801,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.VerifyPhoneNumberViewModel.html",
-          "hash": "KdvQ/bHLWiQ7IV7rpaFGwWvqYjwxJk68xBLuIj7r67g="
+          "hash": "Im60zkAqDas6rHhiG/s1yVsO0nGMTOXj0GAcTrpTsRg="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -813,10 +813,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ViewModel.DataPoint.html",
-          "hash": "ca6XfZkJkqQcO3JEljo2SlP2UUIkOORhm1Lf3pFic7s="
+          "hash": "NSJArfopfAK96aMo0K3NdJ4fjuRhDOdMcyB9Z8A4MM4="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -825,10 +825,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ViewModel.DataPoint2.html",
-          "hash": "p6UsfR29M5BIvh7MA8IimCSmrT2hhQA/H0HuE34GEv0="
+          "hash": "enHMpHw7h2xG4Aga5bCtXqgK0yT10uYFhTvlYqtVVoU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -837,10 +837,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ViewModel.Detail_Dashboard.html",
-          "hash": "d72pw/WDhlLEHwuq8wkW7PbOFLRtCW8eD7fX94Xe4DU="
+          "hash": "ma1twTEyvrReRz5lNGnSPGPN4OsQwwKOd3yCR0mysUs="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -849,10 +849,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ViewModel.Overal_Dashboard.html",
-          "hash": "2a3EmRdPKodgAp+yPknNVmdLtXjxtqLNf+Sny8ywxNM="
+          "hash": "+6yHesG7zzybnENScdXR80FcZGYTU3TkUFDP9yVe+m4="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -861,10 +861,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ViewModel.Progress_dash.html",
-          "hash": "fk9/8KdUKm2WoYwzKpMApxS5th/q4IEHp5grte8dglI="
+          "hash": "P20XF1942FRt4Tf91+l6FhKe98xh1lV0NET/ZokGhDU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -873,10 +873,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ViewModel.StudentMarks.html",
-          "hash": "eJ5HtatMr+f/A9aWXHA/FMG8zdGnwwBAujc7i6tP9hg="
+          "hash": "q20xDiASLR7BqfUB6oGVklXHJVOu6dF8E4cGeFz91vA="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -885,10 +885,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.ViewModel.searchBar.html",
-          "hash": "2mMgKrjlm8VafF9jTHex1lKUUDaRQWzB4R4zXiHtqPM="
+          "hash": "uNIzxy95s/XGR5Az+rQaqLD6EwNdn/ERGXE69nK7mZ8="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -900,7 +900,7 @@
           "hash": "SLc2DVYnN6GQbbQVZYxvdYn35x7xbV+ZI18OzVVJrls="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -909,10 +909,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.WeeksTable.html",
-          "hash": "OZX64qCECVlEs9SBwBB6ffIaFC4UKgtxJxtl2RDPUKk="
+          "hash": "emBGaxS+E0fYff+4zMgGIVuUit9SwDHsyipbCgUyw0E="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -921,10 +921,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.Year.html",
-          "hash": "PtnW1poriUUGuM14xyu3EIS7ny2SOqU4k/ALNcOGrjQ="
+          "hash": "q088XHDReEi4/fLSAVFd5o4Wmy0Bu1dgH7AbcE3B0wM="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -933,10 +933,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.subject_class.html",
-          "hash": "nIYMxfbOSrfvNK3s1SvBAJyDGhnYNCwnZ7D2KrKG70k="
+          "hash": "q63LsDPRvtEoXTE7E9zSJC9qfIw6cNldZNGQORj9h08="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -945,10 +945,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.subjecttopic.html",
-          "hash": "oQjnhNgx7X4uxiJtZdfseEP4Hd1s58qp1XAkas/fj40="
+          "hash": "2+O4xgXZ1e3enCH1UWGIZhhVUinRBt4ZuuVtPGu/qEg="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -957,10 +957,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Models.topicstat.html",
-          "hash": "7LeVdaWMl0rYx0nOXztC/H7CWltOHFp5V3+OBlUe6cA="
+          "hash": "avQ0b7rz6+XyrId6h8anlbuCqe00wRlBLu2qZfkmKJ0="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -972,7 +972,7 @@
           "hash": "03tvxo950u/srZphWEWLm76BwXYhvnw+/Z2Z7cgKKgU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -981,10 +981,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.MvcApplication.html",
-          "hash": "sjEeF45GA4FJiPxje9uqSt3PxJPwEWoZwIm61pJfEUg="
+          "hash": "HVsw5UK12qgg0UHS7cRF2NUIxU0YrNOPc7H849kZEsU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -993,10 +993,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.RouteConfig.html",
-          "hash": "BPWzSEEWkWKVB2fbdJB3ceR4cn5bBIbi+nPQ1Rt230c="
+          "hash": "osRPGACWM0bhqhr+sn4Ujqnrj44jDjVYEOCEPWcdTd0="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1005,10 +1005,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.SmsService.html",
-          "hash": "JLKt1VD9TblmtYJ2Gh6yxjiLGVGF+YVCumjJlXdHDRE="
+          "hash": "wrIy+nTzaZ7BoZDJmwc/XQWMaVLxLZZVDHlfziEF20w="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1017,10 +1017,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SMIS.Startup.html",
-          "hash": "KzOAA7+UhTGrDfFOwFOL8TOr8dq9d1QjkEh2bl9YucY="
+          "hash": "w9QHLAYRJvUXLDKKvS/REaFZvUwi780eVafnQESyJtU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1032,7 +1032,7 @@
           "hash": "IvP+ujUzcI5LSePwAzFCKsOESvAu4LQorQwfhGQnIoE="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1063,23 +1063,25 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "ForceRebuild"
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 4,
-          "skipped_file_count": 4
+          "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 81,
-          "skipped_file_count": 81
+          "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
@@ -1092,8 +1094,8 @@
     },
     {
       "status": {
-        "can_incremental": true,
-        "details": "Can support incremental post processing.",
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0
